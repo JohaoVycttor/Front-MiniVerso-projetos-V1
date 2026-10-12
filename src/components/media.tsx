@@ -2,7 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 import type { MediaAsset, PageContent } from "@/types/content";
-import { ImageIcon, PlayIcon } from "@/components/ui";
+import { ImageIcon, PlayIcon, VrIcon } from "@/components/ui";
+import { formatDuration } from "@/lib/format";
 
 export function MediaPlaceholder({ label, video = false }: { label: string; video?: boolean }) {
   return <div className={`media-placeholder ${video ? "video-placeholder" : ""}`} aria-hidden="true">{video ? <span className="play-circle"><PlayIcon/></span> : <ImageIcon/>}<span className="micro-label">{label}</span></div>;
@@ -39,18 +40,33 @@ function MediaDialog({ asset, ui, onClose }: { asset: MediaAsset; ui: PageConten
   </dialog>;
 }
 
-export function Gallery({ assets, ui }: { assets: MediaAsset[]; ui: PageContent["ui"] }) {
-  const [active, setActive] = useState(0);
+export function PresentationPlayer({ asset, ui }: { asset: MediaAsset; ui: PageContent["ui"] }) {
   const [open, setOpen] = useState(false);
-  const asset = assets[active];
-  if (!asset) return null;
-  return <section className="project-gallery" aria-label={ui.galleryLabel}>
-    <div className="gallery-heading"><p className="eyebrow">[ {ui.galleryLabel} ]</p><span className="micro-label">{String(active + 1).padStart(2, "0")} / {String(assets.length).padStart(2, "0")}</span></div>
-    <button className="gallery-stage glass" onClick={() => setOpen(true)} aria-label={asset.alt}>
-      {asset.type === "image" && asset.src ? <img src={asset.src} alt={asset.alt} loading="lazy"/> : asset.poster ? <img src={asset.poster} alt={asset.alt} loading="lazy"/> : <MediaPlaceholder label={asset.alt} video={asset.type === "video"}/>}
-      {asset.type === "video" && asset.poster && <span className="play-overlay"><span className="play-circle"><PlayIcon/></span></span>}
-    </button>
-    <div className="gallery-controls"><p>{asset.caption || asset.alt}</p>{assets.length > 1 && <div><button onClick={() => setActive((active + assets.length - 1) % assets.length)} aria-label={ui.previous}>←</button><button onClick={() => setActive((active + 1) % assets.length)} aria-label={ui.next}>→</button></div>}</div>
+  return <figure className="detail-presentation">
+    <div className="presentation-stage">
+      {asset.poster ? <img src={asset.poster} alt=""/> : <VrIcon/>}
+      <button className="watch-button" onClick={() => setOpen(true)}><PlayIcon/>{ui.watchPresentation}{asset.duration !== undefined && ` · ${formatDuration(asset.duration)}`}</button>
+    </div>
+    {asset.caption && <figcaption className="detail-caption">{asset.caption}</figcaption>}
     {open && <MediaDialog asset={asset} ui={ui} onClose={() => setOpen(false)}/>}
+  </figure>;
+}
+
+export function Gallery({ assets, ui }: { assets: MediaAsset[]; ui: PageContent["ui"] }) {
+  const [open, setOpen] = useState<MediaAsset | null>(null);
+  if (!assets.length) return null;
+  return <section className="project-gallery" aria-label={ui.galleryLabel}>
+    <p className="eyebrow">[ {ui.galleryLabel} ]</p>
+    <div className="gallery-grid">{assets.map((asset, index) => {
+      const src = asset.type === "image" ? asset.src : asset.poster;
+      return <figure key={asset.id}>
+        <button className="gallery-thumb" onClick={() => setOpen(asset)} aria-label={asset.alt}>
+          {src ? <img src={src} alt={asset.alt} loading="lazy"/> : asset.type === "image" && <ImageIcon/>}
+          {asset.type === "video" && <span className="play-overlay"><span className="play-circle"><PlayIcon/></span></span>}
+        </button>
+        <figcaption className="gallery-caption"><span>{String(index + 1).padStart(2, "0")}</span>{asset.caption || asset.alt}</figcaption>
+      </figure>;
+    })}</div>
+    {open && <MediaDialog asset={open} ui={ui} onClose={() => setOpen(null)}/>}
   </section>;
 }

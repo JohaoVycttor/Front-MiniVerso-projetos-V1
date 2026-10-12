@@ -29,6 +29,27 @@ export function parseContent(value: unknown): PageContent {
       const url = asset[key];
       if (typeof url === "string" && !(url.startsWith("/") && !url.startsWith("//")) && !/^https?:\/\//i.test(url)) throw new Error(`Invalid media URL: ${key}`);
     }
+    if (asset.duration !== undefined && !Number.isFinite(asset.duration)) throw new Error("Invalid media duration");
+  };
+  // Detail page extras are optional, so they stay out of the template and are checked here.
+  const validStory = (block: unknown) => {
+    if (!object(block) || typeof block.title !== "string" || typeof block.text !== "string" || (block.label !== undefined && typeof block.label !== "string")) throw new Error("Invalid project story");
+  };
+  const validHighlight = (item: unknown) => {
+    if (!object(item) || !["shield", "headset", "chart"].includes(String(item.icon)) || typeof item.title !== "string" || typeof item.text !== "string") throw new Error("Invalid project highlight");
+  };
+  const validDetailExtras = (project: Record<string, unknown>) => {
+    if (!Array.isArray(project.story)) throw new Error("Invalid project story");
+    project.story.forEach(validStory);
+    if (project.highlights !== undefined) {
+      if (!Array.isArray(project.highlights)) throw new Error("Invalid project highlights");
+      project.highlights.forEach(validHighlight);
+    }
+    const heading = project.heading;
+    if (heading !== undefined && (!object(heading) || typeof heading.text !== "string" || typeof heading.accent !== "string")) throw new Error("Invalid project heading");
+    for (const key of ["year", "background"]) {
+      if (project[key] !== undefined && typeof project[key] !== "string") throw new Error(`Invalid project ${key}`);
+    }
   };
   value.sections.forEach((section) => {
     if (!object(section)) throw new Error("Invalid section");
@@ -39,9 +60,10 @@ export function parseContent(value: unknown): PageContent {
     if (section.type === "projects" && ![2, 3].includes(Number(section.columns))) throw new Error("Invalid grid columns");
   });
   value.projects.forEach((project) => {
-    const { cover, presentation, gallery, ...template } = projects[0];
+    const { cover, presentation, gallery, story, heading, year, background, highlights, ...template } = projects[0];
     matches(project, template, "project");
     if (!object(project) || !Array.isArray(project.gallery)) throw new Error("Invalid project gallery");
+    validDetailExtras(project);
     validAsset(project.cover);
     validAsset(project.presentation);
     project.gallery.forEach(validAsset);
@@ -54,6 +76,7 @@ export function parseContent(value: unknown): PageContent {
   const links = [...content.navigation, ...content.footer.socialLinks, ...content.footer.legalLinks];
   if (links.some((link) => typeof link.label !== "string" || typeof link.href !== "string" || !validHref(link.href))) throw new Error("Invalid navigation URL");
   if (![content.brand.logo, content.brand.background].every((url) => validHref(url) && !url.startsWith("mailto:"))) throw new Error("Invalid brand asset URL");
+  if (content.projects.some((project) => project.background !== undefined && (!validHref(project.background) || project.background.startsWith("mailto:")))) throw new Error("Invalid project background URL");
   if (content.projects.some((project) => !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(project.slug))) throw new Error("Invalid project slug");
   for (const list of [content.sections, content.projects, content.categories]) {
     if (new Set(list.map((item) => item.id)).size !== list.length) throw new Error("Duplicate content IDs");

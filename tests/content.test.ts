@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import { test } from "node:test";
 import mock from "../src/data/content.json";
 import { getContent, parseContent, visibleProjects, visibleSections } from "../src/lib/content";
+import { formatDuration } from "../src/lib/format";
 
 test("the centralized mock satisfies the API contract", () => {
   assert.equal(parseContent(mock).schemaVersion, 1);
@@ -91,4 +92,25 @@ test("the API adapter uses server-side configuration and rejects failed response
     if (priorEndpoint === undefined) delete process.env.CONTENT_API_URL;
     else process.env.CONTENT_API_URL = priorEndpoint;
   }
+});
+
+test("detail page extras are optional and validated at the API boundary", () => {
+  const content = parseContent(structuredClone(mock));
+  assert.equal(content.projects[0].highlights?.length, 3);
+  assert.equal(content.projects[1].highlights, undefined);
+  for (const mutate of [
+    (v: any) => { v.projects[0].highlights[0].icon = "rocket"; },
+    (v: any) => { v.projects[0].heading = "LABORATÓRIO"; },
+    (v: any) => { v.projects[0].story[0].label = 1; },
+    (v: any) => { v.projects[0].presentation.duration = "1:24"; },
+    (v: any) => { v.projects[0].background = "javascript:alert(1)"; },
+  ]) {
+    const value = structuredClone(mock); mutate(value);
+    assert.throws(() => parseContent(value));
+  }
+});
+
+test("video durations are shown as minutes and seconds", () => {
+  assert.equal(formatDuration(84), "1:24");
+  assert.equal(formatDuration(9), "0:09");
 });

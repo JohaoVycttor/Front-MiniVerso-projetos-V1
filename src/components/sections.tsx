@@ -9,8 +9,8 @@ export function Hero({ section }: { section: HeroSection }) {
   return <section id={section.id} className="hero-section container"><Eyebrow>{section.eyebrow}</Eyebrow><Heading content={section.heading} as="h1"/><p className="hero-description">{section.description}</p></section>;
 }
 
-export function ProjectFacts({ facts }: { facts: Project["facts"] }) {
-  return <dl className="project-facts">{facts.map((fact) => <div key={fact.label}><dt className="micro-label">{fact.label}</dt><dd>{fact.value}</dd></div>)}</dl>;
+export function ProjectFacts({ facts, className = "" }: { facts: Project["facts"]; className?: string }) {
+  return <dl className={`project-facts ${className}`}>{facts.map((fact) => <div key={fact.label}><dt className="micro-label">{fact.label}</dt><dd>{fact.value}</dd></div>)}</dl>;
 }
 
 export function FeaturedProject({ section, project, ui }: { section: FeaturedSection; project: Project; ui: PageContent["ui"] }) {

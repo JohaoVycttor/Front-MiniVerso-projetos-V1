@@ -5,11 +5,15 @@ export interface MediaAsset {
   poster?: string;
   alt: string;
   caption?: string;
+  /** Duração do vídeo em segundos. */
+  duration?: number;
 }
 
 export interface ActionLink { label: string; href: string }
 export interface Heading { text: string; accent: string }
 export interface Category { id: string; label: string }
+export interface StoryBlock { label?: string; title: string; text: string }
+export interface ProjectHighlight { icon: "shield" | "headset" | "chart"; title: string; text: string }
 
 export interface Project {
   id: string;
@@ -25,7 +29,11 @@ export interface Project {
   presentation: MediaAsset;
   gallery: MediaAsset[];
   facts: { label: string; value: string }[];
-  story: { title: string; text: string }[];
+  story: StoryBlock[];
+  heading?: Heading;
+  year?: string;
+  background?: string;
+  highlights?: ProjectHighlight[];
 }
 
 interface BaseSection { id: string; visible: boolean; order: number }
@@ -98,6 +106,12 @@ export interface PageContent {
     previous: string;
     next: string;
     backToProjects: string;
+    projectsLabel: string;
+    watchPresentation: string;
+    highlightsLabel: string;
+    nextProject: string;
+    projectContactTitle: string;
+    projectContactAction: string;
     galleryLabel: string;
     menuLabel: string;
     skipToContent: string;
