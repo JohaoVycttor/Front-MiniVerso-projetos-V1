@@ -1,22 +1,53 @@
-﻿"use client";
-import {useId,useRef,useState} from 'react';
-import {ArrowUpRight,Check,CheckCircle2,AlertTriangle,LoaderCircle,Mail,MessageCircle,Phone} from 'lucide-react';
-import {defaultContact} from '@/lib/contact-content';
-export default function ContactForm({config=defaultContact.sections[0].form,subjects=defaultContact.sections[0].subjects,initialSubject='',initialProject='',preview=false}){
- const id=useId();const formRef=useRef(null);const busy=useRef(false);
- const [status,setStatus]=useState('idle');const [protocol,setProtocol]=useState('');const [errors,setErrors]=useState({});
- const [values,setValues]=useState({name:'',email:'',phone:'',company:'',subject:subjects.includes(initialSubject)?initialSubject:'',preference:'email',message:initialProject?`Gostaria de conversar sobre uma experiência como: ${initialProject}.`:'',consent:false});
- function errorFor(name,value){if(name==='name'&&!value.trim())return 'Informe seu nome.';if(name==='email'&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value))return 'Informe um e-mail válido.';if(name==='subject'&&!value)return 'Selecione um serviço.';if(name==='message'&&!value.trim())return 'Conte um pouco sobre seu projeto.';if(name==='consent'&&!value)return 'Autorize o uso dos dados para receber nosso retorno.';if(name==='phone'&&values.preference!=='email'&&value.replace(/\D/g,'').length<10)return 'Informe um telefone com DDD.';return ''}
- function change(name,value){setValues(v=>({...v,[name]:value}));if(errors[name])setErrors(e=>({...e,[name]:''}));if(status==='success')setStatus('idle')}
- async function submit(event){event.preventDefault();if(busy.current||preview)return;const next=Object.fromEntries(['name','email','phone','subject','message','consent'].map(k=>[k,errorFor(k,values[k])]));setErrors(next);const first=Object.keys(next).find(k=>next[k]);if(first){formRef.current.elements.namedItem(first)?.focus();return}busy.current=true;setStatus('loading');try{const response=await fetch('/api/contact',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(values)});if(!response.ok)throw new Error();const data=await response.json();setProtocol(data.protocol||'');setStatus('success');setValues({name:'',email:'',phone:'',company:'',subject:'',preference:'email',message:'',consent:false})}catch{setStatus('error')}finally{busy.current=false}}
- function field(name,label,placeholder,type='text',required=false){return <label className="contact-field" htmlFor={`${id}-${name}`}>{label}{required?' *':''}<input id={`${id}-${name}`} name={name} type={type} placeholder={placeholder} value={values[name]} required={required} maxLength={name==='email'?254:150} autoComplete={{name:'name',email:'email',phone:'tel',company:'organization'}[name]} aria-invalid={!!errors[name]} aria-describedby={errors[name]?`${id}-${name}-error`:undefined} onBlur={()=>setErrors(e=>({...e,[name]:errorFor(name,values[name])}))} onChange={e=>change(name,e.target.value)}/>{errors[name]&&<small id={`${id}-${name}-error`} className="contact-field-error">{errors[name]}</small>}</label>}
- return <form ref={formRef} className="contact-form contact-glass-form" noValidate onSubmit={submit} aria-busy={status==='loading'}><header><h2>{config.title}</h2><p>{config.description}</p></header><fieldset disabled={status==='loading'} className="contact-fields">
- {field('name',config.nameLabel,config.namePlaceholder,'text',true)}{field('email',config.emailLabel,config.emailPlaceholder,'email',true)}{field('phone',config.phoneLabel,config.phonePlaceholder,'tel',values.preference!=='email')}{field('company',config.companyLabel,config.companyPlaceholder)}
- <label className="contact-field contact-full" htmlFor={`${id}-subject`}>{config.subjectLabel} *<select id={`${id}-subject`} name="subject" required value={values.subject} aria-invalid={!!errors.subject} aria-describedby={errors.subject?`${id}-subject-error`:undefined} onChange={e=>change('subject',e.target.value)}><option value="">{config.subjectPlaceholder}</option>{subjects.map((s,i)=><option key={i}>{s}</option>)}</select>{errors.subject&&<small id={`${id}-subject-error`} className="contact-field-error">{errors.subject}</small>}</label>
- <fieldset className="contact-preference contact-full"><legend>{config.preferenceLabel}</legend>{[['email','E-mail',Mail],['whatsapp','WhatsApp',MessageCircle],['phone','Ligação',Phone]].map(([v,label,Icon])=><label key={v}><input type="radio" name="preference" value={v} checked={values.preference===v} onChange={()=>change('preference',v)}/><span><Icon size={13}/>{label}</span></label>)}</fieldset>
- <label className="contact-field contact-full" htmlFor={`${id}-message`}>{config.messageLabel} *<textarea id={`${id}-message`} name="message" required rows={5} maxLength={2000} value={values.message} placeholder={config.messagePlaceholder} aria-invalid={!!errors.message} aria-describedby={`${id}-message-help`} onChange={e=>change('message',e.target.value)}/><span id={`${id}-message-help`} className="contact-message-help"><small>{errors.message||config.messageHint}</small><small>{values.message.length} / 2.000</small></span></label>
- <label className="contact-consent contact-full"><input type="checkbox" name="consent" checked={values.consent} required aria-invalid={!!errors.consent} onChange={e=>change('consent',e.target.checked)}/><span>{config.consentLabel}</span></label>{errors.consent&&<small className="contact-field-error contact-full">{errors.consent}</small>}
- <div className="contact-submit contact-full"><button type="submit" className="contact-send" disabled={preview||status==='loading'}>{status==='loading'?config.loadingText:status==='error'?config.retryLabel:config.button}{status==='loading'?<LoaderCircle size={16} className="contact-spin"/>:<ArrowUpRight size={16}/>}</button><p>{config.responseNote}</p></div></fieldset>
- <div className="contact-live" aria-live="polite">{status==='success'&&<div className="contact-feedback success" role="status"><CheckCircle2 size={20}/><div>{config.successText}{protocol&&<small>Protocolo: {protocol}</small>}</div></div>}{status==='error'&&<div className="contact-feedback error" role="alert"><AlertTriangle size={20}/>{config.errorText}</div>}</div>
- <details className="contact-privacy"><summary>{config.privacyTitle}</summary><p>{config.privacyText}</p></details></form>
+"use client";
+import {useId,useRef,useState} from "react";
+import {ArrowUpRight,CheckCircle2,AlertTriangle,LoaderCircle,Mail,MessageCircle,Phone} from "lucide-react";
+import {defaultContact} from "@/lib/contact-content";
+export default function ContactForm({config=defaultContact.sections[0].form,subjects=defaultContact.sections[0].subjects,initialSubject="",initialProject="",preview=false,source="contact",sectionId="",extraFields=[]}){
+ const id=useId(),formRef=useRef(null),busy=useRef(false);
+ const [status,setStatus]=useState("idle"),[protocol,setProtocol]=useState(""),[errors,setErrors]=useState({}),[extra,setExtra]=useState({});
+ const empty={name:"",email:"",phone:"",company:"",subject:"",preference:"email",message:"",consent:false};
+ const [values,setValues]=useState({...empty,subject:subjects.includes(initialSubject)?initialSubject:"",message:initialProject?"Gostaria de conversar sobre uma experiência como: "+initialProject+"." :""});
+ function errorFor(name,value){
+ if(name==="name"&&!value.trim())return "Informe seu nome.";
+ if(name==="email"&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value))return "Informe um e-mail válido.";
+ if(name==="subject"&&!subjects.includes(value))return "Selecione um serviço.";
+ if(name==="message"&&!value.trim())return "Conte um pouco sobre seu projeto.";
+ if(name==="consent"&&!value)return "Autorize o uso dos dados para receber nosso retorno.";
+ if(name==="phone"&&values.preference!=="email"&&value.replace(/\D/g,"").length<10)return "Informe um telefone com DDD.";
+ return "";
+ }
+ function extraError(field,value){
+ if(field.required&&!value.trim())return "Preencha este campo.";
+ if(value&&field.type==="email"&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value))return "Informe um e-mail válido.";
+ if(value&&field.type==="select"&&!field.options.includes(value))return "Selecione uma opção válida.";
+ if(value&&field.type==="number"&&!Number.isFinite(Number(value)))return "Informe um número válido.";
+ return "";
+ }
+ function change(name,value){setValues(v=>({...v,[name]:value}));setErrors(e=>({...e,[name]:""}));if(status==="success")setStatus("idle")}
+ async function submit(event){
+ event.preventDefault();if(busy.current||preview)return;
+ const next=Object.fromEntries(["name","email","phone","subject","message","consent"].map(k=>[k,errorFor(k,values[k])]));
+ for(const f of extraFields)next["extra."+f.id]=extraError(f,extra[f.id]||"");
+ setErrors(next);const first=Object.keys(next).find(k=>next[k]);if(first){formRef.current.elements.namedItem(first)?.focus();return}
+ busy.current=true;setStatus("loading");
+ try{
+ const response=await fetch("/api/contact",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({...values,source,sectionId,extra})});
+ if(!response.ok)throw Error();
+ const data=await response.json();setProtocol(data.protocol||"");setStatus("success");setValues({...empty});setExtra({});
+ }catch{setStatus("error")}finally{busy.current=false}
+ }
+ function field(name,label,placeholder,type="text",required=false){
+ return <label className="contact-field" htmlFor={id+"-"+name}>{label}{required?" *":""}<input id={id+"-"+name} name={name} type={type} placeholder={placeholder} value={values[name]} required={required} maxLength={name==="email"?254:150} autoComplete={{name:"name",email:"email",phone:"tel",company:"organization"}[name]} aria-invalid={!!errors[name]} aria-describedby={errors[name]?id+"-"+name+"-error":undefined} onBlur={()=>setErrors(e=>({...e,[name]:errorFor(name,values[name])}))} onChange={e=>change(name,e.target.value)}/>{errors[name]&&<small id={id+"-"+name+"-error"} className="contact-field-error">{errors[name]}</small>}</label>;
+ }
+ return <form ref={formRef} className="contact-form contact-glass-form" noValidate onSubmit={submit} aria-busy={status==="loading"}><header><h2>{config.title}</h2><p>{config.description}</p></header><fieldset disabled={status==="loading"} className="contact-fields">
+ {field("name",config.nameLabel,config.namePlaceholder,"text",true)}{field("email",config.emailLabel,config.emailPlaceholder,"email",true)}{field("phone",config.phoneLabel,config.phonePlaceholder,"tel",values.preference!=="email")}{field("company",config.companyLabel,config.companyPlaceholder)}
+ <label className="contact-field contact-full" htmlFor={id+"-subject"}>{config.subjectLabel} *<select id={id+"-subject"} name="subject" required value={values.subject} aria-invalid={!!errors.subject} aria-describedby={errors.subject?id+"-subject-error":undefined} onChange={e=>change("subject",e.target.value)}><option value="">{config.subjectPlaceholder}</option>{subjects.map((s,i)=><option key={i}>{s}</option>)}</select>{errors.subject&&<small id={id+"-subject-error"} className="contact-field-error">{errors.subject}</small>}</label>
+ <fieldset className="contact-preference contact-full"><legend>{config.preferenceLabel}</legend>{[["email","E-mail",Mail],["whatsapp","WhatsApp",MessageCircle],["phone","Ligação",Phone]].map(([v,label,Icon])=><label key={v}><input type="radio" name="preference" value={v} checked={values.preference===v} onChange={()=>change("preference",v)}/><span><Icon size={13}/>{label}</span></label>)}</fieldset>
+ {extraFields.map(f=>{const name="extra."+f.id,error=errors[name],inputProps={id:id+"-"+name,name,value:extra[f.id]||"",required:f.required,placeholder:f.placeholder,"aria-invalid":!!error,"aria-describedby":error?id+"-"+name+"-error":undefined,onChange:e=>{setExtra(v=>({...v,[f.id]:e.target.value}));setErrors(v=>({...v,[name]:""}));if(status==="success")setStatus("idle")}};
+ return <label key={f.id} className="contact-field contact-full" htmlFor={inputProps.id}>{f.label}{f.required?" *":""}{f.type==="select"?<select {...inputProps}><option value="">{f.placeholder||"Selecione uma opção"}</option>{f.options.map((o,i)=><option key={i}>{o}</option>)}</select>:f.type==="textarea"?<textarea {...inputProps} rows={3} maxLength={2000}/>:<input {...inputProps} type={f.type} maxLength={2000}/>}{error&&<small id={id+"-"+name+"-error"} className="contact-field-error">{error}</small>}</label>})}
+ <label className="contact-field contact-full" htmlFor={id+"-message"}>{config.messageLabel} *<textarea id={id+"-message"} name="message" required rows={5} maxLength={2000} value={values.message} placeholder={config.messagePlaceholder} aria-invalid={!!errors.message} aria-describedby={id+"-message-help"} onChange={e=>change("message",e.target.value)}/><span id={id+"-message-help"} className="contact-message-help"><small>{errors.message||config.messageHint}</small><small>{values.message.length} / 2.000</small></span></label>
+ <label className="contact-consent contact-full"><input type="checkbox" name="consent" checked={values.consent} required aria-invalid={!!errors.consent} onChange={e=>change("consent",e.target.checked)}/><span>{config.consentLabel}</span></label>{errors.consent&&<small className="contact-field-error contact-full">{errors.consent}</small>}
+ <div className="contact-submit contact-full"><button type="submit" className="contact-send" disabled={preview||status==="loading"}>{status==="loading"?config.loadingText:status==="error"?config.retryLabel:config.button}{status==="loading"?<LoaderCircle size={16} className="contact-spin"/>:<ArrowUpRight size={16}/>}</button><p>{config.responseNote}</p></div></fieldset>
+ <div className="contact-live" aria-live="polite">{status==="success"&&<div className="contact-feedback success" role="status"><CheckCircle2 size={20}/><div>{config.successText}{protocol&&<small>Protocolo: {protocol}</small>}</div></div>}{status==="error"&&<div className="contact-feedback error" role="alert"><AlertTriangle size={20}/>{config.errorText}</div>}</div>
+ <details className="contact-privacy"><summary>{config.privacyTitle}</summary><p>{config.privacyText}</p></details></form>;
 }

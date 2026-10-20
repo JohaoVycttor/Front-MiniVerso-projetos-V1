@@ -4,3 +4,41 @@
 @media(max-width:620px){.studio-page{padding-top:70px}.studio-container{width:calc(100% - 40px)}.studio-intro-inner{padding-top:100px;padding-bottom:30px}.studio-hero-copy h1{font-size:clamp(34px,9.5vw,54px)}.studio-story{grid-template-columns:1fr;gap:30px;margin-top:210px}.studio-story h2{max-width:310px}.studio-cards{grid-template-columns:1fr;gap:16px}.studio-cards article{padding:24px}.studio-section-heading{margin-bottom:30px}.studio-section h2,.studio-cta h2{font-size:clamp(30px,8vw,44px)}.studio-cta{margin-top:25px;padding-block:55px}.studio-label{font-size:9px}.studio-tags{max-width:300px}}
 @media(prefers-reduced-motion:reduce){.studio-pending{opacity:1;transform:none}.studio-page *{animation:none!important;transition:none!important}}
 @media(max-width:370px){body:has(.studio-page) .footer-wordmark{font-size:49px}}
+
+/* Studio sections keep their content and presentation controlled by the editor. */
+body .studio-page .studio-container{max-width:1240px}
+.studio-page h1,.studio-page h2,.studio-page p{white-space:pre-line}
+.studio-page .studio-section{padding-block:var(--studio-section-padding,65px)}
+.studio-page .studio-intro-inner{padding-top:var(--studio-section-padding,180px)}
+.studio-page .studio-heading-stacked{flex-direction:column;align-items:flex-start;gap:22px}
+.studio-page .studio-heading-stacked>p{max-width:700px}
+.studio-page .studio-cards.cards article{background:#0d0e12;border-color:#ffffff12}
+.studio-page .studio-cards.tinted article{background:linear-gradient(125deg,#0d142b,#080b15);border-color:#7898ff22}
+.studio-page .studio-cards article{border-radius:20px}
+.studio-page .studio-cards.lines article{border-radius:0}
+.studio-card-link{display:inline-flex;gap:9px;align-items:center;color:var(--studio-accent);font-size:12px;margin-top:20px}
+.studio-page .studio-cta{display:flex;align-items:center;min-height:var(--studio-min-height,540px);padding-block:var(--studio-section-padding,65px);margin-top:70px}
+.studio-page .studio-cta:after{background:linear-gradient(90deg,#09051c55,transparent 85%)}
+.studio-page .studio-cta h2{max-width:760px;font-size:clamp(34px,4.6vw,66px);line-height:1.02;margin-bottom:22px}
+.studio-page .studio-cta h2 em{color:#c3c9ff}
+.studio-page .studio-cta-description{max-width:530px;color:#c2c6db;font-size:14px;line-height:1.8;margin:0 0 25px}
+.studio-page .studio-cta-centered{text-align:center}
+.studio-page .studio-cta-centered h2,.studio-page .studio-cta-centered .studio-cta-description{margin-inline:auto}
+.studio-page .studio-cta .studio-button{background:linear-gradient(100deg,#426aff,#1c3fbf);border:1px solid #9bb4ff55}
+.studio-page [style*="text-align: center"] .studio-hero-copy{margin-inline:auto}
+.studio-page [style*="text-align: center"] .studio-tags{justify-content:center}
+@media(max-width:900px){.studio-page .studio-section{padding-block:min(var(--studio-section-padding,65px),55px)}}
+@media(max-width:620px){.studio-page .studio-intro-inner{padding-top:min(var(--studio-section-padding,180px),100px)}.studio-page .studio-cta{padding-block:min(var(--studio-section-padding,65px),55px);min-height:min(var(--studio-min-height,540px),620px);margin-top:30px}.studio-page .studio-cta h2{font-size:clamp(32px,9vw,46px)}.studio-page .studio-cta .studio-backdrop{object-position:65% center}.studio-page .studio-cta:after{background:linear-gradient(90deg,#09051c99,#09051c30)}}
+
+.studio-page .studio-cta h2{max-width:690px}
+/* Compositor-only hero motion: gradual entrances and a slow background drift. */
+.studio-page .studio-hero-copy{animation:none}
+.studio-intro>.studio-backdrop{transform-origin:60% 45%;animation:studio-hero-image-in 1.8s ease-out both,studio-hero-drift 24s ease-in-out infinite alternate}
+.studio-hero-copy .studio-title-text,.studio-hero-copy> :is(h1,h2)>em{display:block;animation:studio-hero-enter 1.25s cubic-bezier(.16,1,.3,1) both}
+.studio-hero-copy> :is(h1,h2)>em{animation-delay:.16s;animation-duration:1.4s}
+.studio-hero-copy>p{animation:studio-hero-enter 1.15s cubic-bezier(.16,1,.3,1) .32s both}
+.studio-hero-copy .studio-tags>span{animation:studio-hero-enter 1s cubic-bezier(.16,1,.3,1) both;animation-delay:calc(.46s + var(--tag-index,0)*.07s)}
+@keyframes studio-hero-enter{from{opacity:0;transform:translate3d(0,24px,0)}to{opacity:1;transform:translate3d(0,0,0)}}
+@keyframes studio-hero-image-in{from{opacity:.55}to{opacity:1}}
+@keyframes studio-hero-drift{from{transform:scale(1.045) translate3d(-.35%,-.3%,0)}to{transform:scale(1.015) translate3d(.35%,.3%,0)}}
+@media(prefers-reduced-motion:reduce){.studio-intro>.studio-backdrop,.studio-hero-copy *{animation:none!important;transform:none!important}}

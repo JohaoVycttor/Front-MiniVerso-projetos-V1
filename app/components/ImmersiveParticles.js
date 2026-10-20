@@ -31,7 +31,7 @@ function characterTargets(image, count) {
   return Array.from({ length: count }, (_, i) => characterRig(points[Math.floor(i * points.length / count)]));
 }
 
-export default function ImmersiveParticles() {
+export default function ImmersiveParticles({animate=true}) {
   const canvasRef = useRef(null);
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -52,14 +52,14 @@ export default function ImmersiveParticles() {
       easedX += (pointerX - easedX) * follow;
       easedY += (pointerY - easedY) * follow;
       const phase = (elapsed / 1000) % 22;
-      const morph = !targets.length ? 0 : motion.matches ? 1 : smooth(4, 7.5, phase) * (1 - smooth(17, 21, phase));
-      const drift = motion.matches ? 0 : Math.sin(elapsed * .00065) * 1.5;
+      const morph = !targets.length ? 0 : (motion.matches || !animate) ? 1 : smooth(4, 7.5, phase) * (1 - smooth(17, 21, phase));
+      const drift = (motion.matches || !animate) ? 0 : Math.sin(elapsed * .00065) * 1.5;
       const shiftX = easedX * 5, shiftY = drift + easedY * 3;
-      const yaw = .58 + (motion.matches ? 0 : Math.sin(elapsed * .00045) * .16 + easedX * .2);
+      const yaw = .58 + ((motion.matches || !animate) ? 0 : Math.sin(elapsed * .00045) * .16 + easedX * .2);
       const pitch = .32 + easedY * .1;
       const cy = Math.cos(yaw), sy = Math.sin(yaw), cp = Math.cos(pitch), sp = Math.sin(pitch);
       const travel = Math.sin(morph * Math.PI);
-      const pose = characterMotion(elapsed, motion.matches);
+      const pose = characterMotion(elapsed, (motion.matches || !animate));
       ctx.clearRect(0, 0, SIZE, SIZE);
       // The character stays a sparse cloud of distinct particles throughout the cycle.
       for (let i = 0; i < count; i++) {
@@ -86,7 +86,7 @@ export default function ImmersiveParticles() {
       ctx.font = "10px Consolas, monospace";
       ctx.fillStyle = "#a5b6d2";
       ctx.fillText(morph > .5 ? "VIVA UMA NOVA REALIDADE" : "A EXPERIÊNCIA COMEÇA AQUI", 260, 514);
-      if (visible && !motion.matches && !document.hidden) frame = requestAnimationFrame(draw);
+      if (visible && !(motion.matches || !animate) && !document.hidden) frame = requestAnimationFrame(draw);
     }
     function refresh() {
       cancelAnimationFrame(frame); previous = null;
@@ -105,7 +105,7 @@ export default function ImmersiveParticles() {
     motion.addEventListener("change", refresh);
     document.addEventListener("visibilitychange", refresh);
     const move = (event) => {
-      if (motion.matches || event.pointerType === "touch") return;
+      if ((motion.matches || !animate) || event.pointerType === "touch") return;
       const rect = canvas.getBoundingClientRect();
       pointerX = (event.clientX - rect.left) / rect.width - .5;
       pointerY = (event.clientY - rect.top) / rect.height - .5;
@@ -129,7 +129,7 @@ export default function ImmersiveParticles() {
       motion.removeEventListener("change", refresh);
       document.removeEventListener("visibilitychange", refresh);
     };
-  }, []);
+  }, [animate]);
   return <div className="immersive-particle-stage">
     <canvas ref={canvasRef} className="immersive-particles" width="520" height="520" role="img" aria-label="Óculos de realidade virtual se transformam no personagem da referência, com as mãos levantadas, em pontilhismo azul luminoso." />
   </div>;

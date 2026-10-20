@@ -4,3 +4,19 @@
 @media(max-width:620px){.solutions-page{padding-top:70px}.solutions-container{width:calc(100% - 40px)}.solutions-grid,.solution-tile.wide,.solutions-process{grid-template-columns:1fr}.solutions-catalog{padding-top:65px}.solutions-page h1,.solutions-page h2{font-size:clamp(31px,8.7vw,45px)}.solutions-intro>p{font-size:14px}.solution-tile h3{font-size:24px}.solution-tile.wide{gap:0}.solution-tile.wide .solution-details{margin-top:21px}.solutions-label{font-size:9px}.solutions-section{padding-block:42px}.solutions-page table{min-width:650px}.solutions-process{gap:28px;margin-top:30px}.solutions-banner .solutions-container>div{max-width:100%}.solutions-banner .solutions-backdrop{width:100%;opacity:.65}.solutions-banner:after{background:linear-gradient(90deg,#21127be6,#100e5288)}.solutions-banner h2{max-width:350px}.solutions-banner p{max-width:330px}.solutions-banner{min-height:380px}.solutions-catalog>.solutions-backdrop{top:320px;height:calc(100% - 300px)}body:has(.solutions-page) .footer-wordmark{font-size:clamp(42px,15vw,65px)}}
 @media(prefers-reduced-motion:reduce){.solutions-page *{animation:none!important;transition:none!important}.solutions-pending{opacity:1;transform:none}}
 .solutions-banner .solutions-backdrop{mask-image:linear-gradient(90deg,transparent,#000 22%)}
+
+/* Preserve the supplied photograph's colors and keep its crop editable. */
+.solutions-catalog>.solutions-backdrop{top:0;height:100%;opacity:1;filter:none}
+.solutions-catalog:after{background:linear-gradient(180deg,#06070935,transparent 45%,var(--solutions-bg) 100%)}
+
+/* Full-width photograph and left-aligned contact copy from the supplied reference. */
+.solutions-page .solutions-banner{min-height:446px;margin-top:0;padding:80px 0 88px;background:#080d41}
+.solutions-page .solutions-banner .solutions-backdrop{width:100%;height:100%;inset:0;opacity:1;mask-image:none;object-fit:cover}
+.solutions-page .solutions-banner:after{background:linear-gradient(90deg,rgba(4,8,35,.18),rgba(4,8,35,.06) 45%,transparent 70%)}
+.solutions-page .solutions-banner .solutions-container>div{max-width:590px}
+body #conteudo .solutions-page .solutions-banner h2{font-family:'Thunder LC','Arial Narrow',sans-serif;font-size:48px;font-weight:800;line-height:1.03;letter-spacing:-.015em;max-width:560px;text-wrap:initial}
+.solutions-page .solutions-banner h2 em{display:block;color:#bdcbff}
+.solutions-page .solutions-banner p{max-width:560px;margin:26px 0 28px;font-size:17px;line-height:1.65;color:#bdc3df}
+body #conteudo .solutions-page .solutions-banner .solutions-button{background:linear-gradient(110deg,#3265ef,#203db5);border:1px solid #8caaff;box-shadow:0 8px 25px #102c8c40;padding:16px 28px;gap:18px;font-weight:600}
+@media(max-width:900px){.solutions-page .solutions-banner .solutions-container>div{max-width:55%}.solutions-page .solutions-banner{padding-block:66px}body #conteudo .solutions-page .solutions-banner h2{font-size:42px}.solutions-page .solutions-banner p{font-size:15px}}
+@media(max-width:620px){.solutions-page .solutions-banner{min-height:520px;padding:52px 0 230px}.solutions-page .solutions-banner .solutions-container>div{max-width:100%}body #conteudo .solutions-page .solutions-banner h2{font-size:38px;max-width:340px}.solutions-page .solutions-banner p{max-width:330px;font-size:14px;margin-block:20px 24px}.solutions-page .solutions-banner:after{background:linear-gradient(180deg,rgba(4,8,35,.75),rgba(4,8,35,.55) 48%,transparent 85%)}.solutions-page .solutions-banner .solutions-backdrop{object-fit:cover;object-position:center bottom!important}}

@@ -3,3 +3,11 @@ node_modules
 .env.local
 npm-debug.log*
 .DS_Store
+
+# Local environment and generated delivery artifacts
+.env*
+!.env.example
+artifacts/
+# Source ZIP reference copies; integrated code lives in app/, lib/ and public/
+Front-MiniVerso-projetos-V1-main/
+Front-MiniVerso-projetos-V1-feat-pagina-laboratorio-quimica/

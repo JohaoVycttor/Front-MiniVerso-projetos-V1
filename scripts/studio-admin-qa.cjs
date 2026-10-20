@@ -1,0 +1,47 @@
+const assert=require('node:assert/strict'),path=require('node:path'),os=require('node:os');
+const {chromium}=require(path.join(os.tmpdir(),'miniverso-home-qa/node_modules/playwright'));
+const root='http://localhost:3000';
+(async()=>{const b=await chromium.launch({channel:'msedge',headless:true});let original,context;
+async function save(content){const r=await context.request.put(root+'/api/admin/content',{data:{type:'studio',content}});assert.equal(r.status(),200,await r.text())}
+try{
+ context=await b.newContext({viewport:{width:1440,height:1000},reducedMotion:'reduce'});const p=await context.newPage(),errors=[];p.on('pageerror',e=>errors.push(e.message));
+ await p.goto(root+'/admin',{waitUntil:'networkidle'});await p.locator('[name=user]').fill(process.env.ADMIN_USER||'admin@miniverso.com.br');await p.locator('[name=password]').fill(process.env.ADMIN_PASSWORD||'miniverso123');await p.getByRole('button',{name:'Entrar',exact:true}).click();await p.getByRole('button',{name:'O estúdio',exact:true}).click();await p.getByRole('button',{name:'Salvar página',exact:true}).waitFor();
+ original=(await (await context.request.get(root+'/api/admin/content')).json()).studio;
+ const banner=p.locator('.studio-editor>details').last();await banner.locator('summary').first().click();
+ await banner.getByLabel('Texto do botão',{exact:true}).fill('Conversa QA');
+ await banner.getByLabel('Espaçamento vertical (px)',{exact:true}).fill('85');
+ await banner.getByLabel('Layout',{exact:true}).selectOption('centered');
+ await p.getByRole('button',{name:'Visualizar alterações',exact:true}).click();await p.getByRole('dialog').waitFor();
+ const frame=p.frameLocator('iframe[title="Prévia da página O estúdio"]');await frame.locator('.studio-cta .studio-button').filter({hasText:'Conversa QA'}).waitFor();
+ await p.getByRole('button',{name:'Celular',exact:true}).click();await p.getByRole('button',{name:'Fechar prévia',exact:true}).click();
+ await p.getByRole('button',{name:'Salvar página',exact:true}).click();await p.getByRole('status').filter({hasText:'Página salva'}).waitFor();
+ const publicPage=await context.newPage();publicPage.on('pageerror',e=>errors.push(e.message));await publicPage.goto(root+'/sobre',{waitUntil:'networkidle'});
+ assert.equal(await publicPage.locator('.studio-cta .studio-button').textContent(),'Conversa QA');
+ assert.equal(await publicPage.locator('.studio-cta .studio-backdrop').getAttribute('src'),'/studio-cta-background.png');
+ assert.ok(await publicPage.locator('.studio-cta').evaluate(el=>getComputedStyle(el).paddingTop==='85px'));
+ console.log('PASS visual editor, banner settings, preview and public save');
+ const edited=(await (await context.request.get(root+'/api/admin/content')).json()).studio;
+ const cards=edited.sections.find(s=>s.type==='cards');cards.layout='tinted';cards.columns=2;cards.customStyle=true;cards.background='#102030';cards.accent='#aabbcc';cards.cards=[{icon:'heart',title:'Card dinâmico QA',description:'Texto cadastrado no painel',button:'Abrir contato QA',href:'/contato'}];
+ const hidden=edited.sections.find(s=>s.id==='audiences');hidden.enabled=false;
+ const index=edited.sections.findIndex(s=>s.id===cards.id);edited.sections.splice(index,1);edited.sections.push(cards);
+ await save(edited);await publicPage.reload({waitUntil:'networkidle'});
+ assert.equal(await publicPage.locator('[data-section-id=audiences]').count(),0);assert.equal(await publicPage.getByRole('link',{name:'Abrir contato QA',exact:true}).count(),1);
+ assert.equal(await publicPage.locator('[data-section-id='+cards.id+']').evaluate(el=>getComputedStyle(el).backgroundColor),'rgb(16, 32, 48)');
+ assert.equal(await publicPage.locator('.studio-page>section').last().getAttribute('data-section-id'),cards.id);
+ const invalid=structuredClone(edited);invalid.sections.find(s=>s.type==='cta').href='javascript:alert(1)';
+ assert.equal((await context.request.put(root+'/api/admin/content',{data:{type:'studio',content:invalid}})).status(),400);
+ console.log('PASS card content, links, colors, layout, visibility, order and server validation');
+ await p.reload({waitUntil:'networkidle'});await p.getByRole('button',{name:'O estúdio',exact:true}).click();await p.getByRole('button',{name:'Salvar página',exact:true}).waitFor();
+ const sections=p.locator('.studio-editor>details');const count=await sections.count();await sections.last().locator('summary').first().click();
+ await sections.last().getByRole('button',{name:'Duplicar seção',exact:true}).click();assert.equal(await sections.count(),count+1);
+ const last=sections.last();await last.locator('summary').first().click();await last.getByLabel('Componente da seção',{exact:true}).selectOption('cta');
+ await p.getByRole('button',{name:'Salvar página',exact:true}).click();await p.getByRole('status').filter({hasText:'Página salva'}).waitFor();
+ await publicPage.reload({waitUntil:'networkidle'});assert.equal(await publicPage.locator('.studio-cta').count(),2);
+ console.log('PASS section duplication and component switching');
+ await save(original);original=null;await publicPage.reload({waitUntil:'networkidle'});
+ for(const width of [1440,768,390,320]){await publicPage.setViewportSize({width,height:900});assert.ok(await publicPage.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));console.log('PASS responsive',width)}
+ await publicPage.setViewportSize({width:1440,height:1000});await publicPage.locator('.studio-section').first().scrollIntoViewIfNeeded();
+ await publicPage.locator('.studio-backdrop').evaluateAll(els=>Promise.all(els.map(el=>el.decode())));
+ await publicPage.screenshot({path:path.join(os.tmpdir(),'miniverso-studio-final.png'),fullPage:true});
+ assert.deepEqual(errors,[]);console.log('PASS no browser errors; original content restored');
+}finally{if(original&&context)await save(original);await b.close()}})().catch(e=>{console.error(e);process.exit(1)});

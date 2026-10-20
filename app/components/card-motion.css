@@ -1,0 +1,25 @@
+/* Shared card feedback; content and native link behavior remain available without JS. */
+#conteudo [data-interactive-card]{transition:transform .4s cubic-bezier(.22,1,.36,1),border-color .35s,box-shadow .4s,background-color .35s}
+#conteudo [data-card-link]{position:relative;isolation:isolate;cursor:pointer}
+#conteudo [data-card-primary]{position:static!important}
+#conteudo [data-card-primary]::after{content:'';position:absolute;inset:0;z-index:3;border-radius:inherit}
+#conteudo [data-card-link]:has(a:focus-visible){outline:2px solid #a6baff;outline-offset:5px}
+#conteudo [data-interactive-card]:focus-within{border-color:rgba(143,171,255,.65);box-shadow:0 12px 36px rgba(13,23,65,.2),inset 0 0 0 1px rgba(143,171,255,.18)}
+#conteudo [data-interactive-card] img{transition:transform .65s cubic-bezier(.22,1,.36,1)}
+@media(hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){
+ #conteudo [data-interactive-card]:hover{transform:translateY(-6px);border-color:rgba(148,173,255,.5);box-shadow:0 18px 42px rgba(4,10,32,.25),inset 0 0 0 1px rgba(153,177,255,.12)}
+ #conteudo [data-interactive-card]:hover{background-image:radial-gradient(circle at var(--card-x,50%) var(--card-y,50%),rgba(139,165,255,.09),transparent 65%)}
+ #conteudo [data-interactive-card]:hover :is(.solution-icon,.studio-icon,.case-icon,.home-service-icon){transform:translateY(-3px) rotate(-4deg);color:#b7c8ff}
+ #conteudo [data-interactive-card] :is(.solution-icon,.studio-icon,.case-icon,.home-service-icon){transition:transform .4s,color .3s}
+ #conteudo [data-interactive-card]:hover :is(.card-cover,.home-project-image,.project-visual) img{transform:scale(1.045)}
+ #conteudo [data-card-link]:active{transform:translateY(-2px) scale(.992);transition-duration:.12s}
+ #conteudo [data-motion="off"] [data-interactive-card]{transform:none;transition:none}
+}
+@media(prefers-reduced-motion:reduce){#conteudo [data-interactive-card],#conteudo [data-interactive-card] *{animation:none!important;transition:none!important}#conteudo [data-interactive-card]:hover,#conteudo [data-interactive-card]:active{transform:none}#conteudo [data-interactive-card] img{transform:none!important}}
+
+body[data-card-hover="false"] #conteudo [data-interactive-card]:hover :is(.solution-icon,.studio-icon,.case-icon,.home-service-icon){transform:none}
+body[data-card-entrance="false"] #conteudo [data-interactive-card]{animation:none!important}
+body[data-card-entrance="false"] #conteudo [data-interactive-card]:is(.solutions-pending,.solutions-visible){opacity:1;transform:none;transition:none}
+
+/* Preserve direct interaction with positioned media links above the card-wide target. */
+#conteudo [data-card-link] a:not([data-card-primary]){z-index:4}

@@ -3,8 +3,8 @@ import {useEffect,useRef} from 'react';
 import Link from 'next/link';
 import {Monitor,Layers,Globe2,GraduationCap,Code2,ArrowUpRight,Check,Lightbulb,Users,Heart,Building2,Accessibility,BookOpen,Target} from 'lucide-react';
 const icons={screen:Monitor,layers:Layers,globe:Globe2,school:GraduationCap,code:Code2,light:Lightbulb,users:Users,heart:Heart,building:Building2,access:Accessibility,book:BookOpen,target:Target};
-function Heading({s,hero=false}){const Tag=hero?'h1':'h2';return <><span className="solutions-label">[ {s.label} ]</span><Tag>{s.title} <em>{s.highlight}</em></Tag></>}
-function Backdrop({s}){return <>{s.image&&<img className="solutions-backdrop" src={s.image} alt="" style={{objectPosition:s.imagePosition}}/>}<div className="solutions-shade" style={{opacity:s.overlay}}/></>}
+function Heading({s,hero=false}){const Tag=hero?'h1':'h2';return <>{s.label&&<span className="solutions-label">[ {s.label} ]</span>}<Tag>{s.title} <em>{s.highlight}</em></Tag></>}
+function Backdrop({s}){return <>{s.image&&<img className="solutions-backdrop" src={s.image} alt="" style={{objectPosition:s.imagePosition,transform:s.flipImage?'scaleX(-1)':undefined}}/>}<div className="solutions-shade" style={{opacity:s.overlay}}/></>}
 export default function SolutionsPage({content}){
  const root=useRef(null);
  useEffect(()=>{const win=root.current.ownerDocument.defaultView;if(win.matchMedia('(prefers-reduced-motion: reduce)').matches)return;const observer=new win.IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('solutions-visible');observer.unobserve(e.target)}}),{threshold:.06});root.current.querySelectorAll('[data-solutions-reveal]').forEach(el=>{if(el.getBoundingClientRect().top>win.innerHeight){el.classList.add('solutions-pending');observer.observe(el)}});return()=>observer.disconnect()},[content]);

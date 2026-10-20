@@ -1,0 +1,65 @@
+.portfolio-module .project-world:has(.case-scene)>.world-backdrop{background-image:linear-gradient(180deg,rgba(5,8,15,.04),rgba(5,8,15,.04)),var(--scene-image);background-size:100% 100%,cover;background-position:center,var(--case-position,center center)}
+.portfolio-module .case-scene{position:relative;background:rgb(5 8 15 / var(--case-overlay))}
+.portfolio-module .case-study{padding-top:56px;padding-bottom:170px;max-width:1328px;width:86%}
+.portfolio-module .case-block{margin:0 0 72px;scroll-margin-top:115px}
+.portfolio-module .case-section-hero{max-width:1060px;margin-bottom:40px}
+.portfolio-module .case-back{display:inline-flex;gap:8px;font-size:12px;color:#bac6e3;margin-bottom:46px}
+.portfolio-module .case-label{font:10px/1.6 var(--font-mono);letter-spacing:.09em;color:#90a9ff;margin:0 0 22px}
+.portfolio-module .case-section-hero h1{font-size:clamp(38px,5.4vw,80px);letter-spacing:-.04em;line-height:1.02;text-transform:uppercase}
+.portfolio-module .case-block em{display:block;color:var(--blue);font-style:italic}
+.portfolio-module .case-description{font-size:16px;line-height:1.7;white-space:pre-line;color:#b9bdcb;max-width:690px;margin-top:24px}
+.portfolio-module .case-section-media{margin-bottom:36px}
+.portfolio-module .case-presentation{position:relative;aspect-ratio:16/8.2;border-radius:30px;overflow:hidden}
+.portfolio-module .case-presentation .media-trigger,.portfolio-module .case-gallery-media .media-trigger{height:100%;display:block}
+.portfolio-module .case-caption{font:11px/1.6 var(--font-mono);color:#aeb5c9;margin-top:14px}
+.portfolio-module .case-facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));border-block:1px solid var(--line);margin:0}
+.portfolio-module .case-facts>div{padding:26px 24px;border-right:1px solid var(--line)}
+.portfolio-module .case-facts>div:first-child{padding-left:0}.portfolio-module .case-facts>div:last-child{border-right:0}
+.portfolio-module .case-facts dt{font:9px/1.6 var(--font-mono);letter-spacing:.07em;color:#a2abc4;margin-bottom:12px}
+.portfolio-module .case-facts dd{font-size:14px;line-height:1.6;margin:0}
+.portfolio-module .case-section-story{margin-bottom:144px}
+.portfolio-module .case-items{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:80px}
+.portfolio-module .case-story h3{font-size:30px;font-weight:500;line-height:1.25;letter-spacing:-.025em;margin-bottom:18px}
+.portfolio-module .case-story p:not(.case-label),.portfolio-module .case-benefit p{font-size:14px;line-height:1.8;color:#b9bdcb;white-space:pre-line}
+.portfolio-module .case-section-benefits{margin-bottom:36px}
+.portfolio-module .case-section-benefits .case-items{grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.portfolio-module .case-benefit{padding:30px 32px;border-radius:20px;background:rgba(10,11,20,.52);box-shadow:none;backdrop-filter:blur(10px)}
+.portfolio-module .case-icon{display:inline-flex;padding:9px;border:1px solid rgba(180,197,255,.28);border-radius:50%;color:#a3b6ff;background:rgba(96,120,224,.12);margin-bottom:18px}
+.portfolio-module .case-benefit h3{font-size:21px;font-weight:500;line-height:1.3;margin-bottom:12px}
+.portfolio-module .case-benefit p{font-size:13px;line-height:1.7}
+.portfolio-module .case-section-gallery{margin-bottom:92px}
+.portfolio-module .case-gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;width:100%}
+.portfolio-module .case-gallery figure{min-width:0;margin:0}
+.portfolio-module .case-gallery-media{position:relative;width:100%;aspect-ratio:1.52;border-radius:28px;overflow:hidden}
+.portfolio-module .case-gallery-media .media-placeholder{background:linear-gradient(135deg,#12205c 0%,#0b1028 48%,#06080f 100%)}
+.portfolio-module .case-gallery-media .micro-label{display:none}
+.portfolio-module .case-gallery-media .media-placeholder>svg{width:27px;height:27px;color:#b9c8ed}
+.portfolio-module .case-gallery figcaption{font:10px/1.7 var(--font-mono);color:#9ba5bb;margin-top:14px}
+.portfolio-module .case-section-next{margin-bottom:68px}
+.portfolio-module .case-next{display:flex;align-items:center;justify-content:space-between;min-height:162px;padding:30px 40px;border-radius:52px;background:rgba(15,12,19,.24);box-shadow:none;transition:background .3s}
+.portfolio-module .case-next:hover{background:rgba(36,34,49,.4)}
+.portfolio-module .case-next .case-label{font-size:9px;color:#afb3c0}
+.portfolio-module .case-next strong{display:block;font-size:32px;font-weight:500;line-height:1.3;margin:9px 0}
+.portfolio-module .case-next small{display:block;font:11px var(--font-mono);color:#91a9f3}
+.portfolio-module .case-next-arrow{display:flex;align-items:center;justify-content:center;width:62px;height:62px;flex-shrink:0;border-radius:50%;border:1px solid rgba(223,229,255,.18);font-size:25px;background:rgba(230,233,255,.035)}
+.portfolio-module .case-section-contact{padding:0 24px;margin-bottom:0;max-width:890px}
+.portfolio-module .case-block h2{font-size:clamp(28px,3.2vw,48px);line-height:1.18;letter-spacing:-.025em}
+.portfolio-module .case-section-contact .button{margin-top:36px;padding:16px 28px;background:rgba(215,229,242,.12);border:1px solid rgba(230,239,255,.32);box-shadow:none;font-size:13px;font-weight:500;gap:14px}
+.portfolio-module .case-section-contact .button:hover{background:rgba(215,229,242,.23)}
+.portfolio-module .case-section-text .button{margin-top:30px}
+.portfolio-module .case-layout-stacked .case-items,.portfolio-module .case-layout-stacked .case-gallery,.portfolio-module .case-layout-stacked .case-facts{grid-template-columns:1fr}
+.portfolio-module .case-layout-centered{text-align:center;margin-inline:auto}.portfolio-module .case-layout-centered .case-description{margin-inline:auto}
+@media(max-width:760px){.portfolio-module .case-study{padding-top:35px;padding-bottom:80px;width:calc(100% - 40px)}.portfolio-module .case-block{margin-bottom:44px}.portfolio-module .case-section-contact{margin-bottom:0}.portfolio-module .case-section-story{margin-bottom:70px}.portfolio-module .case-back{margin-bottom:30px}.portfolio-module .case-items,.portfolio-module .case-section-benefits .case-items{grid-template-columns:1fr;gap:24px}.portfolio-module .case-gallery{grid-template-columns:1fr}.portfolio-module .case-presentation{aspect-ratio:16/10;border-radius:20px}.portfolio-module .case-facts{grid-template-columns:repeat(2,minmax(0,1fr))}.portfolio-module .case-facts>div{padding:18px 12px}.portfolio-module .case-facts>div:first-child{padding-left:12px}.portfolio-module .case-next{padding:24px;border-radius:28px;min-height:140px;gap:20px}.portfolio-module .case-next strong{font-size:23px}.portfolio-module .case-next-arrow{width:46px;height:46px}.portfolio-module .case-section-contact{padding:0}.portfolio-module .case-description{font-size:14px}.portfolio-module .case-story h3{font-size:25px}.portfolio-module .case-benefit{padding:28px}.portfolio-module .case-section-contact .button{margin-top:26px}}
+
+/* Reference contact uses a translucent outline button instead of the site gradient. */
+body #conteudo .portfolio-module .case-section-contact h2{max-width:800px;white-space:pre-line;font-weight:500;line-height:1.18}
+body #conteudo .portfolio-module .case-section-contact .button{background:rgba(215,229,242,.12);border:1px solid rgba(230,239,255,.32);box-shadow:none;color:#fff}
+body #conteudo .portfolio-module .case-section-contact .button:hover{background:rgba(215,229,242,.23);box-shadow:none}
+
+/* Integrated chemistry presentation player. */
+.portfolio-module .case-vr-player{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;background:radial-gradient(120% 130% at 0 0,#1f3cc7,#0c1650 38%,#03050b 78%)}
+.portfolio-module .case-vr-icon{width:128px;color:#7d9bff;z-index:1}
+.portfolio-module .case-player-poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.portfolio-module .case-watch-button{position:relative;display:inline-flex;align-items:center;gap:12px;border:1px solid rgba(255,255,255,.15);border-radius:100px;background:rgba(255,255,255,.1);padding:11px 20px;color:#fff;font-size:12px;font-weight:600;backdrop-filter:blur(12px);transition:background .25s,transform .25s;z-index:1}
+.portfolio-module .case-watch-button svg{width:11px;height:11px}.portfolio-module .case-watch-button:hover{background:rgba(255,255,255,.2);transform:translateY(-2px)}
+@media(max-width:620px){.portfolio-module .case-vr-player{gap:18px}.portfolio-module .case-vr-icon{width:96px}}

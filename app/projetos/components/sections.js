@@ -51,6 +51,7 @@ export function FeaturedProject({ section, project, ui }) {
                     className: "featured-media",
                     children: /*#__PURE__*/ _jsx(MediaPreview, {
                         asset: project.presentation,
+                        href: `/projetos/${project.slug}`,
                         ui: ui,
                         presentation: true
                     })

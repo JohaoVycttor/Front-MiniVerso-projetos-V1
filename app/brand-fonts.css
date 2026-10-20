@@ -1,0 +1,64 @@
+/* Supplied Thunder webfonts. HC and LC remain separate families. */
+@font-face{font-family:'Thunder';src:url('/fonts/thunder/Thunder-ThinHC.woff2') format('woff2'),url('/fonts/thunder/Thunder-ThinHC.woff') format('woff');font-weight:100;font-style:normal;font-display:swap}
+@font-face{font-family:'Thunder';src:url('/fonts/thunder/Thunder-ThinHCItalic.woff2') format('woff2'),url('/fonts/thunder/Thunder-ThinHCItalic.woff') format('woff');font-weight:100;font-style:italic;font-display:swap}
+@font-face{font-family:'Thunder';src:url('/fonts/thunder/Thunder-ExtraLightHC.woff2') format('woff2'),url('/fonts/thunder/Thunder-ExtraLightHC.woff') format('woff');font-weight:200;font-style:normal;font-display:swap}
+@font-face{font-family:'Thunder';src:url('/fonts/thunder/Thunder-ExtraLightHCItalic.woff2') format('woff2'),url('/fonts/thunder/Thunder-ExtraLightHCItalic.woff') format('woff');font-weight:200;font-style:italic;font-display:swap}
+@font-face{font-family:'Thunder';src:url('/fonts/thunder/Thunder-LightHC.woff2') format('woff2'),url('/fonts/thunder/Thunder-LightHC.woff') format('woff');font-weight:300;font-style:normal;font-display:swap}
+@font-face{font-family:'Thunder';src:url('/fonts/thunder/Thunder-LightHCItalic.woff2') format('woff2'),url('/fonts/thunder/Thunder-LightHCItalic.woff') format('woff');font-weight:300;font-style:italic;font-display:swap}
+@font-face{font-family:'Thunder';src:url('/fonts/thunder/Thunder-HC.woff2') format('woff2'),url('/fonts/thunder/Thunder-HC.woff') format('woff');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Thunder';src:url('/fonts/thunder/Thunder-HCItalic.woff2') format('woff2'),url('/fonts/thunder/Thunder-HCItalic.woff') format('woff');font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:'Thunder';src:url('/fonts/thunder/Thunder-MediumHC.woff2') format('woff2'),url('/fonts/thunder/Thunder-MediumHC.woff') format('woff');font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:'Thunder';src:url('/fonts/thunder/Thunder-MediumHCItalic.woff2') format('woff2'),url('/fonts/thunder/Thunder-MediumHCItalic.woff') format('woff');font-weight:500;font-style:italic;font-display:swap}
+@font-face{font-family:'Thunder';src:url('/fonts/thunder/Thunder-SemiBoldHC.woff2') format('woff2'),url('/fonts/thunder/Thunder-SemiBoldHC.woff') format('woff');font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:'Thunder';src:url('/fonts/thunder/Thunder-SemiBoldHCItalic.woff2') format('woff2'),url('/fonts/thunder/Thunder-SemiBoldHCItalic.woff') format('woff');font-weight:600;font-style:italic;font-display:swap}
+@font-face{font-family:'Thunder';src:url('/fonts/thunder/Thunder-BoldHC.woff2') format('woff2'),url('/fonts/thunder/Thunder-BoldHC.woff') format('woff');font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:'Thunder';src:url('/fonts/thunder/Thunder-BoldHCItalic.woff2') format('woff2'),url('/fonts/thunder/Thunder-BoldHCItalic.woff') format('woff');font-weight:700;font-style:italic;font-display:swap}
+@font-face{font-family:'Thunder';src:url('/fonts/thunder/Thunder-ExtraBoldHC.woff2') format('woff2'),url('/fonts/thunder/Thunder-ExtraBoldHC.woff') format('woff');font-weight:800;font-style:normal;font-display:swap}
+@font-face{font-family:'Thunder';src:url('/fonts/thunder/Thunder-ExtraBoldHCItalic.woff2') format('woff2'),url('/fonts/thunder/Thunder-ExtraBoldHCItalic.woff') format('woff');font-weight:800;font-style:italic;font-display:swap}
+@font-face{font-family:'Thunder';src:url('/fonts/thunder/Thunder-BlackHC.woff2') format('woff2'),url('/fonts/thunder/Thunder-BlackHC.woff') format('woff');font-weight:900;font-style:normal;font-display:swap}
+@font-face{font-family:'Thunder';src:url('/fonts/thunder/Thunder-BlackHCItalic.woff2') format('woff2'),url('/fonts/thunder/Thunder-BlackHCItalic.woff') format('woff');font-weight:900;font-style:italic;font-display:swap}
+@font-face{font-family:'Thunder LC';src:url('/fonts/thunder/Thunder-ThinLC.woff2') format('woff2'),url('/fonts/thunder/Thunder-ThinLC.woff') format('woff');font-weight:100;font-style:normal;font-display:swap}
+@font-face{font-family:'Thunder LC';src:url('/fonts/thunder/Thunder-ThinLCItalic.woff2') format('woff2'),url('/fonts/thunder/Thunder-ThinLCItalic.woff') format('woff');font-weight:100;font-style:italic;font-display:swap}
+@font-face{font-family:'Thunder LC';src:url('/fonts/thunder/Thunder-ExtraLightLC.woff2') format('woff2'),url('/fonts/thunder/Thunder-ExtraLightLC.woff') format('woff');font-weight:200;font-style:normal;font-display:swap}
+@font-face{font-family:'Thunder LC';src:url('/fonts/thunder/Thunder-ExtraLightLCItalic.woff2') format('woff2'),url('/fonts/thunder/Thunder-ExtraLightLCItalic.woff') format('woff');font-weight:200;font-style:italic;font-display:swap}
+@font-face{font-family:'Thunder LC';src:url('/fonts/thunder/Thunder-LightLC.woff2') format('woff2'),url('/fonts/thunder/Thunder-LightLC.woff') format('woff');font-weight:300;font-style:normal;font-display:swap}
+@font-face{font-family:'Thunder LC';src:url('/fonts/thunder/Thunder-LightLCItalic.woff2') format('woff2'),url('/fonts/thunder/Thunder-LightLCItalic.woff') format('woff');font-weight:300;font-style:italic;font-display:swap}
+@font-face{font-family:'Thunder LC';src:url('/fonts/thunder/Thunder-LC.woff2') format('woff2'),url('/fonts/thunder/Thunder-LC.woff') format('woff');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Thunder LC';src:url('/fonts/thunder/Thunder-LCItalic.woff2') format('woff2'),url('/fonts/thunder/Thunder-LCItalic.woff') format('woff');font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:'Thunder LC';src:url('/fonts/thunder/Thunder-MediumLC.woff2') format('woff2'),url('/fonts/thunder/Thunder-MediumLC.woff') format('woff');font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:'Thunder LC';src:url('/fonts/thunder/Thunder-MediumLCItalic.woff2') format('woff2'),url('/fonts/thunder/Thunder-MediumLCItalic.woff') format('woff');font-weight:500;font-style:italic;font-display:swap}
+@font-face{font-family:'Thunder LC';src:url('/fonts/thunder/Thunder-SemiBoldLC.woff2') format('woff2'),url('/fonts/thunder/Thunder-SemiBoldLC.woff') format('woff');font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:'Thunder LC';src:url('/fonts/thunder/Thunder-SemiBoldLCItalic.woff2') format('woff2'),url('/fonts/thunder/Thunder-SemiBoldLCItalic.woff') format('woff');font-weight:600;font-style:italic;font-display:swap}
+@font-face{font-family:'Thunder LC';src:url('/fonts/thunder/Thunder-BoldLC.woff2') format('woff2'),url('/fonts/thunder/Thunder-BoldLC.woff') format('woff');font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:'Thunder LC';src:url('/fonts/thunder/Thunder-BoldLCItalic.woff2') format('woff2'),url('/fonts/thunder/Thunder-BoldLCItalic.woff') format('woff');font-weight:700;font-style:italic;font-display:swap}
+@font-face{font-family:'Thunder LC';src:url('/fonts/thunder/Thunder-ExtraBoldLC.woff2') format('woff2'),url('/fonts/thunder/Thunder-ExtraBoldLC.woff') format('woff');font-weight:800;font-style:normal;font-display:swap}
+@font-face{font-family:'Thunder LC';src:url('/fonts/thunder/Thunder-ExtraBoldLCItalic.woff2') format('woff2'),url('/fonts/thunder/Thunder-ExtraBoldLCItalic.woff') format('woff');font-weight:800;font-style:italic;font-display:swap}
+@font-face{font-family:'Thunder LC';src:url('/fonts/thunder/Thunder-BlackLC.woff2') format('woff2'),url('/fonts/thunder/Thunder-BlackLC.woff') format('woff');font-weight:900;font-style:normal;font-display:swap}
+@font-face{font-family:'Thunder LC';src:url('/fonts/thunder/Thunder-BlackLCItalic.woff2') format('woff2'),url('/fonts/thunder/Thunder-BlackLCItalic.woff') format('woff');font-weight:900;font-style:italic;font-display:swap}
+
+:root{--mv-display-font:'Random Grotesque',Arial,sans-serif;--mv-display-font-thunder:'Thunder','Arial Narrow',Arial,sans-serif;--mv-display-font-lc:'Thunder LC','Arial Narrow',Arial,sans-serif}
+body :is(.home-configured,.studio-page,.solutions-page,.contact-page,.portfolio-module) :is(h1,h2){font-family:var(--mv-display-font);font-weight:700;font-synthesis:none;letter-spacing:-.025em}
+body :is(.home-configured,.studio-page,.solutions-page,.contact-page,.portfolio-module) :is(h1,h2) em{font-family:inherit;font-weight:inherit;font-style:italic}
+body .studio-story h2{font-family:var(--mv-display-font);font-weight:600}
+body .home-contact .contact-form header h2,body .contact-glass-form header h2{font-family:var(--mv-font);font-weight:600;letter-spacing:-.02em}
+
+/* Random Grotesque supplied in Fontes_Miniverso.zip. */
+@font-face{font-family:'Random Grotesque';src:url('/fonts/random-grotesque/RG-StandardBook.ttf') format('truetype');font-style:normal;font-weight:400;font-display:swap}
+@font-face{font-family:'Random Grotesque';src:url('/fonts/random-grotesque/RG-StandardBookItalic.ttf') format('truetype');font-style:italic;font-weight:400;font-display:swap}
+@font-face{font-family:'Random Grotesque';src:url('/fonts/random-grotesque/RG-StandardMedium.ttf') format('truetype');font-style:normal;font-weight:500;font-display:swap}
+@font-face{font-family:'Random Grotesque';src:url('/fonts/random-grotesque/RG-StandardMediumItalic.ttf') format('truetype');font-style:italic;font-weight:500;font-display:swap}
+@font-face{font-family:'Random Grotesque';src:url('/fonts/random-grotesque/RG-StandardSemibold.ttf') format('truetype');font-style:normal;font-weight:600;font-display:swap}
+@font-face{font-family:'Random Grotesque';src:url('/fonts/random-grotesque/RG-StandardSemiboldItalic.ttf') format('truetype');font-style:italic;font-weight:600;font-display:swap}
+@font-face{font-family:'Random Grotesque';src:url('/fonts/random-grotesque/RG-StandardBold.ttf') format('truetype');font-style:normal;font-weight:700;font-display:swap}
+@font-face{font-family:'Random Grotesque';src:url('/fonts/random-grotesque/RG-StandardBoldItalic.ttf') format('truetype');font-style:italic;font-weight:700;font-display:swap}
+@font-face{font-family:'Random Grotesque Slim';src:url('/fonts/random-grotesque/RG-SlimBook.ttf') format('truetype');font-style:normal;font-weight:400;font-display:swap}
+@font-face{font-family:'Random Grotesque Slim';src:url('/fonts/random-grotesque/RG-SlimBlackItalic.ttf') format('truetype');font-style:italic;font-weight:900;font-display:swap}
+@font-face{font-family:'Random Grotesque Spacious';src:url('/fonts/random-grotesque/RG-SpaciousBook.ttf') format('truetype');font-style:normal;font-weight:400;font-display:swap}
+@font-face{font-family:'Random Grotesque Spacious';src:url('/fonts/random-grotesque/RG-SpaciousBlackItalic.ttf') format('truetype');font-style:italic;font-weight:900;font-display:swap}
+:root{--mv-font:'Random Grotesque',Arial,sans-serif;--mv-font-slim:'Random Grotesque Slim',Arial,sans-serif;--mv-font-spacious:'Random Grotesque Spacious',Arial,sans-serif}
+body .portfolio-module{--font-sans:var(--mv-font);font-family:var(--mv-font)}
+
+/* Keep the full hero title on the same supplied Bold weight. */
+body .cms-hero .hero-content :is(h1,h2)>span{font-weight:700}
+
+body #conteudo .portfolio-module :is(h1,h2){font-weight:700}

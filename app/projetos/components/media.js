@@ -1,6 +1,7 @@
 "use client";
 import { jsx as _jsx, jsxs as _jsxs, Fragment as _Fragment } from "react/jsx-runtime";
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import { ImageIcon, PlayIcon } from "@/app/projetos/components/ui";
 export function MediaPlaceholder({ label, video = false }) {
     return /*#__PURE__*/ _jsxs("div", {
@@ -18,13 +19,16 @@ export function MediaPlaceholder({ label, video = false }) {
         ]
     });
 }
-export function MediaPreview({ asset, ui, presentation = false }) {
+export function MediaPreview({ asset, ui, presentation = false, href }) {
     const [open, setOpen] = useState(false);
     const src = asset.type === "video" ? asset.poster : asset.src;
     const placeholder = /*#__PURE__*/ _jsx(MediaPlaceholder, {
-        label: presentation ? ui.videoPlaceholder : ui.coverPlaceholder,
-        video: presentation
+        label: presentation && asset.type === "video" ? ui.videoPlaceholder : ui.coverPlaceholder,
+        video: presentation && asset.type === "video"
     });
+    if (href) return <Link href={href} className="media-trigger" aria-label={`Ver projeto completo: ${asset.alt}`}>
+        {src ? <><img className="media-image" src={src} alt={asset.alt}/><span className="play-overlay"><span className="play-circle"><PlayIcon/></span></span></> : placeholder}
+    </Link>;
     if (!presentation) return src ? /*#__PURE__*/ _jsx("img", {
         className: "media-image",
         src: src,
@@ -218,4 +222,14 @@ export function Gallery({ assets, ui }) {
             })
         ]
     });
+}
+
+// Adapted from the chemistry frontend; reuse the shared accessible media dialog.
+export function PresentationPlayer({asset,ui}){
+ const [open,setOpen]=useState(false);
+ const minutes=asset.duration===undefined?'':Math.floor(asset.duration/60)+':'+String(Math.floor(asset.duration%60)).padStart(2,'0');
+ return <><div className="case-presentation case-vr-player glass">
+ {asset.poster?<img className="case-player-poster" src={asset.poster} alt=""/>:<svg className="case-vr-icon" viewBox="0 0 128 64" fill="none" aria-hidden="true"><rect x="4" y="9" width="120" height="43" rx="15" stroke="currentColor"/><circle cx="40" cy="30" r="14" stroke="currentColor"/><circle cx="88" cy="30" r="14" stroke="currentColor"/><path d="M55 42h18M18 56h32m28 0h32M62 18h4" stroke="currentColor"/></svg>}
+ <button type="button" className="case-watch-button" onClick={()=>setOpen(true)} aria-label={(ui.watchPresentation||ui.play)+': '+asset.alt}><PlayIcon/>{ui.watchPresentation||ui.play}{minutes&&<span>· {minutes}</span>}</button>
+ </div>{open&&<MediaDialog asset={asset} ui={ui} onClose={()=>setOpen(false)}/>}</>;
 }

@@ -29,3 +29,23 @@ body .section-heading>div>p{color:#aeb3c3;line-height:1.7}
 @media(max-width:900px){body .site-header .nav{display:flex;visibility:hidden;opacity:0;transform:translateY(-10px);pointer-events:none;top:82px;left:var(--mv-gutter);right:var(--mv-gutter);padding:18px 24px 24px;border:1px solid var(--mv-border);border-radius:0 0 var(--mv-radius) var(--mv-radius);background:#090f20f5;box-shadow:0 24px 60px #02061766;transition:opacity .22s ease,transform .3s var(--mv-ease),visibility .22s;max-height:calc(100dvh - 100px);overflow-y:auto}body .site-header .nav.open{visibility:visible;opacity:1;transform:none;pointer-events:auto}body .nav>a:not(.nav-cta):after{bottom:8px;right:auto;width:28px}body .nav .nav-cta{min-height:48px}}
 @media(max-width:620px){body .site-header .nav{top:70px}body .hero-content h1{font-size:clamp(36px,10vw,45px)}body .hero-content h1>span{font-size:clamp(29px,8.5vw,38px)}body .contact-glass,body .solution-tile{backdrop-filter:blur(10px)}body .footer-wordmark{font-size:clamp(40px,14vw,65px)}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}body *,body *:before,body *:after{animation:none!important;transition:none!important}body .site-header .nav{transform:none}}
+
+/* Public header: fully transparent at the top, solid black after scrolling. */
+body .site-header.cms-header:not(.cms-preview-header){background:transparent;backdrop-filter:none;-webkit-backdrop-filter:none;border-bottom-color:transparent;box-shadow:none;transition:background-color .3s ease,border-color .3s ease,box-shadow .3s ease}
+body .site-header.cms-header:not(.cms-preview-header)[data-scrolled],body .site-header.cms-header:not(.cms-preview-header):has(.nav.open){background:#000;border-bottom-color:rgba(255,255,255,.07);box-shadow:0 8px 28px rgba(0,0,0,.16)}
+/* Extend the project photograph underneath the transparent header. */
+body #conteudo .portfolio-module{padding-top:0}
+body #conteudo .portfolio-module .project-world{padding-top:82px}
+@media(max-width:620px){body #conteudo .portfolio-module .project-world{padding-top:70px}}
+
+/* Place each opening photograph behind the shared transparent header. */
+body #conteudo .studio-page,body #conteudo .solutions-page{padding-top:0}
+body #conteudo .studio-page .studio-intro:first-child .studio-intro-inner{padding-top:calc(var(--studio-section-padding,180px) + 82px)}
+body #conteudo .solutions-page>.solutions-catalog:first-child{padding-top:187px}
+@media(max-width:900px){body #conteudo .solutions-page>.solutions-catalog:first-child{padding-top:162px}}
+@media(max-width:620px){body #conteudo .studio-page .studio-intro:first-child .studio-intro-inner{padding-top:calc(min(var(--studio-section-padding,180px),100px) + 70px)}body #conteudo .solutions-page>.solutions-catalog:first-child{padding-top:135px}}
+
+body .site-header.cms-header:not(.cms-preview-header){background:var(--header-top-bg,transparent)}
+body .site-header.cms-header:not(.cms-preview-header)[data-scrolled],body .site-header.cms-header:not(.cms-preview-header):has(.nav.open){background:var(--header-scrolled-bg,#000)}
+body[data-card-hover="false"] #conteudo [data-interactive-card]:hover{transform:none;background-image:none;box-shadow:none}
+body[data-card-hover="false"] #conteudo [data-interactive-card]:hover img{transform:none}

@@ -64,3 +64,27 @@ A pasta `Front-MiniVerso-projetos-V1-main` foi incorporada ao aplicativo princip
 `/projetos` reúne os seis projetos importados e os três anteriores. `/projetos/[slug]` exibe detalhes, ficha técnica e galeria. Conteúdos sem arquivo de mídia mantêm os estados de indisponibilidade da origem. A edição fica em **Admin → Portfólio integrado**; o editor visual cobre os campos principais e a edição de estrutura completa permite alterar seções, galerias e demais dados com validação no servidor.
 
 Cabeçalho e rodapé usam `lib/navigation.js`. As rotas antigas `/o-estudio` e `/solucoes` redirecionam para `/sobre` e `/servicos`. A home leva ao estúdio, soluções, portfólio e contato; os cards de projeto levam aos seus detalhes. O teste `scripts/navigation-qa.cjs` verifica os links, estado ativo, filtros, detalhes, diálogo de mídia, menus móveis, redirecionamentos, 404 e salvamento administrativo.
+
+
+### Página inicial e configurações gerais
+
+A home usa um esquema de conteúdo em `lib/site-content.js`, salvo em `data/content.json` nas chaves `home` e `site`. Em **Admin → Página inicial**, edite hero, textos, imagens, cores, botões, espaçamentos, colunas e layouts. Adicione, duplique, oculte, reordene ou troque componentes: abertura, faixa de temas, apresentação, serviços, projetos, etapas, texto/imagem, cards, chamada e contato. A prévia de rascunho tem opções para computador e celular; os formulários da prévia não enviam mensagens.
+
+Em **Admin → Header e rodapé**, altere nome e logo, links e ordem dos menus, botão do cabeçalho, posicionamento, cores, redes sociais e rodapé. As configurações são compartilhadas pelas páginas públicas e aparecem no próximo acesso após salvar, sem recompilar o site.
+
+Serviços e projetos podem usar os cadastros existentes ou listas personalizadas da seção. Cada formulário da home tem textos e opções de serviço próprios e aceita campos adicionais de texto, e-mail, telefone, número, seleção ou mensagem longa. É possível definir quais campos adicionais são obrigatórios. As mensagens são validadas no navegador e na API, persistidas com protocolo e origem e exibidas em **Mensagens recebidas**, incluindo as respostas adicionais. Falhas de envio preservam o que o visitante digitou.
+
+O armazenamento usa gravação atômica e uma fila por processo para evitar que salvamentos simultâneos sobrescrevam mensagens. Continua sendo um arquivo JSON local: requer disco persistente e uma instância de servidor. Para múltiplas instâncias ou hospedagem sem disco persistente, migre o módulo `lib/db.js` para banco de dados. Não há disparo automático de e-mail ou WhatsApp.
+
+Validação de integração: `node scripts/home-admin-qa.cjs`, com o servidor local em execução. Instale Playwright separadamente e indique o módulo com `PLAYWRIGHT_MODULE` se ele não estiver na pasta temporária usada pelo teste. O teste modifica temporariamente a home e as configurações, verifica envio e caixa de entrada e restaura os dados no final, removendo apenas a mensagem de teste.
+
+Em Admin → O estúdio, as seções permitem duplicação e troca entre introdução, cards e chamada. É possível configurar cores por seção, alinhamento, espaçamento, colunas, ícones, links dos cards e altura, imagem, enquadramento e descrição do banner final. O banner usa public/studio-cta-background.png, fornecido pelo usuário. O teste node scripts/studio-admin-qa.cjs verifica edição visual, prévia, salvamento público, componentes e responsividade e restaura o conteúdo ao final.
+
+
+### Fontes Thunder
+
+As 36 variantes fornecidas estão em `public/fonts/thunder`, com WOFF2, WOFF e TTF e a licença original. `app/brand-fonts.css` registra a família `Thunder` (HC) e `Thunder LC`, com pesos de 100 a 900 em normal e itálico. Os títulos públicos usam a variável `--mv-display-font`; a alternativa LC está disponível em `--mv-display-font-lc`. O navegador prioriza WOFF2 e carrega apenas os pesos utilizados.
+
+O pacote Fontes_Miniverso.zip também fornece Random Grotesque: Standard (Book, Medium, Semibold e Bold, em normal e itálico), Slim (Book e Black Italic) e Spacious (Book e Black Italic). Os arquivos e a licença estão em public/fonts/random-grotesque. A família Standard é a fonte de leitura e interface, definida em --mv-font. Thunder permanece nos títulos.
+
+Após comparação visual das famílias do pacote, os títulos usam Random Grotesque Standard Bold (700) e Bold Italic nos destaques, definidos por --mv-display-font. Thunder e Thunder LC continuam disponíveis; --mv-display-font-thunder preserva a alternativa Thunder.
