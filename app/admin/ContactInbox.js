@@ -1,0 +1,3 @@
+﻿export default function ContactInbox({contacts=[]}){
+ return <div className="admin-list contact-inbox">{contacts.length===0?<p>Nenhuma mensagem recebida ainda.</p>:contacts.map(contact=><article key={contact.id}><div><small>{contact.protocol||'Contato'} · {new Date(contact.createdAt).toLocaleString('pt-BR',{timeZone:'America/Sao_Paulo'})}</small><h3>{contact.name}</h3><p><strong>{contact.subject}</strong>{contact.company?` · ${contact.company}`:''}</p><p className="inbox-message">{contact.message}</p><p><a href={`mailto:${contact.email}`}>{contact.email}</a>{contact.phone?` · ${contact.phone}`:''}</p><small>Canal preferido: {{email:'E-mail',whatsapp:'WhatsApp',phone:'Ligação'}[contact.preference]||'E-mail'}</small></div></article>)}</div>
+}

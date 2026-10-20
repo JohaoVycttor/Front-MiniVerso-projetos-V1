@@ -1,62 +1,66 @@
-# Miniverso · Front-end
+# Miniverso - Portfólio institucional
 
-Página de projetos em **Next.js App Router, React e TypeScript**, construída a partir dos três prints fornecidos. CSS próprio, fonte local, painéis com transparência e blur suave, filtros, menu mobile, páginas de projetos e galeria com imagens e vídeos.
+Aplicação full-stack criada com Next.js e React para apresentar a Miniverso, seus serviços e projetos. Inclui formulário de contato e painel administrativo para gerenciar o conteúdo do portfólio.
 
-## Executar
+## Como executar no VS Code
+
+1. Extraia a pasta e abra `miniverso-portfolio` no VS Code.
+2. Abra o terminal e execute:
 
 ```bash
 npm install
+```
+
+3. Copie `.env.example` para `.env.local` e altere as credenciais.
+4. Execute:
+
+```bash
 npm run dev
 ```
 
-Abra http://localhost:3000. A página de projetos também está em `/projetos`.
+5. Abra `http://localhost:3000`.
 
-```bash
-npm run typecheck
-npm test
-npm run build
-npm start
-```
+O painel fica em `http://localhost:3000/admin`.
 
-## Conteúdo separado da apresentação
+## Estrutura
 
-- `src/data/content.json`: fonte centralizada dos dados simulados, inclusive textos de interface, navegação, categorias, cards, galerias, metadados e rodapé.
-- `src/types/content.ts`: contrato `PageContent` esperado do back-end.
-- `src/lib/content.ts`: carregamento e validação da API; seleção de conteúdo publicado e ordenação.
-- `src/components/`: componentes visuais reutilizáveis. `SectionRenderer` resolve cada seção por `type`.
-- `src/app/`: rotas da página, projetos e páginas institucionais.
+- `app/`: páginas, componentes e rotas de API.
+- `data/content.json`: banco local inicial de serviços e projetos.
+- `lib/`: acesso aos dados e autenticação.
+- `public/`: imagens e identidade visual.
 
-Os projetos e os textos institucionais são demonstrativos, baseados nas referências, e devem ser revisados antes da publicação. Os links de redes sociais são exemplos para substituição pelos perfis oficiais. Os espaços de imagem/vídeo permanecem como nas referências até o cadastro das mídias. A foto de fundo foi gerada com ImageGen e o símbolo é uma aproximação em SVG; substitua pelos arquivos oficiais quando disponíveis. Não foi implementado um painel administrativo nem um back-end.
+## Observações para produção
 
-## Conectar a API
+O projeto usa JSON para facilitar a execução local. Antes de publicar em ambiente serverless, substitua `lib/db.js` por PostgreSQL, MySQL ou outro banco persistente. Configure `ADMIN_USER`, `ADMIN_PASSWORD` e uma `SESSION_SECRET` forte no servidor.
 
-Copie `.env.example` para `.env.local` e configure:
+### Página O estúdio
 
-```dotenv
-CONTENT_API_URL=https://seu-backend.com/api/pages/projetos
-```
+A rota `/sobre` é editada em `/admin` → **O estúdio**. O editor permite alterar textos, cores, imagens por URL HTTPS ou caminho em `public`, posição e escurecimento do fundo, cards, ícones, colunas e layout. Seções podem ser adicionadas, removidas, ocultadas e reordenadas. Clique em **Salvar página** antes de abrir a página pública.
 
-Sem essa variável, `getContent()` carrega o JSON simulado. Com a variável configurada, carrega o endpoint no servidor, sem cache, com limite de 10 segundos, verifica o status HTTP e valida o contrato antes de renderizar. Não é preciso mudar os componentes. Falhas da API mostram uma página de erro com opção de tentar novamente, sem substituir silenciosamente o conteúdo real por dados simulados. O endereço da API não é exposto como variável pública no navegador.
+O conteúdo é persistido em `data/content.json`, na chave `studio`. Os valores iniciais ficam em `lib/studio-content.js`. A rota é dinâmica: não exige novo build após uma edição. O endpoint autenticado `PUT /api/admin/content` valida a estrutura antes de salvar. Os tipos de seção disponíveis são introdução, cards e chamada para contato; novos tipos visuais podem ser acrescentados ao renderizador `app/sobre/StudioPage.js`.
 
-O endpoint deve retornar o objeto completo de `src/data/content.json`, com `schemaVersion: 1`. Os IDs devem ser únicos; categorias e destaques devem referenciar itens existentes. Mídias aceitam caminhos locais ou URLs HTTP(S). Vídeos são arquivos diretos reproduzíveis pelo navegador, como MP4/WebM; URLs de páginas do YouTube/Vimeo não são URLs de arquivo e exigiriam um componente de embed específico.
+A persistência atual requer disco gravável e persistente no servidor, como o restante do painel existente. Em hospedagem sem disco persistente, substitua `lib/db.js` por um banco de dados antes de publicar. A foto inicial reutiliza `public/hero-vr.jpg`; a foto exata da referência não foi fornecida como arquivo separado.
 
-## Campos para o futuro painel
+No editor de O estúdio, **Visualizar alterações** abre uma prévia do rascunho em desktop ou celular, sem salvar nem publicar. Os links ficam desativados nessa prévia. Feche pelo botão ou pela tecla Escape para continuar editando. O navegador avisa ao tentar sair/recarregar com alterações não salvas.
 
-- **Seções**: `sections[].type` escolhe `hero`, `featured`, `projects` ou `contact`; `order` controla a posição e `visible` a publicação. Títulos, descrições e ações pertencem à própria seção. O `id` é também a âncora HTML; atualize os links de navegação ao alterar IDs. `projects.columns` aceita 2 ou 3 colunas no desktop.
-- **Cards**: `projects[].order`, `visible`, `title`, `description`, `tag` e `categoryIds` controlam a listagem. O destaque referencia `projectId`. Um projeto oculto também deixa de aparecer no destaque e seu detalhe retorna 404.
-- **Projetos**: `slug` define `/projetos/[slug]`; `introduction`, `facts` e `story` alimentam os detalhes.
-- **Mídias**: `cover`, `presentation` e `gallery[]` usam `{ id, type, src?, poster?, alt, caption? }`. `type` aceita `image` ou `video`; `poster` é a capa opcional do vídeo. A ordem do array define a ordem da galeria. Sem `src`, o componente mostra um estado vazio, sem imagens quebradas ou reprodução fictícia.
-- **Navegação e marca**: nome, símbolo, foto de fundo, contatos e links do rodapé vêm do mesmo contrato.
-- **Páginas institucionais**: `pages[]` controla `/o-estudio` e `/solucoes` e pode cadastrar outras páginas no mesmo formato.
+### Página Soluções
 
-O formulário/upload, autenticação, persistência e publicação do futuro painel devem ser implementados no back-end. O front-end atual apenas consome o conteúdo publicado. Os botões de contato abrem o aplicativo de e-mail usando `mailto:`.
+A guia **Soluções** abre `/servicos`. Edite em `/admin` → **Página Soluções**: títulos, cores, imagens e enquadramento, escurecimento, serviços, benefícios, etiquetas, ícones, links, tabela comparativa e etapas. É possível adicionar, remover, ocultar e reordenar blocos, escolher uma ou duas colunas no catálogo e destacar um serviço em toda a linha. A prévia mostra o rascunho em desktop e celular antes do salvamento.
 
-## Acessibilidade e responsividade
+O conteúdo fica em `data/content.json`, na chave `solutions`, com valores iniciais em `lib/solutions-content.js`. O endpoint autenticado valida os dados, e `/servicos` lê as alterações sem recompilar. A lista **Serviços** existente continua usada pela página inicial. As fotos desta implementação reutilizam `public/hero-vr.jpg` e podem ser substituídas por caminho local ou URL HTTPS. As fotos originais das referências não foram fornecidas separadamente.
 
-Idioma `pt-BR`, landmarks, títulos hierárquicos, foco visível, link para pular a navegação, estado dos filtros com `aria-pressed`, contagem anunciada, menu com Escape e diálogo nativo com retenção/restauração de foco. Transições respeitam `prefers-reduced-motion`. Cards não têm altura de texto fixa nem títulos truncados. A grade passa de três para duas e depois uma coluna.
+### Página Contato
 
-## Asset gerado
+A rota `/contato` segue a composição da referência com fundo fotográfico, painéis translúcidos, formulário, canais diretos, próximas etapas e demonstrações dos estados de envio. Edite textos, fundo, enquadramento, cores, serviços e blocos em `/admin` → **Página Contato**; a prévia não envia mensagens.
 
-Ferramenta: ImageGen integrada. Arquivo usado: `public/images/vr-background.webp`.
+O formulário valida os campos no navegador e no servidor, exige autorização de contato, solicita telefone quando o canal escolhido depende dele, preserva os dados após falha e gera protocolo após persistir a mensagem. Os contatos ficam disponíveis em `/admin` → **Mensagens recebidas**. Não há envio automático de e-mail ou WhatsApp: o retorno é feito pela equipe pelo canal solicitado. Os dados usam o armazenamento local existente em `data/content.json`, que exige disco persistente em produção.
 
-Prompt: fotografia editorial horizontal de uma mulher adulta com cabelos escuros, headset de realidade virtual e braços levantados; luz vermelha lateral, fundo azul/malva, textura sutil e espaço negativo para títulos, seguindo a composição e as cores dos prints; sem textos, logos, cards ou marca d'água. A versão PNG original está em `public/images/vr-background.png`.
+O fundo `public/contact-vr.png` foi gerado com a ferramenta ImageGen integrada, inspirado na referência; não é a foto original. O prompt completo está em `scripts/contact-image-prompt.txt`. A configuração inicial da página fica em `lib/contact-content.js`. O teste `scripts/contact-qa.cjs` verifica quatro larguras, validação, estados, protocolo, registro e painel, removendo apenas a mensagem temporária criada por ele.
+
+### Integração do portfólio e navegação
+
+A pasta `Front-MiniVerso-projetos-V1-main` foi incorporada ao aplicativo principal: componentes em `app/projetos/components`, recursos em `public/portfolio`, CSS limitado ao portfólio e conteúdo persistido na chave `portfolio` de `data/content.json`. A pasta original permanece preservada como referência e não precisa de servidor separado.
+
+`/projetos` reúne os seis projetos importados e os três anteriores. `/projetos/[slug]` exibe detalhes, ficha técnica e galeria. Conteúdos sem arquivo de mídia mantêm os estados de indisponibilidade da origem. A edição fica em **Admin → Portfólio integrado**; o editor visual cobre os campos principais e a edição de estrutura completa permite alterar seções, galerias e demais dados com validação no servidor.
+
+Cabeçalho e rodapé usam `lib/navigation.js`. As rotas antigas `/o-estudio` e `/solucoes` redirecionam para `/sobre` e `/servicos`. A home leva ao estúdio, soluções, portfólio e contato; os cards de projeto levam aos seus detalhes. O teste `scripts/navigation-qa.cjs` verifica os links, estado ativo, filtros, detalhes, diálogo de mídia, menus móveis, redirecionamentos, 404 e salvamento administrativo.
