@@ -1,5 +1,5 @@
 /* Shared CoreNode-inspired language for the commercial pages. */
-body .core-page{--core-ink:#f4f5fa;--core-muted:#a8b1c2;--core-line:#dce3f026;--core-accent:#9edceb;color:var(--core-ink);background-color:#0c0407;background-image:linear-gradient(#0c0407ed,#0c0407ed),var(--core-image,none);background-size:cover;background-position:center;background-attachment:fixed;overflow-wrap:break-word}
+body .core-page{--core-ink:#f4f5fa;--core-muted:#a8b1c2;--core-line:#dce3f026;--core-accent:#9edceb;color:var(--core-ink);background-color:var(--core-background,#0c0407);background-image:linear-gradient(#0c0407ed,#0c0407ed),var(--core-image,none);background-image:linear-gradient(color-mix(in srgb,var(--core-background,#0c0407) 93%,transparent),color-mix(in srgb,var(--core-background,#0c0407) 93%,transparent)),var(--core-image,none);background-size:cover;background-position:center;background-attachment:fixed;overflow-wrap:break-word}
 .core-page .core-container{width:calc(100% - var(--mv-gutter)*2);max-width:1280px;margin-inline:auto}
 body .core-page h1,body .core-page h2{font-weight:400;letter-spacing:-.055em;text-transform:none;line-height:1.05}
 body .core-page em{font-style:normal;color:var(--core-accent)}
@@ -11,8 +11,8 @@ body .core-page .core-masthead h1{margin:0 0 0 -.045em;color:var(--core-ink);fon
 .core-page .core-masthead>span:last-child{left:auto;top:auto;right:-7px;bottom:-9px}
 .core-page .core-hero-stage{position:relative;isolation:isolate;display:flex;flex-direction:column;min-height:650px;border-inline:1px solid var(--core-line);overflow:hidden}
 .core-page .vr-scene{position:absolute;inset:0;z-index:-2;overflow:hidden}
-.core-page .vr-scene picture,.core-page .vr-scene img{display:block;width:100%;height:100%}
-.core-page .vr-scene img{object-fit:cover;object-position:var(--core-hero-position,center);filter:saturate(.7) brightness(.78);transform:translate3d(var(--scene-x,0px),var(--scene-y,0px),0) scale(1.035);transition:transform 1.5s cubic-bezier(.16,1,.3,1)}
+.core-page .vr-scene picture,.core-page .vr-scene img,.core-page .vr-scene video{display:block;width:100%;height:100%}
+.core-page .vr-scene img,.core-page .vr-scene video{object-fit:cover;object-position:var(--core-hero-position,center);filter:saturate(.7) brightness(.78);transform:translate3d(var(--scene-x,0px),var(--scene-y,0px),0) scale(1.035);transition:transform 1.5s cubic-bezier(.16,1,.3,1)}
 .core-page .vr-scene:after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,#0c0407eb,#0c04073d 75%),linear-gradient(0deg,#0c0407e8,transparent 55%);pointer-events:none}
 .core-page .vr-scene-grid{position:absolute;inset:0;background-image:linear-gradient(#d9ecf207 1px,transparent 1px),linear-gradient(90deg,#d9ecf207 1px,transparent 1px);background-size:100px 100px;mask-image:linear-gradient(90deg,transparent,#000)}
 .core-page .vr-scene-orbit,.core-page .vr-scene-coordinate{display:none}
@@ -53,7 +53,7 @@ body:has(.core-page) .footer-wordmark{font-size:clamp(58px,15vw,206px);font-weig
  .core-page .core-masthead{padding:15px 0 19px}body .core-page .core-masthead h1{font-size:17.3vw}
  .core-page .core-hero-stage{min-height:700px}
  .core-page .core-hero-meta{padding:20px 16px;font-size:8px;gap:10px}.core-page .core-hero-meta>span:nth-child(2){display:none}
- .core-page .vr-scene img{filter:saturate(.6) brightness(.65)}
+ .core-page .vr-scene img,.core-page .vr-scene video{filter:saturate(.6) brightness(.65)}
  .core-page .vr-scene:after{background:linear-gradient(90deg,#0c040799,transparent),linear-gradient(0deg,#0c0407,transparent 95%)}
  .core-page .core-hero-copy{margin:136px 20px 28px;max-width:none}
  .core-page .core-hero-copy .core-label{font-size:8px;letter-spacing:.07em}
@@ -68,7 +68,7 @@ body:has(.core-page) .footer-wordmark{font-size:clamp(58px,15vw,206px);font-weig
 }
 @media(prefers-reduced-motion:reduce){
  body .core-page{background-attachment:scroll}
- .core-page .vr-scene img{transform:none;transition:none}
+ .core-page .vr-scene img,.core-page .vr-scene video{transform:none;transition:none}
  .core-page .home-marquee-track{animation:none;width:100%}.core-page .home-marquee-group{width:100%;min-width:0;flex-wrap:wrap;gap:18px}.core-page .home-marquee-group[aria-hidden=true],.core-page .home-marquee-toggle{display:none}
  .core-page .core-scroll svg{animation:none}
 }

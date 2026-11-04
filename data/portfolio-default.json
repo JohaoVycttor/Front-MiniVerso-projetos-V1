@@ -1,5 +1,14 @@
 {
   "schemaVersion": 1,
+  "pageTitle": "projetos",
+  "heroMeta": {
+    "label": "MINIVERSO",
+    "value": "Tecnologia com propósito",
+    "originLabel": "ORIGEM",
+    "originValue": "São Luís, Brasil",
+    "experiencesLabel": "EXPERIÊNCIAS",
+    "experiencesValue": "VR / AR / MR / 360°"
+  },
   "metadata": {
     "title": "Projetos — Miniverso",
     "description": "Realidades que já estão no mundo. Explore experiências de realidade virtual, aumentada e soluções digitais do Miniverso."
@@ -8,7 +17,9 @@
     "name": "miniverso",
     "tagline": "Pequeno no nome.\nInfinito em possibilidades.",
     "logo": "/portfolio/images/miniverso-symbol.svg",
-    "background": "/portfolio/images/vr-background.webp"
+    "background": "/portfolio/images/vr-background.webp",
+    "video": "",
+    "poster": ""
   },
   "navigation": [
     {
@@ -70,11 +81,24 @@
       "visible": true,
       "order": 0,
       "eyebrow": "PROJETOS",
+      "imageAlt": "Cena de realidade virtual da Miniverso",
+      "imagePosition": "center 65%",
       "heading": {
         "text": "REALIDADES QUE JÁ",
         "accent": "ESTÃO NO MUNDO."
       },
-      "description": "Uma seleção do que já construímos para escolas, instituições e marcas.\nCada projeto traz o desafio, o formato escolhido e o resultado percebido pelo público."
+      "description": "Uma seleção do que já construímos para escolas, instituições e marcas.\nCada projeto traz o desafio, o formato escolhido e o resultado percebido pelo público.",
+      "actionHref": "/contato",
+      "actionLabel": "Vamos criar o próximo",
+      "scrollHref": "#todos-projetos",
+      "scrollLabel": "Explore o portfólio",
+      "scrollCueLabel": "Continue explorando",
+      "specialties": [
+        "Educação",
+        "Realidade virtual",
+        "Realidade aumentada",
+        "Vídeos 360°"
+      ]
     },
     {
       "id": "destaque",
@@ -539,6 +563,7 @@
     "previous": "Mídia anterior",
     "next": "Próxima mídia",
     "backToProjects": "Voltar aos projetos",
+    "continueStory": "Continuar a história do projeto",
     "galleryLabel": "POR DENTRO DA EXPERIÊNCIA",
     "menuLabel": "Abrir menu",
     "skipToContent": "Pular para o conteúdo",

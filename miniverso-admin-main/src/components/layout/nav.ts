@@ -1,5 +1,5 @@
 import type { IconType } from "react-icons";
-import { LuHouse, LuInbox } from "react-icons/lu";
+import { LuFiles, LuHouse, LuInbox } from "react-icons/lu";
 
 export type NavItem = {
   href: string;
@@ -9,12 +9,10 @@ export type NavItem = {
   exact?: boolean;
 };
 
-/**
- * Módulos do painel: editor da página inicial (RF15, RF18) e leads (RF16, RF17).
- * Não há "visão geral" com métricas: o DRDA não prevê (ver docs/PROPOSTAS.md).
- */
+/** Módulos de conteúdo do site e gerenciamento de leads. */
 export const NAV_ITEMS: NavItem[] = [
   { href: "/admin/pagina-inicial", label: "Página inicial", icon: LuHouse },
+  { href: "/admin/paginas", label: "Páginas do site", icon: LuFiles },
   { href: "/admin/leads", label: "Leads", icon: LuInbox },
 ];
 

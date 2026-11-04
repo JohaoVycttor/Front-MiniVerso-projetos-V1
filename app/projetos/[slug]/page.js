@@ -9,9 +9,9 @@ import { MediaPreview, Gallery } from "@/app/projetos/components/media";
 import { Contact, ProjectFacts } from "@/app/projetos/components/sections";
 import MobileDisclosure from "@/app/components/MobileDisclosure";
 
-function ProjectStory({blocks}) {
+function ProjectStory({blocks,summary}) {
     const render = block => <section key={block.title}><h2>{block.title}</h2><p>{block.text}</p></section>;
-    return <>{blocks.slice(0,1).map(render)}{blocks.length>1&&<MobileDisclosure summary="Continuar a história do projeto">{blocks.slice(1).map(render)}</MobileDisclosure>}</>;
+    return <>{blocks.slice(0,1).map(render)}{blocks.length>1&&<MobileDisclosure summary={summary}>{blocks.slice(1).map(render)}</MobileDisclosure>}</>;
 }
 export async function generateMetadata({ params }) {
     const { slug } = await params;
@@ -72,7 +72,7 @@ export default async function ProjectDetail({ params }) {
                             }),
                             /*#__PURE__*/ _jsx("div", {
                                 className: "project-story",
-                                children: <ProjectStory blocks={project.story}/>
+                                children: <ProjectStory blocks={project.story} summary={content.ui.continueStory}/>
                             })
                         ]
                     }),
