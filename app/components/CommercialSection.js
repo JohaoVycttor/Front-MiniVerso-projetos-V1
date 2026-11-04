@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import ImmersiveParticles from "./ImmersiveParticles";
 import { ArrowUpRight } from "lucide-react";
 
@@ -30,3 +30,4 @@ export default function CommercialSection() {
     </div>
   </section>;
 }
+

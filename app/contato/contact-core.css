@@ -1,0 +1,68 @@
+body .contact-core{padding-top:0;padding-bottom:100px;overflow:hidden;--contact-accent:#9edceb}
+body .contact-core:after{display:none}
+body .contact-core .contact-kicker{font:9px/1.7 Consolas,monospace;letter-spacing:.12em;color:#a7bdce}
+.contact-core .contact-composition{scroll-margin-top:110px}
+.contact-core .contact-form-intro{display:flex;justify-content:space-between;align-items:center;gap:24px;margin-bottom:36px;padding-top:30px;border-top:1px solid var(--core-line)}
+.contact-core .contact-form-intro .contact-kicker{margin:0}
+.contact-core .contact-form-intro>span:last-child{font:8px Consolas,monospace;letter-spacing:.08em;color:#7e9bb3}
+body .contact-core .contact-columns{grid-template-columns:1.5fr .8fr;gap:9%;align-items:start}
+body .contact-core .contact-columns.stacked{grid-template-columns:1fr}
+body .core-page.contact-page.contact-core .contact-glass-form{padding:35px 0 0;border:0;border-top:1px solid var(--core-line);border-radius:0;background:none;box-shadow:none;backdrop-filter:none}
+body .contact-core .contact-glass-form header h2{font-size:clamp(30px,3.2vw,46px);font-weight:400;line-height:1.1;letter-spacing:-.045em}
+body .contact-core .contact-glass-form header p{font-size:12px;line-height:1.8;color:#849db4;margin:16px 0 32px}
+body .contact-core .contact-fields{gap:26px 22px}
+body .contact-core .contact-field{font-size:11px;line-height:1.8;color:#b8c9db}
+body .contact-core .contact-field input,body .contact-core .contact-field select,body .contact-core .contact-field textarea{border:1px solid #a8bfd22b;border-radius:4px;background:#ffffff03;color:#e2ebf5;box-shadow:none;padding:14px 16px;transition:border-color .25s,background .25s,box-shadow .25s}
+body .contact-core .contact-field input::placeholder,body .contact-core .contact-field textarea::placeholder{color:#738aa2}
+body .contact-core .contact-field input:focus,body .contact-core .contact-field select:focus,body .contact-core .contact-field textarea:focus{border-color:#9dd8ec77;background:#a1d8f008;box-shadow:0 0 0 3px #9dd8ec0a}
+body .contact-core .contact-field select option{background:#11121a;color:#d4e2f0}
+body .contact-core .contact-message-help{color:#7b99b1;font-size:10px}
+body .contact-core .contact-consent{font-size:11px;color:#9faec3;line-height:1.8}
+body .contact-core .contact-preference span{border-color:#93afc72b;background:none;font-size:11px;color:#a1b7cb}
+body .contact-core .contact-preference input:checked+span{background:#c3e1f20a;border-color:#c3e1f255;color:#dceefa}
+body .contact-core .contact-submit{margin-top:8px;gap:22px}
+body .contact-core .contact-send{font-size:12px;padding:13px 20px}
+body .contact-core .contact-submit>p{font-size:10px;line-height:1.9;color:#8c9fb7;max-width:270px}
+body .contact-core .contact-privacy{border-color:var(--core-line);color:#95acc1}
+body .contact-core .contact-privacy summary{font-size:11px}
+body .contact-core .contact-privacy p{font-size:11px;line-height:1.9;color:#8fa4bc}
+body .core-page.contact-page.contact-core .contact-aside .contact-glass{padding:30px 0;border:0;border-top:1px solid var(--core-line);border-radius:0;background:none;box-shadow:none;backdrop-filter:none}
+body .contact-core .contact-aside{gap:28px}
+body .contact-core .contact-channels{gap:28px}
+body .contact-core .contact-channels small{font:8px/1.8 Consolas,monospace;letter-spacing:.1em;color:#7d99b4}
+body .contact-core .contact-channels a,body .contact-core .contact-channels span{font-size:13px;line-height:1.8;color:#d3e1ef}
+body .contact-core .contact-channels svg{color:#88adc6}
+body .contact-core .contact-aside li>span{font:9px Consolas,monospace;color:#84a5bd;padding-top:5px}
+body .contact-core .contact-aside h3{font-size:17px;font-weight:400;line-height:1.3;letter-spacing:-.025em;color:#d7e4f1}
+body .contact-core .contact-aside li p{font-size:12px;line-height:1.9;color:#93a7bd}
+body .contact-core .contact-data-note{font-size:10px;line-height:1.9;color:#7e9bb1;margin:0}
+body .contact-core .contact-states{margin-top:100px;padding-top:80px;border-top:1px solid var(--core-line)}
+body .contact-core .contact-states-heading{display:grid;grid-template-columns:1.2fr .7fr;align-items:end;gap:10%;margin-bottom:45px}
+body .contact-core .contact-states h2{font-size:clamp(34px,4.1vw,60px);font-weight:400;line-height:1.06;letter-spacing:-.055em;text-transform:none;max-width:860px}
+body .contact-core .contact-states h2 em{display:block}
+body .contact-core .contact-states-heading>p{font-size:13px;line-height:1.9;color:#9aabc0;max-width:330px}
+body .core-page.contact-page.contact-core .contact-state-cards .contact-glass{padding:26px 0;border:0;border-top:1px solid var(--core-line);border-radius:0;background:none;box-shadow:none;backdrop-filter:none}
+body .contact-core .contact-state-type{font-size:8px;letter-spacing:.1em}
+body .contact-core .contact-state-type svg{border:0;border-radius:0;padding:0;background:none}
+body .contact-core .contact-state-cards h3{font-size:25px;line-height:1.2;letter-spacing:-.035em;font-weight:400}
+body .contact-core .contact-state-cards p{font-size:12px;line-height:1.9;color:#9aabc1}
+body .core-page.contact-page.contact-core .contact-validation{padding:30px 0;border:0;border-top:1px solid var(--core-line);border-radius:0;background:none;box-shadow:none;backdrop-filter:none}
+body .contact-core .contact-validation label{font-size:10px;color:#9bb3ca}
+body .contact-core .contact-demo-input{border-radius:4px;border-color:#a8bfd22b;background:#ffffff03}
+body .contact-core .contact-demo-input.focus{border-color:#9dd8ec77;background:#9dd8ec08;box-shadow:0 0 0 3px #9dd8ec0a}
+body .contact-core .contact-demo-input.invalid{border-color:#db806a}
+body .contact-core .contact-demo-note{font-size:9px;line-height:1.8;color:#7895ae}
+body:has(.contact-page.contact-core) .footer-wordmark:before{display:none;content:none}
+@media(max-width:1000px){body .contact-core .contact-columns{gap:6%;grid-template-columns:1.4fr .9fr}}
+@media(max-width:760px){body .contact-core .contact-columns{grid-template-columns:1fr;gap:50px}body .contact-core .contact-aside{grid-template-columns:1fr 1fr;gap:30px}.contact-core .contact-form-intro>span:last-child{display:none}body .contact-core .contact-states-heading{grid-template-columns:1fr;gap:24px}body .contact-core .contact-states-heading>p{max-width:540px}}
+@media(max-width:620px){
+ body .contact-core{padding-bottom:60px}
+ .contact-core .contact-form-intro{padding-top:22px;margin-bottom:28px}
+ body .core-page.contact-page.contact-core .contact-glass-form{padding-top:28px}
+ body .contact-core .contact-glass-form header h2{font-size:32px}
+ body .contact-core .contact-aside{grid-template-columns:1fr;gap:25px}
+ body .contact-core .contact-field input,body .contact-core .contact-field select,body .contact-core .contact-field textarea{font-size:16px}
+ body .contact-core .contact-submit{align-items:flex-start;flex-direction:column}
+ body .contact-core .contact-states{margin-top:64px;padding-top:48px}
+ body .contact-core .contact-states h2{font-size:34px}
+}

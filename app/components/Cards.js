@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import { ArrowUpRight, Plus } from "lucide-react";
 
 export function ServiceCard({ item, index }) {
@@ -8,6 +8,8 @@ export function ServiceCard({ item, index }) {
 export function ProjectCard({ item, index = 0 }) {
   const projectHref = `/projetos/${item.slug || item.title.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")}`;
   const visuals = { "prj-1": ["/project-science.jpg", "Laboratório de ciências, imagem ilustrativa"], "prj-2": ["/project-culture.jpg", "Arquitetura histórica, imagem ilustrativa"], "prj-3": ["/hero-vr.jpg", "Uso de realidade virtual, imagem ilustrativa"] };
-  const [src, alt] = visuals[item.id] || visuals["prj-3"];
-  return <article className="project-card"><Link className="project-visual" href={projectHref} aria-label={`Ver detalhes de ${item.title}`}><img src={src} alt={alt} loading="lazy"/><span className="project-category">{item.category}</span><span className="project-image-note">IMAGEM ILUSTRATIVA</span><span className="project-arrow"><ArrowUpRight/></span></Link><div className="project-copy"><div className="project-meta"><span>/ {String(index+1).padStart(2,"0")}</span><span>{item.year}</span></div><h3>{item.title}</h3><p>{item.description}</p><Link href={projectHref}>Ver o projeto <ArrowUpRight size={17}/></Link></div></article>;
+  const cover = item.cover?.type === "image" ? item.cover.src : item.cover?.poster;
+  const [src, alt] = cover ? [cover, item.cover.alt || item.title] : visuals[item.id] || visuals["prj-3"];
+  return <article className="project-card"><Link className="project-visual" href={projectHref} aria-label={`Ver detalhes de ${item.title}`}><img src={src} alt={alt} loading="lazy"/><span className="project-category">{item.category}</span>{!cover && <span className="project-image-note">IMAGEM ILUSTRATIVA</span>}<span className="project-arrow"><ArrowUpRight/></span></Link><div className="project-copy"><div className="project-meta"><span>/ {String(index+1).padStart(2,"0")}</span><span>{item.year}</span></div><h3>{item.title}</h3><p>{item.description}</p><Link href={projectHref}>Ver o projeto <ArrowUpRight size={17}/></Link></div></article>;
 }
+

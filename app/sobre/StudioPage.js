@@ -1,16 +1,43 @@
-﻿"use client";
-import {useEffect,useRef} from 'react';
+"use client";
+
 import Link from 'next/link';
-import {Lightbulb,Users,Heart,Globe2,GraduationCap,Monitor,Building2,Accessibility,BookOpen,Target,ArrowUpRight} from 'lucide-react';
-const icons={light:Lightbulb,users:Users,heart:Heart,globe:Globe2,school:GraduationCap,screen:Monitor,building:Building2,access:Accessibility,book:BookOpen,target:Target};
-function Heading({s,hero=false}){const Tag=hero?'h1':'h2';return <Tag>{s.title} <em>{s.highlight}</em></Tag>}
-function Backdrop({s}){return <>{s.image&&<img className="studio-backdrop" src={s.image} alt="" style={{objectPosition:s.imagePosition}}/>}<div className="studio-shade" style={{opacity:s.overlay}}/></>}
-export default function StudioPage({content}){
-const root=useRef(null);
-useEffect(()=>{if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('studio-visible');observer.unobserve(e.target)}}),{threshold:0.08});root.current.querySelectorAll('[data-reveal]').forEach(el=>{if(el.getBoundingClientRect().top>innerHeight){el.classList.add('studio-pending');observer.observe(el)}});return ()=>observer.disconnect()},[content]);
-return <div ref={root} className="studio-page" style={{'--studio-bg':content.background,'--studio-accent':content.accent}}>{content.sections.filter(s=>s.enabled).map(s=>{
-if(s.type==='intro')return <section key={s.id} className="studio-intro"><Backdrop s={s}/><div className="studio-container studio-intro-inner"><div className="studio-hero-copy"><Heading s={s} hero/><p>{s.description}</p><div className="studio-tags">{s.tags.map((tag,i)=><span key={i}>{tag}</span>)}</div></div><div data-reveal className={`studio-story ${s.layout}`}><div><span className="studio-label">[ {s.label} ]</span><h2>{s.storyTitle} <em>{s.storyHighlight}</em></h2></div><div>{s.paragraphs.map((p,i)=><p key={i}>{p}</p>)}<aside><strong>{s.noteTitle}</strong><p>{s.note}</p></aside></div></div></div></section>;
-if(s.type==='cta')return <section key={s.id} className="studio-cta" data-reveal><Backdrop s={s}/><div className="studio-container"><span className="studio-label">[ {s.label} ]</span><Heading s={s}/><Link className="studio-button" href={s.href}>{s.button}<ArrowUpRight size={19}/></Link></div></section>;
-return <section key={s.id} className="studio-section studio-container" data-reveal><div className="studio-section-heading"><div><span className="studio-label">[ {s.label} ]</span><Heading s={s}/></div>{s.description&&<p>{s.description}</p>}</div><div className={`studio-cards ${s.layout}`} style={{'--columns':s.columns}}>{s.cards.map((c,i)=>{const Icon=icons[c.icon]||Lightbulb;return <article key={i}><span className="studio-icon"><Icon size={20} strokeWidth={1.4}/></span><h3>{c.title}</h3><p>{c.description}</p></article>})}</div></section>
-})}</div>
+import {ArrowDown,ArrowUpRight} from 'lucide-react';
+import HomeScene from '@/app/components/HomeScene';
+import HomeMarquee from '@/app/components/HomeMarquee';
+import StudioFormats from './StudioFormats';
+import MobileCarousel from '@/app/components/MobileCarousel';
+import MobileDisclosure from '@/app/components/MobileDisclosure';
+import './studio-core.css';
+
+function Heading({s}){return <h2>{s.title} <em>{s.highlight}</em></h2>}
+function PixelEdge(){return <div className="studio-core-pixels" aria-hidden="true">{Array.from({length:48},(_,i)=><span key={i} style={{height:`${[14,32,8,24,40,12,28,5,20][i%9]}px`}}/>)}</div>}
+function SelectedProjects({projects}){
+ if(!projects.length)return null;
+ return <section className="studio-core-projects studio-container" aria-labelledby="studio-projects-heading"><div className="studio-section-heading"><div><span className="studio-label">[ Uma seleção do portfólio ]</span><h2 id="studio-projects-heading">Ideias que encontram<br/><em>outras dimensões.</em></h2></div><Link className="studio-text-link" href="/projetos">Ver todos os projetos <ArrowUpRight size={16}/></Link></div><MobileCarousel className="studio-core-project-list" label="Projetos do estúdio">{projects.slice(0,3).map((project,i)=><Link key={project.id} className="studio-core-project" href={`/projetos/${project.slug}`}><span>/ {String(i+1).padStart(2,'0')}</span><div><small>{project.tag}</small><h3>{project.title}</h3></div><ArrowUpRight size={22}/></Link>)}</MobileCarousel></section>;
+}
+
+export default function StudioPage({content,projects=[]}){
+ const sections=content.sections.filter(s=>s.enabled);
+ const intro=sections.find(s=>s.type==='intro');
+ const contact=sections.find(s=>s.type==='cta');
+ const hasFormats=sections.some(s=>s.id==='formats');
+ return <div className="studio-page studio-core" style={{'--studio-bg':content.background,'--studio-accent':content.accent,'--studio-image':intro?.image?`url(${JSON.stringify(intro.image)})`:'none','--studio-image-position':intro?.imagePosition||'center 42%','--studio-overlay':intro?.overlay??.48}}>
+  {sections.map(s=>{
+   if(s.type==='intro')return <section key={s.id} className="studio-intro"><div className="studio-container studio-intro-inner">
+    <div className="studio-core-masthead"><span aria-hidden="true">+</span>{s.id===intro.id?<h1>o estúdio<span className="studio-core-sr"> — Miniverso, experiências em realidade virtual</span></h1>:<h2>miniverso</h2>}<span aria-hidden="true">+</span></div>
+    <div className="studio-core-stage">
+     <HomeScene image={s.image} alt="Pessoa explorando uma experiência com óculos de realidade virtual"/>
+     <div className="studio-hero-meta"><span><small>MINIVERSO / ESTÚDIO</small>Criatividade e tecnologia</span><span><small>ORIGEM</small>São Luís, Brasil</span><span><small>EXPERIÊNCIAS</small>VR / AR / MR / 360°</span></div>
+     <div className="studio-hero-copy"><span className="studio-label">[ Pessoas no centro. Possibilidades além. ]</span><Heading s={s}/><div className="studio-hero-actions"><Link className="studio-button" href={contact?.href||'/contato'}>{contact?.button||'Vamos conversar'}<ArrowUpRight size={16}/></Link><a className="studio-text-link" href={hasFormats?'#studio-formats':'#studio-story'}>Explore as experiências <ArrowDown size={15}/></a></div><p className="studio-core-stage-note">{s.description}</p></div>
+     <a className="studio-core-scroll" href="#studio-story"><ArrowDown size={16}/><span>Conheça a Miniverso</span></a><PixelEdge/>
+    </div>
+    {s.tags.length>0&&<HomeMarquee text={s.tags.join('\n')}/>}
+    <div id={s.id===intro.id?'studio-story':`${s.id}-story`} className={`studio-story ${s.layout}`}><div><span className="studio-label">[ {s.label} ]</span><h2>{s.storyTitle} <em>{s.storyHighlight}</em></h2></div><div>{s.paragraphs[0]&&<p>{s.paragraphs[0]}</p>}{s.paragraphs.length>1&&<MobileDisclosure summary="Continuar nossa história">{s.paragraphs.slice(1).map((p,i)=><p key={i}>{p}</p>)}</MobileDisclosure>}<aside><strong>{s.noteTitle}</strong><p>{s.note}</p></aside></div></div>
+   </div></section>;
+   if(s.id==='formats'&&s.type==='cards')return <div id="studio-formats" key={s.id} className="studio-format-region"><StudioFormats section={s}/></div>;
+   if(s.type==='cta')return <div key={s.id}>{s.id===contact.id&&<SelectedProjects projects={projects}/>}<section className="studio-cta"><div className="studio-container"><span className="studio-label">[ {s.label} ]</span><div className="studio-core-cta-layout"><Heading s={s}/><div><Link className="studio-button" href={s.href}>{s.button}<ArrowUpRight size={20}/></Link><p>Da primeira ideia à experiência do seu público.</p></div></div></div></section></div>;
+   return <section key={s.id} className="studio-section studio-container"><div className="studio-section-heading"><div><span className="studio-label">[ {s.label} ]</span><Heading s={s}/></div>{s.description&&<p>{s.description}</p>}</div><MobileCarousel className={`studio-cards ${s.layout}`} style={{'--columns':s.columns}} label={`${s.title} ${s.highlight}`}>{s.cards.map((card,i)=><article key={i}><span className="studio-card-index">/ {String(i+1).padStart(2,'0')}</span><h3>{card.title}</h3><p>{card.description}</p></article>)}</MobileCarousel></section>;
+  })}
+  {!contact&&<SelectedProjects projects={projects}/>}
+ </div>;
 }

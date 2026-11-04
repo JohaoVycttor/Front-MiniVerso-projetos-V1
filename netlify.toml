@@ -1,0 +1,9 @@
+[build]
+  command = "npm run build -- --webpack"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+[functions]
+  included_files = ["data/*.json"]

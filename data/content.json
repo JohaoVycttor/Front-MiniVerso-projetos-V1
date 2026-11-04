@@ -47,20 +47,20 @@
   "contacts": [],
   "studio": {
     "background": "#060709",
-    "accent": "#7898ff",
+    "accent": "#90d9ef",
     "sections": [
       {
         "id": "intro",
         "type": "intro",
         "enabled": true,
         "layout": "split",
-        "image": "/hero-vr.jpg",
+        "image": "/studio-background.png",
         "imagePosition": "center 42%",
         "overlay": 0.48,
         "label": "Nossa história",
-        "title": "Tecnologia para transformar",
-        "highlight": "a forma de aprender.",
-        "description": "Nascemos para criar ambientes de realidade virtual voltados à educação. Hoje, exploramos novas tecnologias para tornar experiências mais envolventes, efetivas e memoráveis.",
+        "title": "Um estúdio para",
+        "highlight": "expandir possibilidades.",
+        "description": "Unimos criatividade e tecnologia para conectar pessoas a ideias, conteúdos e marcas, da educação à comunicação.",
         "tags": [
           "Realidade virtual",
           "Realidade aumentada",
@@ -75,6 +75,39 @@
         ],
         "noteTitle": "Tecnologia com propósito. Pessoas em primeiro lugar.",
         "note": "Cada projeto é um universo próprio, do tamanho da possibilidade de quem vai usar."
+      },
+      {
+        "id": "formats",
+        "type": "cards",
+        "enabled": true,
+        "label": "Um formato para cada ideia",
+        "title": "O mundo é o ponto de partida.",
+        "highlight": "A experiência vai além.",
+        "description": "Explore como cada tecnologia pode aproximar o seu público do que você quer comunicar.",
+        "layout": "cards",
+        "columns": 2,
+        "cards": [
+          {
+            "icon": "screen",
+            "title": "Realidade virtual",
+            "description": "Ambientes digitais imersivos para explorar conteúdos, lugares e situações. Uma forma de aprender, treinar ou apresentar uma ideia colocando o público dentro da experiência."
+          },
+          {
+            "icon": "phone",
+            "title": "Realidade aumentada",
+            "description": "Elementos digitais se conectam ao mundo real pelo celular ou tablet. Conteúdos ganham novas camadas de interação em materiais educativos, produtos e espaços."
+          },
+          {
+            "icon": "layers",
+            "title": "Realidade mista",
+            "description": "O físico e o digital participam da mesma experiência. Criamos possibilidades de interação a partir do contexto, do público e dos objetivos de cada projeto."
+          },
+          {
+            "icon": "globe",
+            "title": "Vídeos 360°",
+            "description": "Narrativas e visitas que permitem olhar ao redor e explorar outros pontos de vista. Aproximamos o público de lugares, histórias e conteúdos por meio de imagens imersivas."
+          }
+        ]
       },
       {
         "id": "principles",
@@ -192,101 +225,101 @@
         "type": "catalog",
         "enabled": true,
         "label": "Soluções",
-        "title": "Cada desafio pede uma",
-        "highlight": "dimensão diferente.",
-        "description": "Escolha pelo objetivo, não pela tecnologia. Abaixo estão os formatos que trabalhamos, para que servem e o que você recebe no final.",
-        "image": "/hero-vr.jpg",
-        "imagePosition": "center 48%",
-        "overlay": 0.52,
+        "title": "Novas formas de ensinar.",
+        "highlight": "Novos mundos para aprender.",
+        "description": "A Miniverso aproxima tecnologia e educação com experiências de realidade virtual que tornam o aprendizado envolvente e memorável. Apoiamos escolas, professores e alunos na descoberta de novas possibilidades para ensinar e aprender.",
+        "image": "/solutions-vr.jpg",
+        "imagePosition": "center 65%",
+        "overlay": 0.18,
         "columns": 2,
-        "benefitsLabel": "Ideal para",
-        "button": "Falar sobre esta solução",
+        "benefitsLabel": "Possibilidades na educação",
+        "button": "Conversar sobre esta solução",
         "cards": [
           {
-            "title": "Realidade virtual",
-            "description": "Ambientes completos em VR para treinar, ensinar e apresentar o que ainda não existe no mundo físico.",
+            "title": "Realidade virtual na educação",
+            "description": "Ambientes virtuais imersivos que convidam os alunos a explorar conteúdos e vivenciar o aprendizado. Uma nova perspectiva para professores que desejam despertar a curiosidade e envolver a turma.",
             "icon": "screen",
             "wide": false,
             "benefits": [
-              "Treinamento de procedimentos sem risco ou custo alto",
-              "Aulas e visitas que seriam impossíveis no mundo real",
-              "Apresentação de produtos antes deles saírem do planejamento"
+              "Exploração de ambientes e situações de aprendizagem",
+              "Vivências que aproximam os alunos dos conteúdos",
+              "Aulas mais cativantes, com participação e descoberta"
             ],
             "tags": [
-              "Treinamento",
-              "Educação",
-              "Simulação"
+              "Imersão",
+              "Aprendizagem",
+              "Engajamento"
             ],
             "href": "/contato?subject=Realidade%20virtual"
           },
           {
             "title": "Realidade aumentada",
-            "description": "Camadas digitais sobre o mundo real: aponte a câmera para um objeto, uma imagem ou um lugar.",
+            "description": "Elementos digitais ampliam a percepção do mundo real e abrem novas possibilidades para explorar conteúdos educacionais.",
             "icon": "layers",
             "wide": false,
             "benefits": [
-              "Ativações em eventos, embalagens e pontos de venda",
-              "Demonstração de produtos grandes ou ainda não fabricados",
-              "Aulas e atividades que saltam para fora do livro"
+              "Visualização de conteúdos no contexto da aula",
+              "Conexões entre materiais físicos e recursos digitais",
+              "Atividades que incentivam a curiosidade dos alunos"
             ],
             "tags": [
-              "Web AR",
-              "Varejo",
+              "Exploração",
+              "Interatividade",
               "Educação"
             ],
             "href": "/contato?subject=Realidade%20aumentada"
           },
           {
-            "title": "Vídeos 360°",
-            "description": "Registros imersivos de espaços, viagens e processos, com narrativa guiada e navegação livre.",
+            "title": "Realidade mista",
+            "description": "O físico e o virtual se encontram em experiências que permitem explorar novas relações entre o aluno, o espaço e o conteúdo.",
             "icon": "globe",
             "wide": false,
             "benefits": [
-              "Tours em universidades, obras e espaços de eventos",
-              "Registro de processos para treinar novas equipes",
-              "Conteúdo institucional com sensação de presença"
+              "Integração de elementos reais e virtuais",
+              "Exploração de conceitos em experiências interativas",
+              "Novas possibilidades para práticas de ensino"
             ],
             "tags": [
-              "Tour virtual",
-              "Institucional",
-              "Cultura"
+              "Mundo físico",
+              "Mundo virtual",
+              "Interação"
             ],
-            "href": "/contato?subject=Vídeos%20360°"
+            "href": "/contato?subject=Outro%20projeto"
           },
           {
-            "title": "Experiências educacionais",
-            "description": "Conteúdo desenhado junto com quem ensina, no tempo certo da aula e com acompanhamento do professor.",
-            "icon": "school",
+            "title": "Vídeos 360°",
+            "description": "Um olhar imersivo sobre lugares e contextos que podem enriquecer a aula e ampliar o repertório dos estudantes.",
+            "icon": "globe",
             "wide": false,
             "benefits": [
-              "Aulas, oficinas e trilhas fora do quadro",
-              "Atividades interativas com retorno imediato",
-              "Conteúdo alinhado com os objetivos de aprendizagem"
+              "Visitas virtuais a diferentes ambientes",
+              "Observação de contextos para discussão em sala",
+              "Experiências visuais que despertam o interesse"
+            ],
+            "tags": [
+              "Imersão",
+              "Descoberta",
+              "Contexto"
+            ],
+            "href": "/contato?subject=Vídeos%20360%C2%B0"
+          },
+          {
+            "title": "Tecnologia a serviço de quem ensina e aprende",
+            "description": "Apoiamos escolas que querem inovar em suas metodologias, professores que buscam aulas mais cativantes e alunos que desejam incorporar tecnologia aos estudos.",
+            "icon": "school",
+            "wide": true,
+            "benefits": [
+              "Inovação conectada aos desafios da educação",
+              "Colaboração entre escola, professores e alunos",
+              "Valorização da diversidade nas experiências de aprendizagem",
+              "Responsabilidade social no uso da tecnologia"
             ],
             "tags": [
               "Escolas",
-              "Museus",
-              "Educação"
+              "Professores",
+              "Alunos"
             ],
-            "href": "/contato?subject=Experiências%20educacionais"
-          },
-          {
-            "title": "Software, web e UX/UI",
-            "description": "Sites e aplicações que saem da ideia e funcionam com clareza. Design centrado em pessoas, interfaces que resolvem problemas e sistemas conectados ao seu negócio.",
-            "icon": "code",
-            "wide": true,
-            "benefits": [
-              "Sites e portais institucionais",
-              "Design de interfaces e protótipos",
-              "Plataformas interativas e integrações",
-              "Testes de usabilidade com usuários reais"
-            ],
-            "tags": [
-              "Web",
-              "UX/UI",
-              "Desenvolvimento"
-            ],
-            "href": "/contato?subject=Outro%20projeto"
+            "href": "/contato?subject=Experi%C3%AAncias%20educacionais"
           }
         ]
       },
@@ -294,35 +327,35 @@
         "id": "comparison",
         "type": "comparison",
         "enabled": true,
-        "label": "Como escolher",
-        "title": "Comece pelo objetivo.",
-        "highlight": "Pelo óculos.",
-        "description": "Na dúvida, mande o objetivo por mensagem. A gente indica.",
+        "label": "Possibilidades para a sua aula",
+        "title": "O aprendizado é o ponto",
+        "highlight": "de partida.",
+        "description": "Conte o que sua turma precisa explorar. Vamos conversar sobre a tecnologia mais adequada ao contexto de ensino.",
         "headers": [
-          "Seu objetivo",
-          "Formato indicado",
-          "O que você recebe"
+          "Objetivo de aprendizagem",
+          "Tecnologia",
+          "Possibilidade de uso"
         ],
         "rows": [
           {
-            "objective": "Treinar uma equipe em um procedimento de risco",
+            "objective": "Explorar um conteúdo em um ambiente imersivo",
             "format": "Realidade virtual",
-            "delivery": "Aplicação para óculos e relatório de uso"
+            "delivery": "Vivências em cenários virtuais voltados à aprendizagem"
           },
           {
-            "objective": "Chamar atenção em um evento ou ponto de venda",
+            "objective": "Relacionar recursos digitais ao mundo real",
             "format": "Realidade aumentada",
-            "delivery": "Web AR aberta por QR Code, sem instalação"
+            "delivery": "Elementos digitais que complementam a exploração de conteúdos"
           },
           {
-            "objective": "Mostrar um espaço para quem está longe",
+            "objective": "Conectar experiências físicas e virtuais",
+            "format": "Realidade mista",
+            "delivery": "Interação entre o ambiente real e elementos virtuais"
+          },
+          {
+            "objective": "Conhecer lugares e ampliar o repertório da turma",
             "format": "Vídeos 360°",
-            "delivery": "Player no navegador e versão para óculos"
-          },
-          {
-            "objective": "Ensinar um conteúdo difícil de imaginar",
-            "format": "Experiência educacional",
-            "delivery": "Roteiro, atividade e material do professor"
+            "delivery": "Exploração visual de espaços e contextos em todas as direções"
           }
         ]
       },
@@ -330,26 +363,26 @@
         "id": "process",
         "type": "process",
         "enabled": true,
-        "label": "Sem letra miúda",
-        "title": "O que entra em",
-        "highlight": "todo projeto.",
+        "label": "Nossa essência",
+        "title": "Educação que conecta.",
+        "highlight": "Tecnologia que envolve.",
         "columns": 4,
         "steps": [
           {
-            "title": "Roteiro e conceito",
-            "description": "Definimos juntos o que a pessoa faz, vê e aprende dentro da experiência."
+            "title": "Inovação",
+            "description": "Explorar novas possibilidades de ensino com tecnologias imersivas."
           },
           {
-            "title": "Protótipo no Figma",
-            "description": "Você aprova a interface antes de qualquer linha de código."
+            "title": "Engajamento",
+            "description": "Despertar o interesse e tornar a experiência de aprendizado envolvente e memorável."
           },
           {
-            "title": "Testes com usuários",
-            "description": "Levamos a versão de teste para o público real e ajustamos o que travar."
+            "title": "Colaboração e diversidade",
+            "description": "Valorizar diferentes perspectivas e a participação de escolas, professores e alunos."
           },
           {
-            "title": "Entrega e treinamento",
-            "description": "Publicamos, documentamos e orientamos sua equipe para usar sozinha."
+            "title": "Responsabilidade social",
+            "description": "Colocar a tecnologia a serviço das pessoas e da transformação da educação."
           }
         ]
       },
@@ -357,14 +390,14 @@
         "id": "contact",
         "type": "banner",
         "enabled": true,
-        "label": "Vamos encontrar o caminho",
+        "label": "Vamos imaginar novas possibilidades",
         "title": "Ainda em dúvida sobre",
         "highlight": "o melhor formato?",
-        "description": "Descreva o desafio em poucas linhas. Indicamos o caminho mais simples que resolve.",
-        "image": "/hero-vr.jpg",
-        "imagePosition": "75% 35%",
-        "overlay": 0.25,
-        "button": "Conte seu desafio",
+        "description": "Conte o desafio da sua escola, o conteúdo que deseja explorar e quem vai participar. Vamos descobrir juntos como a tecnologia pode enriquecer essa experiência de aprendizagem.",
+        "image": "/solutions-format.png",
+        "imagePosition": "center 45%",
+        "overlay": 0.15,
+        "button": "Vamos conversar sobre educação",
         "href": "/contato"
       }
     ]
@@ -372,8 +405,8 @@
   "contactPage": {
     "background": "#100405",
     "accent": "#7c98ff",
-    "image": "/contact-vr.png",
-    "imagePosition": "center 28%",
+    "image": "/contact-vr-portrait.jpg",
+    "imagePosition": "center top",
     "overlay": 0.14,
     "sections": [
       {
@@ -416,6 +449,7 @@
         "subjects": [
           "Realidade virtual",
           "Realidade aumentada",
+          "Realidade mista",
           "Vídeos 360°",
           "Experiências educacionais",
           "Software, web e UX/UI",

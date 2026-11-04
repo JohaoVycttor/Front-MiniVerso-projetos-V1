@@ -1,4 +1,4 @@
-const fs=require('node:fs');const path=require('node:path');const {transform}=require('next/dist/build/swc');const postcss=require('postcss');
+﻿const fs=require('node:fs');const path=require('node:path');const {transform}=require('next/dist/build/swc');const postcss=require('postcss');
 const source='Front-MiniVerso-projetos-V1-main';
 (async()=>{ await require('next/dist/build/swc').loadBindings();
  fs.mkdirSync('app/projetos/components',{recursive:true});fs.mkdirSync('app/projetos/[slug]',{recursive:true});fs.mkdirSync('public/portfolio',{recursive:true});fs.cpSync(source+'/public/images','public/portfolio/images',{recursive:true});fs.cpSync(source+'/public/fonts','public/portfolio/fonts',{recursive:true});
@@ -15,3 +15,4 @@ const source='Front-MiniVerso-projetos-V1-main';
  if(!data.portfolio){data.portfolio=content;for(const p of data.projects){const slug=p.title.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');if(content.projects.some(x=>x.slug===slug))continue;content.projects.push({id:p.id,slug,title:p.title,description:p.description,introduction:p.description,categoryIds:[],tag:p.category||'Projeto',visible:true,order:content.projects.length,cover:{id:p.id+'-cover',type:'image',alt:p.title},presentation:{id:p.id+'-presentation',type:'image',alt:p.title},gallery:[],facts:[{label:'ANO',value:p.year||''}],story:[{title:'Sobre o projeto',text:p.description}]})}fs.writeFileSync('data/content.json',JSON.stringify(data,null,2))}
  console.log('Imported portfolio components, media, scoped CSS, validated content and legacy projects.');
 })().catch(e=>{console.error(e);process.exit(1)});
+

@@ -1,0 +1,297 @@
+{
+  "publishedAt": "2026-10-27T19:04:52.194Z",
+  "sections": [
+    {
+      "key": "hero",
+      "visible": true,
+      "fields": {
+        "eyebrow": "TECNOLOGIA, CRIATIVIDADE E EDUCAÇÃO",
+        "brandTitle": "MINIVERSO",
+        "title": "OUTRAS",
+        "highlight": "REALIDADES.",
+        "subtitle": "Criamos experiências imersivas que aproximam pessoas do conhecimento. Da sala de aula a novos universos, cada projeto começa com um propósito.",
+        "location": "SÃO LUÍS, BRASIL\nIDEIAS SEM FRONTEIRAS",
+        "primaryLabel": "Vamos criar juntos",
+        "primaryTarget": "contato",
+        "secondaryLabel": "Conheça a Miniverso",
+        "secondaryTarget": "sobre",
+        "scrollLabel": "ENTRE NO NOSSO UNIVERSO",
+        "scrollTarget": "sobre",
+        "scrollCount": "EXPLORE",
+        "strip": "REALIDADE VIRTUAL\nREALIDADE AUMENTADA\nREALIDADE MISTA\nVÍDEOS 360°\nEDUCAÇÃO IMERSIVA",
+        "background": "/home-vr-background.jpg",
+        "imageAlt": "Experiência de realidade virtual com a Miniverso",
+        "mobileImage": "",
+        "model3d": "",
+        "autoRotate": false
+      },
+      "items": []
+    },
+    {
+      "key": "sobre",
+      "visible": true,
+      "fields": {
+        "eyebrow": "[ 01 — NOSSA HISTÓRIA ]",
+        "title": "Nascemos na educação.",
+        "highlight": "Crescemos com a curiosidade.",
+        "text": "Somos a Miniverso, um estúdio de experiências imersivas em São Luís, Maranhão. Nossa história começou com a criação de ambientes de realidade virtual voltados à educação, aproximando escolas, professores e estudantes de novas formas de aprender.\n\nA partir dessa origem, ampliamos nossas possibilidades com realidade aumentada, realidade mista e vídeos 360°. Hoje, unimos criatividade, conteúdo e tecnologia para transformar ideias em experiências que as pessoas podem viver.\n\nO propósito continua o mesmo: colocar as pessoas no centro e fazer da tecnologia um caminho para o conhecimento.",
+        "buttonLabel": "Conheça nossa história",
+        "buttonUrl": "/sobre",
+        "buttonNote": "Educação na origem. Curiosidade em cada projeto.",
+        "secondaryLabel": "Converse com a equipe",
+        "secondaryUrl": "/contato",
+        "artLabel": "PESSOAS NO CENTRO DA EXPERIÊNCIA",
+        "artFooter": "INOVAÇÃO · COLABORAÇÃO · DIVERSIDADE",
+        "artCode": "MV / 01",
+        "audienceIntro": "Apoiamos quem quer incorporar tecnologia à educação, com experiências conectadas ao contexto de cada escola e de cada turma.",
+        "audienceSchools": "Suporte para escolas que desejam inovar em suas metodologias de ensino e explorar novas formas de apresentar o conhecimento.",
+        "audienceTeachers": "Experiências que ajudam a tornar as aulas mais interessantes e cativantes, despertando a atenção e a participação da turma.",
+        "audienceStudents": "Novas formas de incorporar tecnologia aos estudos e aprender explorando ambientes, conteúdos e possibilidades."
+      },
+      "items": [
+        {
+          "id": "sobre-1",
+          "eyebrow": "01 / NOSSA MISSÃO",
+          "title": "Aprender de um jeito memorável.",
+          "description": "Oferecer soluções inovadoras de ensino através de realidade virtual, proporcionando uma experiência de aprendizado envolvente e memorável para os alunos."
+        },
+        {
+          "id": "sobre-2",
+          "eyebrow": "02 / NOSSA VISÃO",
+          "title": "Transformar a forma de ensinar.",
+          "description": "Ser reconhecida como referência em tecnologia educacional, transformando a forma como a educação é entregue e tornando o aprendizado mais efetivo e emocionante."
+        }
+      ]
+    },
+    {
+      "key": "servicos",
+      "visible": true,
+      "fields": {
+        "eyebrow": "[ 02 — O QUE CRIAMOS ]",
+        "title": "Uma ideia.",
+        "highlight": "Muitas dimensões.",
+        "subtitle": "Da realidade virtual aos vídeos 360°, criamos formas de explorar conteúdos e aproximar as pessoas do conhecimento.",
+        "buttonLabel": "Conheça todas as soluções",
+        "buttonUrl": "/servicos"
+      },
+      "items": [
+        {
+          "id": "srv-1",
+          "title": "Realidade virtual",
+          "description": "Ambientes imersivos para educação, treinamento, cultura e apresentação de produtos.",
+          "visible": true,
+          "image": "",
+          "imageAlt": "",
+          "buttonLabel": "Conversar sobre esta solução"
+        },
+        {
+          "id": "srv-2",
+          "title": "Realidade aumentada",
+          "description": "Conteúdo digital integrado ao mundo real para tornar materiais e espaços mais interativos.",
+          "visible": true,
+          "image": "",
+          "imageAlt": "",
+          "buttonLabel": "Conversar sobre esta solução"
+        },
+        {
+          "id": "srv-mr",
+          "title": "Realidade mista",
+          "description": "Experiências que conectam elementos físicos e digitais, ampliando as possibilidades de interação e aprendizagem.",
+          "visible": true,
+          "image": "",
+          "imageAlt": "",
+          "buttonLabel": "Conversar sobre esta solução"
+        },
+        {
+          "id": "srv-3",
+          "title": "Vídeos 360°",
+          "description": "Experiências audiovisuais que transportam o público para dentro de histórias e lugares.",
+          "visible": true,
+          "image": "",
+          "imageAlt": "",
+          "buttonLabel": "Conversar sobre esta solução"
+        },
+        {
+          "id": "srv-4",
+          "title": "Experiências educacionais",
+          "description": "Projetos criados com objetivos pedagógicos claros para escolas, professores e estudantes.",
+          "visible": true,
+          "image": "",
+          "imageAlt": "",
+          "buttonLabel": "Conversar sobre esta solução"
+        }
+      ]
+    },
+    {
+      "key": "projetos",
+      "visible": true,
+      "fields": {
+        "eyebrow": "[ 03 — GALERIA DE PROJETOS ]",
+        "title": "Da imaginação",
+        "highlight": "à experiência.",
+        "subtitle": "Conheça o contexto por trás de cada projeto: o que ele propõe, para quem foi pensado e como a tecnologia participa da experiência.",
+        "buttonLabel": "Ver galeria completa",
+        "buttonUrl": "/projetos",
+        "featured": "chemistry",
+        "columns": "2"
+      },
+      "items": [
+        {
+          "id": "chemistry",
+          "visible": true,
+          "name": "Laboratório virtual de química",
+          "summary": "Aulas práticas em ambiente seguro, com roteiro guiado e avaliação do professor.",
+          "category": "Educação · VR",
+          "cover": "/hero-vr.jpg",
+          "coverAlt": "Capa do laboratório virtual de química",
+          "link": "/projetos/laboratorio-virtual-de-quimica",
+          "details": "Experimentos que exigiriam reagentes controlados agora acontecem em um laboratório virtual. O estudante erra, repete e entende o processo sem risco, e o professor acompanha cada etapa pelo painel.",
+          "technologies": "Realidade virtual",
+          "client": "Professores e estudantes",
+          "buttonLabel": "Ver o projeto",
+          "eyebrow": "APRENDER EXPLORANDO"
+        },
+        {
+          "id": "campus",
+          "visible": true,
+          "name": "Tour 360° do campus",
+          "summary": "Visita imersiva que apresenta espaços e cursos para novos estudantes.",
+          "category": "Institucional · 360°",
+          "cover": "/hero-vr.jpg",
+          "coverAlt": "Capa do tour 360° do campus",
+          "link": "/projetos/tour-360-do-campus",
+          "details": "Uma primeira visita que começa de qualquer lugar. O tour reúne os espaços do campus em uma experiência 360°, permitindo conhecer salas, laboratórios e áreas de convivência no próprio ritmo.",
+          "technologies": "Vídeo 360°",
+          "client": "Comunidade acadêmica",
+          "buttonLabel": "Ver o projeto",
+          "eyebrow": "CONHECER SEM DISTÂNCIAS"
+        }
+      ]
+    },
+    {
+      "key": "diferenciais",
+      "visible": true,
+      "fields": {
+        "eyebrow": "[ 04 — NOSSA ESSÊNCIA ]",
+        "title": "O que nos move.",
+        "highlight": "E o que nos conecta.",
+        "subtitle": "Cinco valores que orientam nossas escolhas, nossas relações e cada experiência que construímos.",
+        "columns": "3",
+        "statement": "A tecnologia pode ser uma ferramenta poderosa para melhorar a educação.",
+        "attributes": "Moderna\nTecnológica\nDivertida"
+      },
+      "items": [
+        {
+          "id": "valor-1",
+          "eyebrow": "01 / INOVAÇÃO",
+          "title": "Inovação",
+          "description": "Exploramos novas possibilidades de ensino e aprendizagem com criatividade e tecnologia."
+        },
+        {
+          "id": "valor-2",
+          "eyebrow": "02 / ENGAJAMENTO",
+          "title": "Engajamento",
+          "description": "Criamos experiências que despertam a curiosidade, a atenção e a vontade de participar."
+        },
+        {
+          "id": "valor-3",
+          "eyebrow": "03 / COLABORAÇÃO",
+          "title": "Colaboração",
+          "description": "Construímos junto com escolas, professores e equipes, conectando conhecimentos e perspectivas."
+        },
+        {
+          "id": "valor-4",
+          "eyebrow": "04 / DIVERSIDADE",
+          "title": "Diversidade",
+          "description": "Valorizamos diferentes olhares e formas de aprender para ampliar as possibilidades de cada experiência."
+        },
+        {
+          "id": "valor-5",
+          "eyebrow": "05 / RESPONSABILIDADE SOCIAL",
+          "title": "Responsabilidade social",
+          "description": "Pensamos a tecnologia a serviço das pessoas e de uma educação que faça sentido para a sociedade."
+        }
+      ]
+    },
+    {
+      "key": "experiencia",
+      "visible": false,
+      "fields": {
+        "title": "Experiência interativa",
+        "text": ""
+      },
+      "items": []
+    },
+    {
+      "key": "processo",
+      "visible": true,
+      "fields": {
+        "eyebrow": "[ 05 — COMO CONSTRUÍMOS ]",
+        "title": "Da conversa\nà",
+        "highlight": "experiência.",
+        "subtitle": "Uma jornada colaborativa, do entendimento do desafio à preparação da experiência para o público.",
+        "columns": "3"
+      },
+      "items": [
+        {
+          "id": "processo-1",
+          "title": "Descobrir",
+          "description": "Ouvimos sua ideia, entendemos seu público e definimos os objetivos da experiência."
+        },
+        {
+          "id": "processo-2",
+          "title": "Criar",
+          "description": "Transformamos o conceito em design e tecnologia, com protótipos e testes ao longo do caminho."
+        },
+        {
+          "id": "processo-3",
+          "title": "Conectar",
+          "description": "Preparamos a entrega e orientamos sua equipe para levar a experiência ao público."
+        }
+      ]
+    },
+    {
+      "key": "clientes",
+      "visible": false,
+      "fields": {
+        "title": "Clientes e parceiros"
+      },
+      "items": []
+    },
+    {
+      "key": "contato",
+      "visible": true,
+      "fields": {
+        "eyebrow": "[ 06 — VAMOS CONVERSAR ]",
+        "title": "Sua ideia.",
+        "highlight": "Nosso próximo universo.",
+        "support": "Conte quem você quer alcançar e o que deseja transformar. Vamos explorar juntos as possibilidades para sua escola, instituição ou empresa.",
+        "buttonLabel": "Conte seu projeto",
+        "buttonUrl": "/contato",
+        "email": "contato@miniverso.com.br",
+        "whatsapp": "",
+        "instagram": "",
+        "successMessage": "Mensagem enviada!",
+        "errorMessage": "Não foi possível enviar agora."
+      },
+      "items": []
+    },
+    {
+      "key": "rodape",
+      "visible": true,
+      "fields": {
+        "tagline": "Pequeno no nome.\nInfinito em possibilidades.",
+        "contactTitle": "Vamos criar algo novo?",
+        "location": "São Luís, Maranhão · Brasil",
+        "copyright": "© 2026 Miniverso.",
+        "bottomText": "Realidades que conectam.",
+        "useContactChannels": true,
+        "privacyUrl": "",
+        "buttonLabel": "Iniciar uma conversa",
+        "buttonUrl": "/contato",
+        "navigationLabel": "Explore"
+      },
+      "items": []
+    }
+  ]
+}

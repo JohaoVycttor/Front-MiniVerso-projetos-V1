@@ -7,6 +7,12 @@ import { PageShell } from "@/app/projetos/components/page-shell";
 import { Badge, ArrowIcon } from "@/app/projetos/components/ui";
 import { MediaPreview, Gallery } from "@/app/projetos/components/media";
 import { Contact, ProjectFacts } from "@/app/projetos/components/sections";
+import MobileDisclosure from "@/app/components/MobileDisclosure";
+
+function ProjectStory({blocks}) {
+    const render = block => <section key={block.title}><h2>{block.title}</h2><p>{block.text}</p></section>;
+    return <>{blocks.slice(0,1).map(render)}{blocks.length>1&&<MobileDisclosure summary="Continuar a história do projeto">{blocks.slice(1).map(render)}</MobileDisclosure>}</>;
+}
 export async function generateMetadata({ params }) {
     const { slug } = await params;
     const content = await getContent();
@@ -66,16 +72,7 @@ export default async function ProjectDetail({ params }) {
                             }),
                             /*#__PURE__*/ _jsx("div", {
                                 className: "project-story",
-                                children: project.story.map((block)=>/*#__PURE__*/ _jsxs("section", {
-                                        children: [
-                                            /*#__PURE__*/ _jsx("h2", {
-                                                children: block.title
-                                            }),
-                                            /*#__PURE__*/ _jsx("p", {
-                                                children: block.text
-                                            })
-                                        ]
-                                    }, block.title))
+                                children: <ProjectStory blocks={project.story}/>
                             })
                         ]
                     }),

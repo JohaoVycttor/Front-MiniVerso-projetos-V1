@@ -1,4 +1,4 @@
-import { jsx as _jsx, jsxs as _jsxs, Fragment as _Fragment } from "react/jsx-runtime";
+﻿import { jsx as _jsx, jsxs as _jsxs, Fragment as _Fragment } from "react/jsx-runtime";
 import Link from "next/link";
 import { ArrowIcon, Badge, Eyebrow, Heading } from "@/app/projetos/components/ui";
 import { MediaPreview } from "@/app/projetos/components/media";
@@ -155,3 +155,4 @@ export function SectionRenderer({ content }) {
         })
     });
 }
+

@@ -1,4 +1,4 @@
-import "./globals.css";
+﻿import "./globals.css";
 import "./studio.css";
 import "./design-system.css";
 import SiteMotion from "@/app/components/SiteMotion";
@@ -24,3 +24,5 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
+
+

@@ -3,6 +3,7 @@ import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useState } from "react";
 import { Heading, Eyebrow } from "@/app/projetos/components/ui";
 import { ProjectCard } from "@/app/projetos/components/project-card";
+import MobileCarousel from "@/app/components/MobileCarousel";
 export function ProjectGrid({ section, projects, categories, ui }) {
     const [active, setActive] = useState("");
     const filtered = projects.filter((project)=>!active || project.categoryIds.includes(active));
@@ -53,7 +54,9 @@ export function ProjectGrid({ section, projects, categories, ui }) {
                         children: category.label
                     }, category.id))
             }),
-            /*#__PURE__*/ _jsx("div", {
+            /*#__PURE__*/ _jsx(MobileCarousel, {
+                label: "Projetos",
+                resetKey: active,
                 className: `project-grid columns-${section.columns}`,
                 children: filtered.map((project, index)=>/*#__PURE__*/ _jsx(ProjectCard, {
                         project: project,

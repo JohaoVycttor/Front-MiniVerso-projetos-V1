@@ -1,0 +1,78 @@
+/* Mesmo desenho do link "Ver site" ao lado (RNF28) */
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 var(--space-4);
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: var(--color-accent);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.toggle:hover {
+  background: var(--color-accent-soft);
+}
+
+.toDark,
+.toLight {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.toggle svg {
+  width: 18px;
+  height: 18px;
+  flex: none;
+}
+
+/* No tema claro aparece "Modo escuro"; no escuro, "Modo claro" */
+.toLight {
+  display: none;
+}
+
+/* Modo escuro escolhido no painel */
+:global(:root[data-theme="dark"]) .toDark {
+  display: none;
+}
+
+:global(:root[data-theme="dark"]) .toLight {
+  display: inline-flex;
+}
+
+/* Sem escolha salva, segue o tema do sistema */
+@media (prefers-color-scheme: dark) {
+  :global(:root:not([data-theme="light"])) .toDark {
+    display: none;
+  }
+
+  :global(:root:not([data-theme="light"])) .toLight {
+    display: inline-flex;
+  }
+}
+
+/*
+ * Tablet e celular: só o ícone, para o título da página não ser cortado.
+ * O texto continua para o leitor de tela e aparece como dica ao passar o mouse.
+ * Área de toque de 44 px (RNF40).
+ */
+@media (max-width: 1023px) {
+  .toggle {
+    width: 44px;
+    padding: 0;
+  }
+
+  .label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+  }
+}

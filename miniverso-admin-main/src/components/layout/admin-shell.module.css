@@ -1,0 +1,376 @@
+.shell {
+  min-height: 100dvh;
+  display: grid;
+  grid-template-columns: var(--sidebar-width) minmax(0, 1fr);
+}
+
+.skipLink {
+  position: absolute;
+  top: -100px;
+  left: var(--space-4);
+  z-index: 200;
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  color: var(--color-accent);
+  font-weight: 600;
+  box-shadow: var(--shadow-md);
+}
+
+.skipLink:focus {
+  top: var(--space-4);
+}
+
+/* Menu lateral */
+.sidebar {
+  position: sticky;
+  top: 0;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  padding: var(--space-6) var(--space-4);
+  background: var(--mv-indigo-900);
+  /* No modo escuro, uma linha separa o menu do conteúdo, que também fica escuro */
+  box-shadow: inset -1px 0 0 var(--color-sidebar-edge);
+  color: rgb(255 255 255 / 0.72);
+  overflow-y: auto;
+}
+
+.sidebar :focus-visible {
+  outline-color: var(--mv-cyan-500);
+}
+
+.sidebarTop {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.brand {
+  display: grid;
+  gap: 2px;
+  padding: 0 var(--space-3);
+  color: #fff;
+}
+
+.brandLogo {
+  display: block;
+  width: 160px;
+  height: auto;
+}
+
+.brandSub {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.closeNav {
+  display: none;
+}
+
+.navList {
+  display: grid;
+  gap: var(--space-1);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.navLink {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-height: 44px;
+  padding: 0 var(--space-3);
+  border-radius: var(--radius-md);
+  color: inherit;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  text-decoration: none;
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.navLink svg {
+  width: 20px;
+  height: 20px;
+  flex: none;
+}
+
+.navLink:hover {
+  background: rgb(255 255 255 / 0.06);
+  color: #fff;
+}
+
+/* Item ativo: fundo, peso e barra lateral, não só a cor (RNF39) */
+.navLink[aria-current="page"] {
+  background: rgb(255 255 255 / 0.1);
+  color: #fff;
+  font-weight: 600;
+}
+
+.navLink[aria-current="page"]::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  bottom: 10px;
+  left: 0;
+  width: 3px;
+  border-radius: 0 3px 3px 0;
+  background: var(--mv-cyan-500);
+}
+
+.sidebarFooter {
+  margin-top: auto;
+  padding: 0 var(--space-3);
+  font-size: var(--text-xs);
+  color: rgb(255 255 255 / 0.62);
+}
+
+/* Área principal */
+.main {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  min-height: var(--header-height);
+  padding: var(--space-2) var(--space-8);
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.menuButton {
+  display: none;
+}
+
+.title {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--color-heading);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.siteLink {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 44px;
+  padding: 0 var(--space-4);
+  border-radius: var(--radius-pill);
+  color: var(--color-accent);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.siteLink:hover {
+  background: var(--color-accent-soft);
+}
+
+.siteLink svg {
+  width: 18px;
+  height: 18px;
+}
+
+.content {
+  flex: 1;
+  width: 100%;
+  max-width: 1280px;
+  padding: var(--space-8);
+  outline: none;
+}
+
+.scrim {
+  display: none;
+}
+
+/* Tablet: menu recolhido, só com ícones */
+@media (max-width: 1279px) {
+  .shell {
+    grid-template-columns: var(--sidebar-collapsed) minmax(0, 1fr);
+  }
+
+  .sidebar {
+    align-items: center;
+    padding: var(--space-6) var(--space-3);
+  }
+
+  .brand,
+  .navLabel,
+  .sidebarFooter {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+  }
+
+  .navLink {
+    justify-content: center;
+    width: 48px;
+    padding: 0;
+  }
+
+  .navLink[aria-current="page"]::before {
+    left: -12px;
+  }
+
+  .header {
+    padding: var(--space-2) var(--space-6);
+  }
+
+  .content {
+    padding: var(--space-6);
+  }
+}
+
+/* Celular: menu em gaveta */
+@media (max-width: 767px) {
+  .shell {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .sidebar {
+    position: fixed;
+    inset: 0 auto 0 0;
+    z-index: 50;
+    width: min(300px, 85vw);
+    align-items: stretch;
+    padding: var(--space-5) var(--space-4);
+    transform: translateX(-100%);
+    visibility: hidden;
+    transition:
+      transform 0.2s ease,
+      visibility 0s linear 0.2s;
+  }
+
+  .shell[data-nav-open] .sidebar {
+    transform: none;
+    visibility: visible;
+    transition: transform 0.2s ease;
+  }
+
+  .brand,
+  .navLabel,
+  .sidebarFooter {
+    position: static;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+  }
+
+  .closeNav {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    flex: none;
+    border: 0;
+    border-radius: var(--radius-md);
+    background: rgb(255 255 255 / 0.08);
+    color: #fff;
+    cursor: pointer;
+  }
+
+  .closeNav svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .navLink {
+    justify-content: flex-start;
+    width: auto;
+    padding: 0 var(--space-3);
+  }
+
+  .navLink[aria-current="page"]::before {
+    left: 0;
+  }
+
+  .scrim {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 40;
+    background: var(--color-overlay);
+  }
+
+  /* Espaço menor entre os botões para o título caber com os três atalhos (Ver site, tema e conta) */
+  .header {
+    gap: var(--space-1);
+    padding: var(--space-2) var(--space-3);
+  }
+
+  .headerActions {
+    gap: var(--space-1);
+  }
+
+  .menuButton {
+    display: inline-grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    flex: none;
+    border: 0;
+    border-radius: var(--radius-md);
+    background: transparent;
+    color: var(--color-heading);
+    cursor: pointer;
+  }
+
+  .menuButton svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .title {
+    font-size: var(--text-lg);
+  }
+
+  .siteLink {
+    width: 44px;
+    padding: 0;
+    justify-content: center;
+  }
+
+  .siteLinkLabel {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+  }
+
+  .content {
+    padding: var(--space-4);
+  }
+}

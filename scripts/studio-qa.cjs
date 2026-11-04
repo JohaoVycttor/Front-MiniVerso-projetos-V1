@@ -1,4 +1,4 @@
-const fs = require('node:fs');
+﻿const fs = require('node:fs');
 const path = require('node:path');
 const os = require('node:os');
 const assert = require('node:assert/strict');
@@ -30,3 +30,5 @@ const {chromium} = require(path.join(os.tmpdir(),'miniverso-studio-qa/node_modul
  await page.goto('http://localhost:3000/sobre');assert.ok(await page.locator('h1').textContent());
  assert.deepEqual(errors,[]);await browser.close();console.log('PASS authenticated editor persistence, validation, unauthorized access, no browser errors');
 })().catch(e=>{console.error(e);process.exit(1)});
+
+

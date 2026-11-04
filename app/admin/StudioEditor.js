@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import { useEffect, useState } from 'react';
 import { defaultContact } from '@/lib/contact-content';
 import { defaultSolutions } from '@/lib/solutions-content';
@@ -27,3 +27,10 @@ export default function StudioEditor({initial,onSaved,pageType='studio'}){
  async function save(e){e.preventDefault();setSaving(true);setMessage('');try{const r=await fetch('/api/admin/content',{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify({type:pageType,content:draft})});if(!r.ok)throw new Error(r.status===401?'Sessão expirada. Entre novamente.':'Não foi possível salvar. Confira os campos.');onSaved?.();setDirty(false);setMessage('Página salva. As alterações já estão disponíveis na página pública.')}catch(e){setMessage(e.message||'Falha de conexão. Tente novamente.')}finally{setSaving(false)}}
  return <form className="studio-editor" onSubmit={save}><div className="editor-toolbar"><p>Edite o conteúdo, o fundo e a estrutura da página.</p><button type="button" onClick={()=>setPreview(true)}>Visualizar alterações</button><a href={publicPath} target="_blank" rel="noreferrer">Abrir página ↗</a><button className="button primary" disabled={saving}>{saving?'Salvando…':'Salvar página'}</button></div><p role="status">{message|| (dirty?'Alterações ainda não salvas.':'')}</p><Fields value={Object.fromEntries(Object.entries(draft).filter(([key])=>key!=='sections'))} onChange={n=>change({...draft,...n})}/>{draft.sections.map((s,i)=><details key={s.id}><summary>{i+1}. {s.label||s.title} {!s.enabled&&'(oculta)'}</summary><div className="editor-actions"><button type="button" disabled={!i} onClick={()=>{const sections=[...draft.sections];[sections[i-1],sections[i]]=[sections[i],sections[i-1]];change({...draft,sections})}}>↑ Subir</button><button type="button" disabled={i===draft.sections.length-1} onClick={()=>{const sections=[...draft.sections];[sections[i+1],sections[i]]=[sections[i],sections[i+1]];change({...draft,sections})}}>↓ Descer</button><button type="button" onClick={()=>change({...draft,sections:draft.sections.filter(x=>x.id!==s.id)})}>Remover seção</button></div><Fields value={s.type==="cards"?{...s,description:s.description||""}:s} onChange={n=>change({...draft,sections:draft.sections.map(x=>x.id===s.id?n:x)})}/></details>)}<div className="editor-actions">{sectionTypes.map(type=><button key={type} type="button" onClick={()=>change({...draft,sections:[...draft.sections,{...structuredClone(defaults.sections.find(s=>s.type===type)),id:crypto.randomUUID()}]})}>Adicionar {sectionNames[type]}</button>)}</div>{preview&&<StudioPreview pageType={pageType} content={draft} onClose={()=>setPreview(false)}/>}</form>
 }
+
+
+
+
+
+
+

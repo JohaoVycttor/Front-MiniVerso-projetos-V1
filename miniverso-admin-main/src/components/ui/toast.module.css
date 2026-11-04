@@ -1,0 +1,88 @@
+.region {
+  position: fixed;
+  z-index: 100;
+  right: var(--space-6);
+  bottom: var(--space-6);
+  display: grid;
+  gap: var(--space-3);
+  width: min(380px, calc(100vw - 32px));
+  pointer-events: none;
+}
+
+.toast {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-2) var(--space-3) var(--space-4);
+  background: var(--color-toast);
+  color: #fff;
+  border-radius: var(--radius-md);
+  /* Contorno só no modo escuro, para o aviso não se misturar com o fundo */
+  box-shadow:
+    var(--shadow-lg),
+    inset 0 0 0 1px var(--color-floating-edge);
+  pointer-events: auto;
+  animation: enter 0.2s ease-out;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  flex: none;
+}
+
+.success .icon {
+  color: #7be3a9;
+}
+
+.error .icon {
+  color: #ffa198;
+}
+
+.message {
+  flex: 1;
+  font-size: var(--text-sm);
+  font-weight: 500;
+}
+
+.close {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  flex: none;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+}
+
+.close:hover {
+  background: rgb(255 255 255 / 0.12);
+}
+
+.close:focus-visible {
+  outline-color: var(--mv-cyan-500);
+}
+
+.close svg {
+  width: 18px;
+  height: 18px;
+}
+
+@media (max-width: 767px) {
+  .region {
+    left: var(--space-4);
+    right: var(--space-4);
+    bottom: var(--space-4);
+    width: auto;
+  }
+}
+
+@keyframes enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}

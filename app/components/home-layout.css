@@ -1,0 +1,78 @@
+/* Home uses the same restrained surfaces and type hierarchy as Solutions. */
+.managed-home { background:#060910; --home-border:#94a3b82e; }
+.managed-home :is(.commercial-section,.services-section,.work-section,#diferenciais,.process-section) { background:transparent; border:0; }
+.managed-home .editorial-section { padding-block:96px; }
+.managed-home .editorial-section+.editorial-section>.shell { border-top:1px solid #94a3b81a; padding-top:64px; }
+.managed-home .editorial-section+.editorial-section { padding-top:0; }
+.managed-home .editorial-section h2 { font-size:clamp(34px,4.4vw,60px); font-weight:800; line-height:1.06; letter-spacing:-.04em; }
+.managed-home .editorial-section h2 em { color:#7898ff; }
+.managed-home .section-heading { display:grid; grid-template-columns:1.2fr 1fr; align-items:end; gap:64px; margin-bottom:42px; }
+.managed-home .section-heading>div:last-child { justify-self:end; max-width:390px; }
+.managed-home .section-heading p { margin-top:0; color:#aab1bf; line-height:1.8; font-size:14px; }
+.managed-home .section-link { color:#91aaff; font-size:13px; }
+.managed-home .eyebrow { font-size:10px; color:#91aaff; letter-spacing:.13em; }
+.managed-home .discipline-strip { background:#0b1020; border-block:1px solid #94a3b81a; padding-block:18px; }
+.managed-home .home-discipline { font-size:10px; color:#aebbd6; letter-spacing:.07em; }
+.managed-home .home-discipline svg { width:15px; height:15px; color:#7898ff; }
+.managed-home .hero-bottom p { font-size:16px; max-width:480px; }
+.managed-home .hero-scroll svg { animation:none; }
+.managed-home .commercial-layout { grid-template-columns:1.15fr .85fr; gap:70px; align-items:center; }
+.managed-home .commercial-lead { border:0; padding-left:0; font-size:15px; line-height:1.9; color:#afb7c8; }
+.managed-home .commercial-benefits { gap:0; }
+.managed-home .commercial-benefits article { padding:22px 0; border-top:1px solid #94a3b82e; }
+.managed-home .commercial-benefits h3 { font-size:20px; font-weight:600; }
+.managed-home .commercial-benefits p { font-size:14px; }
+.managed-home .commercial-art { position:relative; top:auto; padding:26px; background:radial-gradient(circle at 50% 45%,#192a4866,transparent 65%); border:0; border-radius:0; box-shadow:none; }
+.managed-home .commercial-art-footer { color:#7e8ca7; }
+.managed-home .home-solutions-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:22px; }
+.managed-home .home-solution-card { display:flex; flex-direction:column; padding:30px; min-width:0; border:1px solid var(--home-border); border-radius:20px; background:linear-gradient(130deg,#0f172a,#141128b8); transition:border-color .3s,transform .4s; }
+.managed-home .home-solution-top { display:flex; align-items:center; justify-content:space-between; margin-bottom:26px; }
+.managed-home .home-solution-top>span:last-child { font:10px Consolas,monospace; color:#7d8aa8; }
+.managed-home .home-solution-icon { display:grid; place-items:center; width:44px; height:44px; color:#8aa6ff; background:#7898ff0a; border:1px solid #7898ff25; border-radius:12px; }
+.managed-home .home-solution-card h3 { font-size:25px; font-weight:500; letter-spacing:-.025em; line-height:1.25; margin:0 0 15px; }
+.managed-home .home-solution-card p { font-size:14px; line-height:1.85; color:#aab3c7; margin:0 0 24px; max-width:480px; }
+.managed-home .home-solution-card>a { display:inline-flex; gap:10px; align-items:center; align-self:flex-start; margin-top:auto; color:#91aaff; font-size:12px; padding:6px 0; }
+.managed-home .project-card { padding:0; border:1px solid var(--home-border); border-radius:20px; background:#0e1422; box-shadow:none; transition:transform .4s,border-color .3s; }
+.managed-home .project-visual { aspect-ratio:16/10; border-radius:0; }
+.managed-home .project-copy { padding:28px; }
+.managed-home .project-copy h3 { font-size:25px; font-weight:600; }
+.managed-home .project-copy .home-project-context { color:#9ba7bd; }
+.managed-home #diferenciais .home-grid>article { padding:26px 0; border:0; border-top:1px solid #7898ff55; border-radius:0; background:none; }
+.managed-home #diferenciais h3 { font-size:23px; margin-top:23px; font-weight:500; }
+.managed-home #diferenciais p { color:#aab3c7; }
+.managed-home .process-grid { position:relative; gap:28px; }
+.managed-home .process-grid>article { border:0; border-radius:0; border-top:1px solid var(--home-border); background:none; padding:24px 0; }
+.managed-home .process-number { color:#91aaff; }
+.managed-home .process-grid h3 { font-size:25px; font-weight:500; }
+.managed-home .contact-band { background:linear-gradient(110deg,#0d162d,#17152b); border-block:1px solid var(--home-border); padding-block:75px; }
+.managed-home .contact-band h2 { font-size:clamp(32px,4vw,56px); line-height:1.1; font-weight:800; letter-spacing:-.04em; }
+.managed-home .contact-band-bottom p { max-width:610px; color:#adb7ca; font-size:14px; }
+.managed-home .contact-call .round-link { background:#7898ff12; border:1px solid #7898ff44; }
+@media(hover:hover) and (pointer:fine) {
+  .managed-home .home-solution-card:hover,.managed-home .project-card:hover { transform:translateY(-4px); border-color:#7898ff65; box-shadow:none; }
+  .managed-home #diferenciais .home-grid>article:hover { transform:none; }
+}
+@media(max-width:900px) {
+  .managed-home .commercial-layout { gap:32px; }
+  .managed-home .section-heading { gap:32px; }
+  .managed-home .editorial-section { padding-block:76px; }
+  .managed-home .editorial-section+.editorial-section { padding-top:0; }
+  .managed-home .editorial-section+.editorial-section>.shell { padding-top:56px; }
+}
+@media(max-width:620px) {
+  .managed-home .section-heading,.managed-home .commercial-layout,.managed-home .home-solutions-grid { grid-template-columns:1fr; }
+  .managed-home .section-heading { gap:22px; }
+  .managed-home .section-heading>div:last-child { justify-self:start; max-width:none; }
+  .managed-home .commercial-art { padding:12px; }
+  .managed-home .home-solution-card { padding:25px; }
+  .managed-home .home-solution-card h3 { font-size:23px; }
+  .managed-home .project-copy { padding:23px; }
+  .managed-home .project-copy h3 { font-size:23px; }
+  .managed-home .editorial-section { padding-block:60px; }
+  .managed-home .editorial-section+.editorial-section { padding-top:0; }
+  .managed-home .contact-band { padding-block:55px; }
+  .managed-home .contact-band h2 { max-width:100%; font-size:32px; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .managed-home .home-solution-card:hover,.managed-home .project-card:hover { transform:none; }
+}

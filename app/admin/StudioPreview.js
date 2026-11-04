@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
@@ -49,3 +49,5 @@ export default function StudioPreview({ content, onClose, pageType = 'studio' })
     </div>
   </dialog>;
 }
+
+

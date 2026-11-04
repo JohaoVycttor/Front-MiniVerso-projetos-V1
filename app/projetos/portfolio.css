@@ -309,3 +309,12 @@
 }
 
 .portfolio-module{padding-top:82px}.portfolio-module .project-card .text-link{position:static}.portfolio-module .eyebrow:before{display:none}.portfolio-module .project-card{border-radius:22px}.portfolio-module .project-card h3{letter-spacing:normal}@media(max-width:620px){.portfolio-module{padding-top:70px}}
+/* Match the continuous, centered background used on Solutions. */
+.portfolio-continuous .project-world {
+  background: linear-gradient(#10081050, #10081070), var(--scene-image) center 65% / cover no-repeat fixed;
+}
+.portfolio-continuous .world-backdrop { display: none; }
+.portfolio-continuous .contact-section { background: transparent; }
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-continuous .project-world { background-attachment: scroll; }
+}

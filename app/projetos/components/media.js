@@ -136,6 +136,8 @@ function MediaDialog({ asset, ui, onClose }) {
 export function Gallery({ assets, ui }) {
     const [active, setActive] = useState(0);
     const [open, setOpen] = useState(false);
+    const gesture = useRef(null);
+    const swiped = useRef(false);
     const asset = assets[active];
     if (!asset) return null;
     return /*#__PURE__*/ _jsxs("section", {
@@ -165,7 +167,10 @@ export function Gallery({ assets, ui }) {
             }),
             /*#__PURE__*/ _jsxs("button", {
                 className: "gallery-stage glass",
-                onClick: ()=>setOpen(true),
+                onClick: ()=>{if(swiped.current){swiped.current=false;return}setOpen(true)},
+                onTouchStart: event=>{const touch=event.touches[0];gesture.current=event.touches.length===1&&matchMedia('(max-width:760px)').matches?{x:touch.clientX,y:touch.clientY}:null},
+                onTouchEnd: event=>{const start=gesture.current,touch=event.changedTouches[0];gesture.current=null;if(!start||!touch)return;const dx=touch.clientX-start.x,dy=touch.clientY-start.y;if(Math.abs(dx)<48||Math.abs(dx)<Math.abs(dy)*1.4)return;swiped.current=true;setActive(index=>(index+assets.length+(dx<0?1:-1))%assets.length);setTimeout(()=>{swiped.current=false},200)},
+                onTouchCancel: ()=>{gesture.current=null},
                 "aria-label": asset.alt,
                 children: [
                     asset.type === "image" && asset.src ? /*#__PURE__*/ _jsx("img", {
@@ -215,7 +220,8 @@ export function Gallery({ assets, ui }) {
                 asset: asset,
                 ui: ui,
                 onClose: ()=>setOpen(false)
-            })
+            }),
+            assets.length>1&&<div className="mobile-gallery-meter" aria-hidden="true"><span style={{width:`${100/assets.length}%`,left:`${active/assets.length*100}%`}}/></div>
         ]
     });
 }

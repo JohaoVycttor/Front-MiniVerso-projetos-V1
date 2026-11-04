@@ -20,7 +20,15 @@ npm run dev
 
 5. Abra `http://localhost:3000`.
 
-O painel fica em `http://localhost:3000/admin`.
+O painel correto está na pasta `miniverso-admin-main`. Execute `npm run dev` para o site (porta 3000) e, em outro terminal na raiz, `npm run dev:admin` para o painel (porta 3001). O login fica em `http://localhost:3001/admin/login`.
+
+O botão **Login** do cabeçalho e do menu móvel abre o login de `miniverso-admin-main`. A rota antiga `http://localhost:3000/admin` também redireciona para ele. O link **Ver site** do painel retorna a `http://localhost:3000`. Em produção, configure `NEXT_PUBLIC_ADMIN_LOGIN_URL` no site e `NEXT_PUBLIC_SITE_URL` no painel antes dos builds. A autenticação usa a configuração própria do painel; as credenciais `ADMIN_USER` da raiz pertencem à implementação antiga.
+
+As seções abaixo descrevem os editores legados da raiz. A conexão de navegação não migra esses editores nem os dados para o painel separado, que mantém sua configuração de API/mock.
+
+Os projetos da página inicial, do portfólio e das páginas de detalhes são gerenciados em **Portfólio integrado**. Os dois primeiros projetos visíveis, pela ordem do portfólio, aparecem na home; títulos, capas, links e visibilidade usam a mesma fonte. A lista antiga `projects` permanece no arquivo de dados como histórico, mas não alimenta mais a home. **Serviços da página inicial** altera os serviços da home; **Página Soluções** altera o catálogo de `/servicos`. As demais guias indicam e permitem abrir a página que alteram.
+
+Para validar login e publicação nas páginas, execute `node scripts/admin-integration-qa.cjs` com o servidor local ativo. O teste altera temporariamente títulos e visibilidade, restaurando cada seção ao final; execute sem edições simultâneas no painel. Configure `ADMIN_USER`, `ADMIN_PASSWORD` e, se necessário, `QA_BASE_URL` no ambiente do teste.
 
 ## Estrutura
 
