@@ -7,11 +7,12 @@ import { PageShell } from "@/app/projetos/components/page-shell";
 import { Badge, ArrowIcon } from "@/app/projetos/components/ui";
 import { MediaPreview, Gallery } from "@/app/projetos/components/media";
 import { Contact, ProjectFacts } from "@/app/projetos/components/sections";
-import MobileDisclosure from "@/app/components/MobileDisclosure";
+import {brief} from "@/lib/display-text";
+import {projectVisual} from "@/lib/project-visuals";
 
 function ProjectStory({blocks}) {
     const render = block => <section key={block.title}><h2>{block.title}</h2><p>{block.text}</p></section>;
-    return <>{blocks.slice(0,1).map(render)}{blocks.length>1&&<MobileDisclosure summary="Continuar a história do projeto">{blocks.slice(1).map(render)}</MobileDisclosure>}</>;
+    return <>{blocks.slice(0,1).map(block=><section key={block.title}><h2>{block.title}</h2><p>{brief(block.text)}</p></section>)}{(blocks.length>1||blocks[0]?.text!==brief(blocks[0]?.text))&&<details className="project-story-more"><summary>Conheça a história completa</summary>{blocks.map(render)}</details>}</>;
 }
 export async function generateMetadata({ params }) {
     const { slug } = await params;
@@ -27,6 +28,7 @@ export default async function ProjectDetail({ params }) {
     const content = await getContent();
     const project = content.projects.find((project)=>project.visible && project.slug === slug);
     if (!project) notFound();
+    const visual = projectVisual(project);
     const contact = content.sections.find((section)=>section.type === "contact" && section.visible);
     return /*#__PURE__*/ _jsxs(PageShell, {
         content: content,
@@ -54,15 +56,15 @@ export default async function ProjectDetail({ params }) {
                     }),
                     /*#__PURE__*/ _jsx("p", {
                         className: "detail-intro",
-                        children: project.introduction
+                        children: brief(project.introduction)
                     }),
                     /*#__PURE__*/ _jsx("div", {
                         className: "detail-presentation glass",
-                        children: /*#__PURE__*/ _jsx(MediaPreview, {
+                        children: project.presentation.src ? /*#__PURE__*/ _jsx(MediaPreview, {
                             asset: project.presentation,
                             ui: content.ui,
                             presentation: true
-                        })
+                        }) : <><MediaPreview asset={visual.asset} ui={content.ui}/>{visual.illustrative&&<span className="media-caption">Visual ilustrativo</span>}</>
                     }),
                     /*#__PURE__*/ _jsxs("div", {
                         className: "detail-information",

@@ -1,9 +1,7 @@
 /* Miniverso / immersive editorial direction inspired by the CoreNode cover. */
 body .reference-home{
  --vr-ink:#f4f5fa;--vr-muted:#a8afbf;--vr-line:#dce3f02b;--vr-accent:#8eddf1;
- color:var(--vr-ink);background-color:#0c0407;
- background-image:linear-gradient(#0c0407ed,#0c0407ed),var(--home-scene);
- background-position:center;background-size:cover;background-attachment:fixed;
+ color:var(--vr-ink);background-color:#0c0407;background-attachment:fixed;
 }
 body:has(.reference-home){background:#0c0407}
 body:has(.reference-home) .site-header .nav>a.active{color:#d2eefa}
@@ -15,10 +13,8 @@ body .reference-home .vr-masthead h1{font-size:clamp(76px,17.2vw,264px);font-wei
 .vr-corner{position:absolute;z-index:3;font:18px/1 Consolas,monospace;color:#e9eeeb;background:var(--mv-masthead-bg);width:14px;text-align:center}
 .vr-corner-tl{top:-10px;left:-7px}.vr-corner-tr{top:-10px;right:-7px}.vr-corner-bl{bottom:-8px;left:-7px}.vr-corner-br{bottom:-8px;right:-7px}
 .vr-sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
-body .reference-home .vr-hero-stage{position:relative;min-height:650px;height:clamp(600px,48vw,760px);isolation:isolate;overflow:hidden;border-inline:1px solid var(--vr-line)}
-.vr-scene{position:absolute;inset:0;z-index:-2;overflow:hidden}
-.vr-scene picture,.vr-scene img{display:block;width:100%;height:100%}
-.vr-scene img{object-fit:cover;object-position:60% center;filter:saturate(.65) brightness(.7);transform:translate3d(var(--scene-x,0px),var(--scene-y,0px),0) scale(1.045);transition:transform 1.4s cubic-bezier(.16,1,.3,1)}
+body .reference-home .vr-hero-stage{position:relative;min-height:650px;height:clamp(600px,48vw,760px);isolation:isolate;overflow:hidden;border-inline:1px solid var(--vr-line);background:#0c0407}
+.vr-scene{position:absolute;inset:0;z-index:-1;overflow:hidden;background:radial-gradient(ellipse at 68% 42%,#25161e 0%,#160d13 38%,#0c0407 78%)}
 .vr-scene:after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,#070611d9,transparent 73%),linear-gradient(0deg,#0c0407e8,transparent 55%,#0c040738)}
 .vr-scene-grid{position:absolute;inset:0;background-image:linear-gradient(#b7dcea08 1px,transparent 1px),linear-gradient(90deg,#b7dcea08 1px,transparent 1px);background-size:96px 96px;mask-image:linear-gradient(90deg,transparent,#000);pointer-events:none}
 .vr-scene-orbit{position:absolute;top:29%;right:15%;width:170px;aspect-ratio:1;border:1px solid #a1d9ef44;border-radius:50%;opacity:.7;pointer-events:none;animation:vr-orbit-turn 40s linear infinite}

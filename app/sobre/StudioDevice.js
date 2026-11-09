@@ -1,6 +1,6 @@
 import './studio-device.css';
 
-export default function StudioDevice({title,format}){
+export default function StudioDevice({title,format,image}){
  return <div className="studio-device-showcase" aria-hidden="true">
   <div className="studio-device-halo"/>
   <div className="studio-device-phone">
@@ -9,7 +9,7 @@ export default function StudioDevice({title,format}){
     <div className="studio-device-brand"><img src="/logo-symbol.png" alt=""/><span>miniverso</span></div>
     <div className="studio-device-eyebrow">EXPLORE NOVAS REALIDADES</div>
     <div className="studio-device-title">{title}</div>
-    <div className="studio-device-orbit"><i/><i/><span>{format}</span></div>
+    {image?<div className="studio-device-photo"><img src={image} alt="" loading="lazy"/><span>{format}</span></div>:<div className="studio-device-orbit"><i/><i/><span>{format}</span></div>}
     <div className="studio-device-row"><span>CONTEÚDO</span><span>INTERAÇÃO</span></div>
     <div className="studio-device-grid"><span>Educação</span><span>Experiências</span><span>Pessoas</span><span>Possibilidades</span></div>
     <div className="studio-device-action">Uma ideia. Muitos universos. <span>↗</span></div>

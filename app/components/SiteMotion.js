@@ -4,6 +4,7 @@ import {usePathname} from 'next/navigation';
 
 // Animate content, never the sections that carry the fixed backgrounds.
 const revealSelector = [
+ '.reference-home [data-home-reveal]',
  '.core-masthead h1', '.core-hero-meta', '.core-hero-copy', '.core-hero-note', '.contact-form-intro', '.reference-home .vr-masthead h1', '.reference-home .vr-hero-meta', '.reference-home .vr-hero-copy', '.reference-home .vr-hero-note', '.managed-home .hero-topline', '.managed-home .hero-content>h1', '.managed-home .hero-bottom',
  '.managed-home .home-history-heading', '.managed-home .home-history-story', '.managed-home .section-heading', '.managed-home .commercial-copy', '.managed-home .commercial-art',
  '.managed-home .project-card', '.managed-home .home-solution-card', '.managed-home .home-grid>article',
@@ -29,10 +30,16 @@ export default function SiteMotion(){
   const preference=window.matchMedia('(prefers-reduced-motion: reduce)');
   const compact=window.matchMedia('(max-width:760px)');
   const tracked=new Map();
-  let observer, rearmObserver, mutations, frame;
+  let observer, rearmObserver, mutations, frame, pageAnimation;
   const updateHeader=()=>header?.toggleAttribute('data-scrolled',window.scrollY>12);
   updateHeader();
   window.addEventListener('scroll',updateHeader,{passive:true});
+  if(!preference.matches&&main){
+   pageAnimation=main.animate([
+    {opacity:0,translate:'0 12px'},
+    {opacity:1,translate:'0 0'}
+   ],{duration:700,easing:'cubic-bezier(.16,1,.3,1)',fill:'both'});
+  }
 
   function stop(){
    observer?.disconnect();
@@ -99,7 +106,7 @@ export default function SiteMotion(){
   preference.addEventListener('change',setup);
   compact.addEventListener('change',setup);
   return()=>{
-   cancelAnimationFrame(frame);stop();
+   cancelAnimationFrame(frame);stop();pageAnimation?.cancel();
    preference.removeEventListener('change',setup);
    compact.removeEventListener('change',setup);
    main?.removeEventListener('focusin',showFocused);

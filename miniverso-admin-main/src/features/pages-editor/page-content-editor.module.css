@@ -1,0 +1,114 @@
+.editor {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.toolbar,
+.pagePicker,
+.group,
+.arrayItem,
+.primitive {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.toolbar {
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  align-items: end;
+}
+
+.pagePicker {
+  max-width: 32rem;
+}
+
+.pagePicker label,
+.primitive > label,
+.booleanField {
+  display: grid;
+  gap: 0.4rem;
+  color: var(--color-text-secondary);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.pagePicker select,
+.primitive input,
+.primitive textarea,
+.primitive select {
+  width: 100%;
+  min-height: 2.75rem;
+  padding: 0.65rem 0.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  background: var(--color-surface);
+  color: var(--color-text);
+  font: inherit;
+}
+
+.primitive textarea {
+  min-height: 6rem;
+  resize: vertical;
+}
+
+.primitive input[type="checkbox"] {
+  width: 1.1rem;
+  min-height: 1.1rem;
+}
+
+.booleanField {
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  justify-content: start;
+}
+
+.group,
+.arrayItem {
+  min-width: 0;
+  padding: 0.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: 0.65rem;
+  background: var(--color-surface);
+}
+
+.group > summary,
+.arrayItem > summary {
+  cursor: pointer;
+  color: var(--color-text);
+  font-weight: 650;
+  overflow-wrap: anywhere;
+}
+
+.group[open] > summary,
+.arrayItem[open] > summary {
+  margin-bottom: 0.8rem;
+}
+
+.objectFields {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.arrayActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.empty {
+  color: var(--color-text-secondary);
+  font-size: 0.875rem;
+}
+
+.toolbarHint {
+  margin: 0;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}
+
+@media (max-width: 720px) {
+  .toolbar {
+    grid-template-columns: 1fr;
+    align-items: stretch;
+  }
+}

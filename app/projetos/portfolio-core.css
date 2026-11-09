@@ -1,5 +1,5 @@
-/* Keep the original portfolio structure; harmonize its surfaces with the new opening. */
-body .portfolio-core{padding-top:0;--blue:#9edceb;--ink:#f4f5fa;--muted:#aab7ca;--line:#dce3f026;--background:#0c0407}
+/* Original photographic portfolio and restrained glass surfaces. */
+body .portfolio-core{padding-top:0;--blue:#9edceb;--ink:#f4f5fa;--muted:#aab7ca;--line:#dce3f026;--background:#0c0407;color-scheme:dark}
 body .portfolio-core .project-world{background:none}
 body .portfolio-core .world-backdrop{display:none}
 body .portfolio-core .project-world:not(:has(.core-opening,.detail-page)){padding-top:130px}
@@ -7,8 +7,6 @@ body .portfolio-core .core-hero-copy h2,body .portfolio-core .core-hero-copy em{
 body .portfolio-core .display-heading{font-size:clamp(36px,4vw,62px);font-weight:500;line-height:1.07;letter-spacing:-.045em;text-transform:none}
 body .portfolio-core .display-heading em{font-weight:400;font-style:normal;color:var(--core-accent)}
 body .portfolio-core .eyebrow,body .portfolio-core .micro-label{font:9px/1.7 Consolas,monospace;letter-spacing:.1em;color:#a7bdce}
-
-/* Original featured composition and rounded cards, with restrained glass. */
 body .portfolio-module.portfolio-core .featured-project.glass{border:1px solid var(--core-line);border-radius:28px;overflow:hidden;background:linear-gradient(130deg,#d1e1f30d,#d1e1f305),#0b0e16a8;box-shadow:inset 0 1px 0 #ffffff06,0 18px 50px #00000018;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
 body .portfolio-core .featured-content h2{font-size:clamp(28px,2.75vw,40px);font-weight:600;line-height:1.18;letter-spacing:-.03em}
 body .portfolio-core .featured-content>p{font-size:14px;line-height:1.8;color:#aebed0}
@@ -19,11 +17,12 @@ body .portfolio-core .project-facts dt{color:#8eabc4;font:9px/1.7 Consolas,monos
 body .portfolio-core .project-facts dd{font-size:13px;color:#cad8e7}
 body .portfolio-core .media-placeholder,body .portfolio-core .video-placeholder{background:radial-gradient(ellipse at 40% 25%,#1e448833,transparent 75%),linear-gradient(145deg,#111728,#0b0e18);color:#a7c4d7}
 body .portfolio-core .featured-media{background:#0a0d17}
+body .portfolio-core .featured-media>.media-image{position:absolute;inset:0}
 body .portfolio-core .category-filters{gap:10px}
 body .portfolio-core .filter-pill{border:1px solid #c7dced24;border-radius:999px;background:#c7dced06;box-shadow:none;font-size:12px;color:#9eb3c8;backdrop-filter:blur(10px)}
 body .portfolio-core .filter-pill.is-active{border-color:#9edceb66;background:#9edceb12;box-shadow:inset 0 1px 0 #ffffff09;color:#d9edf8}
 body .portfolio-module.portfolio-core .project-card.glass{border:1px solid var(--core-line);border-radius:22px;overflow:hidden;background:linear-gradient(130deg,#d1e1f30b,#d1e1f303),#0b0e16a8;box-shadow:inset 0 1px 0 #ffffff05,0 12px 32px #00000012;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);animation:none}
-body .portfolio-core .card-cover{background:#0a0d17}
+body .portfolio-core .card-cover{background:#0a0d17;aspect-ratio:4/3}
 body .portfolio-core .card-content{background:#0b0d181f}
 body .portfolio-core .card-content h3{font-size:clamp(19px,1.65vw,25px);font-weight:600;line-height:1.28;letter-spacing:-.025em}
 body .portfolio-core .card-content h3 a:hover{color:#bce2f1}
@@ -31,40 +30,23 @@ body .portfolio-core .card-content>p{font-size:14px;line-height:1.7;color:#adbed
 body .portfolio-core .text-link{font-size:12px;color:#b3d7eb}
 body .portfolio-core .text-link:hover{color:#e2f3fc}
 body .portfolio-core .empty-state{border-color:var(--core-line);background:#0b0e16a8}
-
-/* The closing call follows the site language without altering portfolio interactions. */
 body .portfolio-core .contact-section{margin:0;min-height:0;padding-block:90px;background:#0c0407;border-top:1px solid var(--core-line)}
 body .portfolio-core .contact-inner{align-items:center;gap:40px}
 body .portfolio-core .contact-section .display-heading{font-size:clamp(40px,5.5vw,80px);line-height:1.03;letter-spacing:-.06em;max-width:900px;font-weight:400}
 body .portfolio-core .contact-section p{font-size:14px;line-height:1.8;color:#a8b8cc;max-width:560px;margin-top:25px}
 body .portfolio-core .contact-section .button{white-space:nowrap;font-size:12px}
-
-/* Preserve the presentation and gallery shapes on individual project pages. */
 body .portfolio-core .detail-page{padding-top:145px}
 body .portfolio-core .detail-title{font-size:clamp(42px,6vw,82px);font-weight:400;line-height:1.05;letter-spacing:-.055em;text-transform:none}
-body .portfolio-core .detail-intro{font-size:17px;line-height:1.85;color:#aab7ca}
-body .portfolio-module.portfolio-core .detail-presentation.glass{border:1px solid var(--core-line);border-radius:28px;background:#0a0d17;box-shadow:inset 0 1px 0 #ffffff05,0 18px 50px #00000018}
+body .portfolio-core .detail-intro{font-size:16px;line-height:1.85;color:#aab7ca}
+body .portfolio-module.portfolio-core .detail-presentation.glass{position:relative;border:1px solid var(--core-line);border-radius:28px;background:#0a0d17;box-shadow:inset 0 1px 0 #ffffff05,0 18px 50px #00000018}
 body .portfolio-core .project-story h2{font-size:26px;font-weight:500;line-height:1.2;letter-spacing:-.03em}
-body .portfolio-core .project-story p{font-size:15px;line-height:1.85;color:#aab7ca}
+body .portfolio-core .project-story p{font-size:14px;line-height:1.85;color:#aab7ca}
+body .portfolio-core .project-story-more{margin-top:28px;border-top:1px solid var(--core-line);padding-top:20px;color:#aab7ca}
+body .portfolio-core .project-story-more summary{cursor:pointer;font-size:13px;margin-bottom:24px;color:#c8dce9}
 body .portfolio-core .gallery-stage{border-radius:24px;border:1px solid var(--core-line)}
 body .portfolio-core .gallery-controls button:hover{background:#9edceb14;border-color:#9edceb66}
-@media(hover:hover){
- body .portfolio-module.portfolio-core .project-card.glass:hover{border-color:#b9d7e855;transform:translateY(-5px);background:linear-gradient(130deg,#d1e1f30f,#d1e1f306),#0b0e16b8;box-shadow:inset 0 1px 0 #ffffff09,0 20px 45px #00000026}
- body .portfolio-core .filter-pill:hover{background:#c7dced0d;color:#deedf8;transform:translateY(-1px)}
-}
+body .portfolio-core :is(.card-cover,.featured-media,.detail-presentation)>.media-caption{position:absolute;z-index:1;left:14px;bottom:14px;padding:5px 8px;background:#080b10b8;color:#dce5ef;font:9px/1.6 Consolas,monospace;border:1px solid #ffffff22;border-radius:6px}
+@media(hover:hover){body .portfolio-module.portfolio-core .project-card.glass:hover{border-color:#b9d7e855;transform:translateY(-5px);background:linear-gradient(130deg,#d1e1f30f,#d1e1f306),#0b0e16b8;box-shadow:inset 0 1px 0 #ffffff09,0 20px 45px #00000026}body .portfolio-core .filter-pill:hover{background:#c7dced0d;color:#deedf8;transform:translateY(-1px)}}
 @media(max-width:900px){body .portfolio-core .contact-inner{align-items:start;flex-direction:column}}
-@media(max-width:620px){
- body .portfolio-module.portfolio-core .featured-project.glass{border-radius:22px}
- body .portfolio-core .featured-content h2{font-size:30px}
- body .portfolio-core .card-content h3{font-size:21px}
- body .portfolio-core .card-content>p{font-size:13px}
- body .portfolio-core .filter-pill{font-size:11px}
- body .portfolio-core .contact-section{padding-block:64px}
- body .portfolio-core .contact-section .display-heading{font-size:42px}
- body .portfolio-core .detail-page{padding-top:115px}
- body .portfolio-core .detail-title{font-size:42px}
- body .portfolio-core .detail-intro{font-size:15px}
- body .portfolio-module.portfolio-core .detail-presentation.glass{border-radius:22px}
- body .portfolio-core .project-story p{font-size:14px}
-}
+@media(max-width:620px){body .portfolio-module.portfolio-core .featured-project.glass{border-radius:22px}body .portfolio-core .featured-content h2{font-size:30px}body .portfolio-core .card-content h3{font-size:21px}body .portfolio-core .card-content>p{font-size:13px}body .portfolio-core .filter-pill{font-size:11px}body .portfolio-core .contact-section{padding-block:64px}body .portfolio-core .contact-section .display-heading{font-size:42px}body .portfolio-core .detail-page{padding-top:115px}body .portfolio-core .detail-title{font-size:42px}body .portfolio-core .detail-intro{font-size:15px}body .portfolio-module.portfolio-core .detail-presentation.glass{border-radius:22px}body .portfolio-core .project-story p{font-size:14px}}
 @media(prefers-reduced-motion:reduce){body .portfolio-module.portfolio-core .project-card.glass:hover{transform:none}}

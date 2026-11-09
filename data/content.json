@@ -58,54 +58,53 @@
         "imagePosition": "center 42%",
         "overlay": 0.48,
         "label": "Nossa história",
-        "title": "Um estúdio para",
-        "highlight": "expandir possibilidades.",
-        "description": "Unimos criatividade e tecnologia para conectar pessoas a ideias, conteúdos e marcas, da educação à comunicação.",
+        "title": "Feito de ideias.",
+        "highlight": "Movido por gente.",
+        "description": "Somos um estúdio de São Luís que cria encontros entre pessoas, conteúdo e tecnologia.",
         "tags": [
           "Realidade virtual",
           "Realidade aumentada",
           "Realidade mista",
           "Vídeos 360°"
         ],
-        "storyTitle": "Um universo de possibilidades em",
-        "storyHighlight": "escala humana.",
+        "storyTitle": "Por trás de cada mundo,",
+        "storyHighlight": "gente de verdade.",
         "paragraphs": [
-          "A Miniverso apoia escolas, professores, estudantes e organizações que desejam inovar. Unimos conhecimento, design e desenvolvimento para criar soluções que fazem sentido para cada público.",
-          "Atuamos com realidade virtual, aumentada e mista, além de vídeos 360°, sempre com atenção à acessibilidade, ao conteúdo e aos objetivos de cada projeto."
+          "Criamos junto com educadores, equipes e marcas para transformar uma ideia em algo que as pessoas possam explorar."
         ],
-        "noteTitle": "Tecnologia com propósito. Pessoas em primeiro lugar.",
-        "note": "Cada projeto é um universo próprio, do tamanho da possibilidade de quem vai usar."
+        "noteTitle": "Criar é um trabalho em conjunto.",
+        "note": "Seu conhecimento encontra nosso jeito de imaginar, desenhar e desenvolver."
       },
       {
         "id": "formats",
         "type": "cards",
         "enabled": true,
         "label": "Um formato para cada ideia",
-        "title": "O mundo é o ponto de partida.",
-        "highlight": "A experiência vai além.",
-        "description": "Explore como cada tecnologia pode aproximar o seu público do que você quer comunicar.",
+        "title": "Você imagina.",
+        "highlight": "A gente explora os caminhos.",
+        "description": "Conheça as tecnologias que dão forma às experiências.",
         "layout": "cards",
         "columns": 2,
         "cards": [
           {
             "icon": "screen",
             "title": "Realidade virtual",
-            "description": "Ambientes digitais imersivos para explorar conteúdos, lugares e situações. Uma forma de aprender, treinar ou apresentar uma ideia colocando o público dentro da experiência."
+            "description": "Entre em um cenário digital e aprenda explorando."
           },
           {
             "icon": "phone",
             "title": "Realidade aumentada",
-            "description": "Elementos digitais se conectam ao mundo real pelo celular ou tablet. Conteúdos ganham novas camadas de interação em materiais educativos, produtos e espaços."
+            "description": "Descubra conteúdo digital sobre o que já está ao seu redor."
           },
           {
             "icon": "layers",
             "title": "Realidade mista",
-            "description": "O físico e o digital participam da mesma experiência. Criamos possibilidades de interação a partir do contexto, do público e dos objetivos de cada projeto."
+            "description": "Conecte objetos, espaços e conteúdo em uma só experiência."
           },
           {
             "icon": "globe",
             "title": "Vídeos 360°",
-            "description": "Narrativas e visitas que permitem olhar ao redor e explorar outros pontos de vista. Aproximamos o público de lugares, histórias e conteúdos por meio de imagens imersivas."
+            "description": "Olhe ao redor e conheça um lugar por novos ângulos."
           }
         ]
       },
@@ -114,30 +113,30 @@
         "type": "cards",
         "enabled": true,
         "label": "O que nos guia",
-        "title": "Quatro princípios em",
-        "highlight": "cada entrega.",
+        "title": "Nosso jeito",
+        "highlight": "de fazer acontecer.",
         "layout": "lines",
         "columns": 4,
         "cards": [
           {
             "icon": "light",
             "title": "Inovação",
-            "description": "Transformamos tecnologia em soluções úteis e acessíveis."
+            "description": "Experimentar para encontrar caminhos úteis."
           },
           {
             "icon": "users",
             "title": "Colaboração",
-            "description": "Criamos junto com clientes, educadores e usuários."
+            "description": "Somar conhecimentos desde a primeira conversa."
           },
           {
             "icon": "heart",
             "title": "Engajamento",
-            "description": "Projetamos experiências que despertam curiosidade."
+            "description": "Despertar vontade de explorar e participar."
           },
           {
             "icon": "globe",
             "title": "Responsabilidade",
-            "description": "Valorizamos diversidade e impacto social positivo."
+            "description": "Criar com atenção às pessoas e ao contexto."
           }
         ]
       },
@@ -146,31 +145,31 @@
         "type": "cards",
         "enabled": true,
         "label": "Para quem criamos",
-        "title": "Públicos diferentes,",
-        "highlight": "mesmo cuidado.",
-        "description": "Adaptamos linguagem, duração e nível de interação a cada público.",
+        "title": "Muda o público.",
+        "highlight": "A curiosidade continua.",
+        "description": "Cada experiência começa por quem vai usá-la.",
         "layout": "cards",
         "columns": 4,
         "cards": [
           {
             "icon": "school",
             "title": "Escolas e universidades",
-            "description": "Conteúdo alinhado ao currículo e ao tempo real da aula."
+            "description": "Conteúdo que ganha espaço além da sala de aula."
           },
           {
             "icon": "screen",
             "title": "Professores",
-            "description": "Material de apoio e orientação para conduzir a experiência."
+            "description": "Novas maneiras de apresentar uma ideia à turma."
           },
           {
             "icon": "users",
             "title": "Estudantes",
-            "description": "Aprendizado ativo, com ritmo próprio e retorno imediato."
+            "description": "Aprender participando, descobrindo e experimentando."
           },
           {
             "icon": "building",
             "title": "Empresas e organizações",
-            "description": "Treinamento, ativação de marca e apresentação de produtos."
+            "description": "Treinar, apresentar e aproximar pessoas de uma marca."
           }
         ]
       },
@@ -179,25 +178,25 @@
         "type": "cards",
         "enabled": true,
         "label": "Nosso compromisso",
-        "title": "Tecnologia só vale se",
-        "highlight": "todo mundo alcançar.",
+        "title": "Bem pensado.",
+        "highlight": "Do começo ao encontro.",
         "layout": "tinted",
         "columns": 3,
         "cards": [
           {
             "icon": "access",
             "title": "Acessibilidade",
-            "description": "Contraste, navegação por teclado, legendas e redução de movimento para quem precisa."
+            "description": "Experiências pensadas para diferentes formas de participar."
           },
           {
             "icon": "book",
             "title": "Conteúdo",
-            "description": "Projeto construído com quem domina o assunto e revisado antes de virar experiência."
+            "description": "O assunto vem primeiro. A tecnologia dá forma."
           },
           {
             "icon": "target",
             "title": "Objetivo",
-            "description": "Toda experiência começa com uma pergunta: o que precisa mudar depois dela?"
+            "description": "Cada escolha responde ao que seu público precisa."
           }
         ]
       },
@@ -205,9 +204,9 @@
         "id": "contact",
         "type": "cta",
         "enabled": true,
-        "label": "O próximo universo começa com uma conversa",
-        "title": "Quer construir uma",
-        "highlight": "experiência com a gente?",
+        "label": "A próxima ideia pode ser sua",
+        "title": "Que mundo vamos",
+        "highlight": "criar juntos?",
         "image": "/hero-vr.jpg",
         "imagePosition": "center",
         "overlay": 0.65,
@@ -225,19 +224,19 @@
         "type": "catalog",
         "enabled": true,
         "label": "Soluções",
-        "title": "Novas formas de ensinar.",
-        "highlight": "Novos mundos para aprender.",
-        "description": "A Miniverso aproxima tecnologia e educação com experiências de realidade virtual que tornam o aprendizado envolvente e memorável. Apoiamos escolas, professores e alunos na descoberta de novas possibilidades para ensinar e aprender.",
+        "title": "Seu conteúdo.",
+        "highlight": "Em outra dimensão.",
+        "description": "VR, AR, realidade mista e 360° para aprender, descobrir e participar.",
         "image": "/solutions-vr.jpg",
         "imagePosition": "center 65%",
         "overlay": 0.18,
         "columns": 2,
-        "benefitsLabel": "Possibilidades na educação",
-        "button": "Conversar sobre esta solução",
+        "benefitsLabel": "Onde usar este formato",
+        "button": "Quero explorar esta ideia",
         "cards": [
           {
             "title": "Realidade virtual na educação",
-            "description": "Ambientes virtuais imersivos que convidam os alunos a explorar conteúdos e vivenciar o aprendizado. Uma nova perspectiva para professores que desejam despertar a curiosidade e envolver a turma.",
+            "description": "Leve a turma para dentro do conteúdo, com cenários que convidam à descoberta.",
             "icon": "screen",
             "wide": false,
             "benefits": [
@@ -254,7 +253,7 @@
           },
           {
             "title": "Realidade aumentada",
-            "description": "Elementos digitais ampliam a percepção do mundo real e abrem novas possibilidades para explorar conteúdos educacionais.",
+            "description": "Transforme uma página, um objeto ou um espaço em uma nova forma de aprender.",
             "icon": "layers",
             "wide": false,
             "benefits": [
@@ -271,7 +270,7 @@
           },
           {
             "title": "Realidade mista",
-            "description": "O físico e o virtual se encontram em experiências que permitem explorar novas relações entre o aluno, o espaço e o conteúdo.",
+            "description": "Faça o ambiente real conversar com elementos digitais.",
             "icon": "globe",
             "wide": false,
             "benefits": [
@@ -288,7 +287,7 @@
           },
           {
             "title": "Vídeos 360°",
-            "description": "Um olhar imersivo sobre lugares e contextos que podem enriquecer a aula e ampliar o repertório dos estudantes.",
+            "description": "Abra uma janela para lugares e histórias em todas as direções.",
             "icon": "globe",
             "wide": false,
             "benefits": [
@@ -305,7 +304,7 @@
           },
           {
             "title": "Tecnologia a serviço de quem ensina e aprende",
-            "description": "Apoiamos escolas que querem inovar em suas metodologias, professores que buscam aulas mais cativantes e alunos que desejam incorporar tecnologia aos estudos.",
+            "description": "Do planejamento ao encontro com o público, construímos a experiência com a sua equipe.",
             "icon": "school",
             "wide": true,
             "benefits": [
@@ -327,10 +326,10 @@
         "id": "comparison",
         "type": "comparison",
         "enabled": true,
-        "label": "Possibilidades para a sua aula",
-        "title": "O aprendizado é o ponto",
-        "highlight": "de partida.",
-        "description": "Conte o que sua turma precisa explorar. Vamos conversar sobre a tecnologia mais adequada ao contexto de ensino.",
+        "label": "Vamos encontrar o seu caminho",
+        "title": "Comece pela ideia.",
+        "highlight": "O formato vem depois.",
+        "description": "Conte quem vai participar e o que você quer despertar.",
         "headers": [
           "Objetivo de aprendizagem",
           "Tecnologia",
@@ -363,26 +362,26 @@
         "id": "process",
         "type": "process",
         "enabled": true,
-        "label": "Nossa essência",
-        "title": "Educação que conecta.",
-        "highlight": "Tecnologia que envolve.",
+        "label": "Nosso jeito de criar",
+        "title": "Boas experiências",
+        "highlight": "começam com boas escolhas.",
         "columns": 4,
         "steps": [
           {
             "title": "Inovação",
-            "description": "Explorar novas possibilidades de ensino com tecnologias imersivas."
+            "description": "Testar possibilidades antes de definir o caminho."
           },
           {
             "title": "Engajamento",
-            "description": "Despertar o interesse e tornar a experiência de aprendizado envolvente e memorável."
+            "description": "Criar vontade de conhecer, tentar e descobrir."
           },
           {
             "title": "Colaboração e diversidade",
-            "description": "Valorizar diferentes perspectivas e a participação de escolas, professores e alunos."
+            "description": "Ouvir quem ensina e quem aprende."
           },
           {
             "title": "Responsabilidade social",
-            "description": "Colocar a tecnologia a serviço das pessoas e da transformação da educação."
+            "description": "Pensar no uso da tecnologia em cada contexto."
           }
         ]
       },
@@ -390,14 +389,14 @@
         "id": "contact",
         "type": "banner",
         "enabled": true,
-        "label": "Vamos imaginar novas possibilidades",
-        "title": "Ainda em dúvida sobre",
-        "highlight": "o melhor formato?",
-        "description": "Conte o desafio da sua escola, o conteúdo que deseja explorar e quem vai participar. Vamos descobrir juntos como a tecnologia pode enriquecer essa experiência de aprendizagem.",
+        "label": "Ainda não escolheu um formato?",
+        "title": "Traga a pergunta.",
+        "highlight": "Vamos explorar juntos.",
+        "description": "Uma conversa para conectar seu objetivo às possibilidades.",
         "image": "/solutions-format.png",
         "imagePosition": "center 45%",
         "overlay": 0.15,
-        "button": "Vamos conversar sobre educação",
+        "button": "Conte sua ideia",
         "href": "/contato"
       }
     ]
@@ -414,9 +413,9 @@
         "type": "contact",
         "enabled": true,
         "label": "Contato",
-        "title": "A primeira conversa",
-        "highlight": "é sobre entender.",
-        "description": "Conte o seu desafio, sem compromisso. Vamos entender o que você precisa e encontrar o melhor caminho.",
+        "title": "Tem uma ideia?",
+        "highlight": "Vamos dar forma a ela.",
+        "description": "Conte o que você imagina. A gente começa ouvindo.",
         "locationNote": "São Luís · Brasil",
         "layout": "split",
         "form": {
@@ -476,19 +475,19 @@
           }
         ],
         "channelsLabel": "Canais diretos",
-        "nextLabel": "O que acontece depois",
+        "nextLabel": "Depois do primeiro oi",
         "steps": [
           {
             "title": "Confirmação na tela",
-            "description": "Você recebe uma confirmação de que a mensagem chegou."
+            "description": "Seu contato fica registrado com a nossa equipe."
           },
           {
             "title": "Conversa de 30 minutos",
-            "description": "Marcamos um horário para entender o desafio e fazer as perguntas certas."
+            "description": "Conversamos para entender o público e o desafio."
           },
           {
             "title": "Caminho proposto",
-            "description": "Enviamos formato indicado, etapas e prazo estimado."
+            "description": "Apresentamos um formato e os próximos passos."
           }
         ],
         "dataNote": "Seus dados ficam apenas com a equipe do projeto e podem ser apagados a qualquer momento, a pedido."
