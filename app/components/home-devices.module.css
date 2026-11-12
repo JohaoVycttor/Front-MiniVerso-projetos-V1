@@ -1,0 +1,85 @@
+.phoneStage{background:transparent;padding:80px 24px 64px;overflow:hidden}
+.phoneStage.bare{margin:0;padding:12px 0 72px;background:none;border:0;border-radius:0;box-shadow:none;backdrop-filter:none}
+.phoneRow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-items:start;gap:clamp(36px,7vw,106px);max-width:1010px;margin:0 auto}
+.phone{display:block;min-width:0;aspect-ratio:.475;position:relative;padding:5px;border:1.5px solid #71777c;border-radius:40px;background:linear-gradient(110deg,#303438,#0b0d0f 18%,#0b0d0f 83%,#42474d);box-shadow:inset 0 0 0 1px #020304,inset 1px 1px 0 1px #ffffff24,0 22px 32px -24px #000;outline-offset:12px;transition:transform .65s cubic-bezier(.22,1,.36,1),border-color .3s ease,box-shadow .3s ease}
+.phone:before,.phone:after{content:"";position:absolute;width:2px;background:linear-gradient(90deg,#272b30,#72797e);border-radius:2px;pointer-events:none}
+.phone:before{left:-3px;top:21%;height:14%}
+.phone:after{right:-3px;top:30%;height:10%}
+.phoneScreen{position:relative;width:100%;height:100%;overflow:hidden;border-radius:33px;background:#f0f0ed;color:#101010;container-type:inline-size}
+.statusBar{position:absolute;z-index:6;left:8%;right:8%;top:3%;display:flex;justify-content:space-between;align-items:center;color:#111;font:500 3.5cqw/1 Arial,sans-serif}
+.signal{display:flex;gap:1.5cqw;align-items:center}
+.signal svg{display:block;width:4.5cqw;height:4.5cqw;stroke-width:2.2}
+.signal svg:last-child{width:6.5cqw;height:5cqw}
+.camera{position:absolute;z-index:7;left:33%;right:33%;top:2%;height:4%;background:linear-gradient(110deg,#050608,#000);border-radius:20px;box-shadow:inset 0 0 0 1px #000}
+.homeIndicator{position:absolute;z-index:7;bottom:1.7%;left:30%;right:30%;height:3px;border-radius:3px;background:#111}
+.fieldPhoto{position:absolute;inset:0 0 32%;overflow:hidden}
+.fieldPhoto img{object-fit:cover;object-position:center top}
+.fieldPhoto:after{content:"";position:absolute;inset:0;background:linear-gradient(#ffffff45,transparent 15%,transparent 75%,#f0f0ed)}
+.fieldCopy{position:absolute;z-index:2;left:5%;right:5%;bottom:5%;display:flex;flex-direction:column;align-items:start}
+.fieldCopy>span:first-child{font:2.8cqw/1.5 Arial,sans-serif;margin-bottom:4%;color:#6c7377;letter-spacing:.055em}
+.fieldCopy strong{font-size:10.8cqw;line-height:1.03;font-weight:400;letter-spacing:-.055em}
+.phoneAction{display:flex;align-items:center;justify-content:space-between;width:100%;gap:8px;font-size:3.5cqw;line-height:1.5;margin-top:8%}
+.phoneAction svg{width:14cqw;height:14cqw;padding:4cqw;background:#dedfda;border:1px solid #00000008;border-radius:50%;color:#161616;flex-shrink:0}
+.darkPhone .phoneScreen{background:#050505;color:#f2f2f0}
+.darkPhone .statusBar{color:#f2f2f0}
+.darkPhone .homeIndicator{background:#e6e6e4}
+.detailPhoto{position:absolute;inset:0 0 55%}
+.detailPhoto img{object-fit:cover;object-position:center 35%;filter:grayscale(1) brightness(.72)}
+.detailPhoto:after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 10%,#050505)}
+.manifesto{position:absolute;left:7%;right:7%;bottom:8%;text-align:center}
+.wordmark{display:block;font-size:7.8cqw;font-weight:600;line-height:1;letter-spacing:-.065em;margin-bottom:10%}
+.manifesto strong{display:block;font-size:10.8cqw;font-weight:400;line-height:1.03;letter-spacing:-.055em}
+.manifesto em{font-style:normal;color:#777}
+.manifesto p{font-size:3.7cqw;line-height:1.5;max-width:85%;margin:9% auto 0;color:#a3a9b0}
+.exploreCopy{position:absolute;z-index:3;left:5%;right:5%;top:10%}
+.exploreCopy strong{display:block;font-size:11cqw;line-height:1.04;font-weight:400;letter-spacing:-.055em}
+.exploreCopy .phoneAction{width:90%;margin-top:8%}
+.explorePhoto{position:absolute;top:43%;bottom:0;left:0;right:0}
+.explorePhoto img{object-fit:cover;object-position:67% center;filter:saturate(.25)}
+.phoneScreen img{transition:transform 1.2s cubic-bezier(.22,1,.36,1)}
+.phoneAction svg{transition:transform .45s cubic-bezier(.22,1,.36,1)}
+
+/* The frames arrive first; the photographs and copy unfold inside the screens. */
+@media(prefers-reduced-motion:no-preference){
+ .phoneStage{--device-offset:48px;--screen-offset:14px;--copy-offset:.85em}
+ .phoneStage[data-device-direction="up"]{--device-offset:-48px;--screen-offset:-14px;--copy-offset:-.85em}
+ .phoneStage[data-device-motion="ready"] .phone{opacity:0;translate:0 var(--device-offset)}
+ .phone:nth-child(1){--device-delay:0ms}
+ .phone:nth-child(2){--device-delay:160ms}
+ .phone:nth-child(3){--device-delay:320ms}
+ .phoneStage[data-device-motion="entered"] [data-immersive-view="phones"] .phone{animation:deviceArrival 1.15s var(--device-delay) cubic-bezier(.16,1,.3,1) backwards}
+ .phoneStage[data-device-motion="entered"] [data-immersive-view="phones"] :is(.fieldPhoto,.detailPhoto,.explorePhoto){animation:screenArrival 1.15s calc(var(--device-delay) + 180ms) cubic-bezier(.16,1,.3,1) backwards}
+ .phoneStage[data-device-motion="entered"] [data-immersive-view="phones"] .phoneScreen img{animation:photoSettle 3.5s calc(var(--device-delay) + 180ms) cubic-bezier(.2,.7,.3,1) backwards}
+ .phoneStage[data-device-motion="entered"] [data-immersive-view="phones"] :is(.fieldCopy,.manifesto,.exploreCopy)>*{animation:copyArrival .9s calc(var(--device-delay) + 320ms) cubic-bezier(.16,1,.3,1) backwards}
+ .phoneStage[data-device-motion="entered"] [data-immersive-view="phones"] :is(.fieldCopy,.manifesto,.exploreCopy)>:nth-child(2){animation-delay:calc(var(--device-delay) + 440ms)}
+ .phoneStage[data-device-motion="entered"] [data-immersive-view="phones"] :is(.fieldCopy,.manifesto,.exploreCopy)>:nth-child(3){animation-delay:calc(var(--device-delay) + 560ms)}
+}
+@keyframes deviceArrival{from{opacity:0;translate:0 var(--device-offset,48px)}to{opacity:1;translate:0 0}}
+@keyframes screenArrival{from{opacity:0;translate:0 var(--screen-offset,14px)}to{opacity:1;translate:0 0}}
+@keyframes copyArrival{from{opacity:0;translate:0 var(--copy-offset,.85em);clip-path:inset(0 0 100% 0)}to{opacity:1;translate:0 0;clip-path:inset(0 0 0 0)}}
+@keyframes photoSettle{from{transform:scale(1.085)}to{transform:scale(1)}}
+.phone:focus-visible{outline:2px solid #fff}
+@media(hover:hover){.phone:hover{border-color:#abb5bf;box-shadow:inset 0 0 0 1px #020304,inset 1px 1px 0 1px #ffffff35,0 25px 40px -24px #000}}
+@media(hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){
+ .phone:hover{transform:translateY(-7px)}
+ .phone:hover .phoneScreen img{transform:scale(1.035)}
+ .phone:hover .phoneAction svg{transform:translate(2px,-2px)}
+}
+@media(max-width:1000px){.phoneRow{gap:6vw;max-width:850px}.phoneStage{padding-block:90px}.phone{border-radius:32px;padding:4px}.phoneScreen{border-radius:25px}}
+@media(max-width:760px){
+ .phoneStage{padding:60px 20px 64px}
+ .phoneRow{gap:5vw}
+ .phone{padding:2px;border-width:1px;border-radius:5vw;outline-offset:5px}
+ .phoneScreen{border-radius:4.2vw}
+ .phone:before,.phone:after{width:1px}
+ .phone:before{left:-2px}
+ .phone:after{right:-2px}
+ .statusBar{font-size:3.4cqw}
+ .signal{gap:1cqw}
+ .camera{height:3.8%}
+ .homeIndicator{height:2px}
+ .manifesto p{display:none}
+ .manifesto strong{font-size:12cqw}
+}
+@media(max-width:380px){.phoneStage{padding-inline:14px}.phoneRow{gap:4vw}.phoneStage{padding-block:52px}}
+@media(prefers-reduced-motion:reduce){.phone,.phoneScreen img,.phoneAction svg{transition:none}}

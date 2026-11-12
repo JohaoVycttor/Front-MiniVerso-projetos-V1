@@ -1,40 +1,45 @@
 "use client";
 
-import {useEffect,useRef,useSyncExternalStore} from 'react';
+import { useEffect, useRef } from "react";
+import Image from "next/image";
 
-const motionQuery='(prefers-reduced-motion: reduce)';
-function subscribeReducedMotion(onChange){
- const preference=window.matchMedia(motionQuery);
- preference.addEventListener('change',onChange);
- return()=>preference.removeEventListener('change',onChange);
-}
-function getReducedMotion(){return window.matchMedia(motionQuery).matches}
-function getReducedMotionServerSnapshot(){return true}
-
-export default function HomeScene({image,mobileImage,video,poster,alt}) {
- const scene=useRef(null);
- const reducedMotion=useSyncExternalStore(subscribeReducedMotion,getReducedMotion,getReducedMotionServerSnapshot);
- useEffect(()=>{
-  const element=scene.current;
-  const preference=matchMedia(motionQuery);
-  let frame;
-  const reset=()=>{element.style.setProperty('--scene-x','0px');element.style.setProperty('--scene-y','0px')};
-  const move=event=>{
-   if(preference.matches||event.pointerType==='touch')return;
-   const bounds=element.getBoundingClientRect();
-   cancelAnimationFrame(frame);
-   frame=requestAnimationFrame(()=>{
-    element.style.setProperty('--scene-x',`${((event.clientX-bounds.left)/bounds.width-.5)*-18}px`);
-    element.style.setProperty('--scene-y',`${((event.clientY-bounds.top)/bounds.height-.5)*-12}px`);
-   });
+export default function HomeScene({image = "/home-vr-background.jpg", alt = "Experiência com óculos de realidade virtual"}) {
+ const scene = useRef(null);
+ const source = typeof image === "string" && ((image.startsWith("/") && !image.startsWith("//") && !image.includes("\\")) || /^https?:\/\//i.test(image)) ? image : "/home-vr-background.jpg";
+ useEffect(() => {
+  const element = scene.current;
+  const stage = element.parentElement;
+  const preference = matchMedia("(prefers-reduced-motion: reduce)");
+  let frame, visible = true;
+  const update = () => {
+   frame = null;
+   const bounds = stage.getBoundingClientRect();
+   const progress = Math.max(0, Math.min(1, -bounds.top / bounds.height));
+   element.style.setProperty("--scene-drift", `${progress * 32}px`);
   };
-  element.addEventListener('pointermove',move);
-  element.addEventListener('pointerleave',reset);
-  preference.addEventListener('change',reset);
-  return()=>{cancelAnimationFrame(frame);element.removeEventListener('pointermove',move);element.removeEventListener('pointerleave',reset);preference.removeEventListener('change',reset)};
- },[]);
- return <div className="vr-scene" ref={scene}>
-  {video?<video src={video} poster={poster||image||undefined} autoPlay={!reducedMotion} muted loop playsInline preload="metadata" aria-hidden="true"/>:<picture>{mobileImage&&<source media="(max-width:620px)" srcSet={mobileImage}/>}<img src={image||'/hero-vr.jpg'} alt={alt} fetchPriority="high"/></picture>}
+  const schedule = () => {
+   if (preference.matches || !visible || frame != null) return;
+   frame = requestAnimationFrame(update);
+  };
+  const reset = () => {
+   cancelAnimationFrame(frame); frame = null;
+   element.style.removeProperty("--scene-drift"); schedule();
+  };
+  const observer = new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; if (visible) schedule(); });
+  observer.observe(stage);
+  window.addEventListener("scroll", schedule, { passive: true });
+  window.addEventListener("resize", schedule);
+  preference.addEventListener("change", reset);
+  schedule();
+  return () => {
+   cancelAnimationFrame(frame); observer.disconnect();
+   window.removeEventListener("scroll", schedule);
+   window.removeEventListener("resize", schedule);
+   preference.removeEventListener("change", reset);
+  };
+ }, []);
+ return <div ref={scene} className="vr-scene">
+  <Image className="vr-scene-photo" src={source} alt={alt} fill preload sizes="(max-width: 760px) 100vw, 90vw" unoptimized={!source.startsWith("/")}/>
   <div className="vr-scene-grid" aria-hidden="true"/>
   <div className="vr-scene-orbit" aria-hidden="true"><span/><span/><i/></div>
   <span className="vr-scene-coordinate" aria-hidden="true">MV / IMMERSIVE WORLD — 360°</span>

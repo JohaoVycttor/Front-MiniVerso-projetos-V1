@@ -1,7 +1,7 @@
 # Painel administrativo Miniverso
 
 Front-end do painel administrativo do portfólio institucional da Miniverso, em **Next.js 16** e **React 19**.
-O painel permite editar a **página inicial**, gerenciar **leads** e publicar o conteúdo de **O estúdio, Soluções, Contato e Portfólio e projetos**, preservando o layout das páginas públicas.
+Esta parte do projeto é o **editor da página inicial** (frame "Painel · Editor da página inicial" no Figma), onde o administrador muda a estrutura e o conteúdo da home do site, e a consulta de **leads** recebidos pelo formulário de contato (seção "Painel · Leads" no Figma).
 Projeto da disciplina Programação Avançada para Web (UNDB, Prof. Me. Kleydson Beckman).
 
 Versão atual: **0.4.2**. O histórico de entregas está em [docs/EVOLUCAO.md](docs/EVOLUCAO.md) e as ideias fora do DRDA, em [docs/PROPOSTAS.md](docs/PROPOSTAS.md).
@@ -21,10 +21,6 @@ Versão atual: **0.4.2**. O histórico de entregas está em [docs/EVOLUCAO.md](d
   - lista com busca por nome, e-mail ou empresa, filtro por serviço de interesse, ordenação por data e paginação
   - detalhe com a mensagem completa, responder por e-mail e copiar o contato
   - exclusão com confirmação que nomeia o lead
-- Páginas do site (`/admin/paginas`):
-  - edição de textos, cores, seções, cards, ordem e visibilidade das páginas internas
-  - envio, substituição e remoção de imagens e vídeos, incluindo mídia de Hero e galerias de projetos
-  - publicação autenticada com validação e atualização imediata no site
 - Modo claro e escuro em todas as telas: botão no cabeçalho, ao lado de "Ver site". Na primeira visita segue o tema do sistema; depois a escolha fica salva no navegador
 
 ## Como rodar
@@ -39,7 +35,7 @@ npm run dev
 
 Abra <http://localhost:3000>. O painel fica em `/admin`.
 
-Sem back-end configurado, o login e os leads usam dados de exemplo (modo mock), no formato da API Laravel. Os editores de conteúdo usam os arquivos JSON compartilhados com o site:
+Sem back-end configurado, o painel usa dados de exemplo (modo mock), no mesmo formato da API Laravel:
 
 | Campo | Valor de teste |
 | --- | --- |
@@ -57,7 +53,7 @@ API_URL=http://localhost:8000
 API_MODE=live
 ```
 
-O login, a sessão e a saída passam a usar a API real. O conteúdo da página inicial é salvo pela rota local autenticada `/api/admin/site-content`, em `data/home-content.json`; as páginas internas usam `/api/admin/page-content`, em `data/content.json`. Ambos os arquivos são compartilhados com o site e não passam pelo mock nem pela API Laravel. Os leads ainda não existem no back-end e continuam vindo do mock (`MOCK_RESOURCES=leads`). Em instalações separadas, configure `HOME_DATA_DIR` para apontar ao mesmo diretório persistente nos dois serviços. O contrato está em [docs/CONTRATO-API.md](docs/CONTRATO-API.md).
+O login, a sessão e a saída passam a usar a API real. O conteúdo da página inicial (`site-content`) e os leads (`leads`) ainda não existem no back-end, então continuam vindo do mock (`MOCK_RESOURCES=site-content,leads`). Quando uma rota for criada lá, tire o nome dela dessa lista. O contrato está em [docs/CONTRATO-API.md](docs/CONTRATO-API.md).
 
 ## Scripts
 
@@ -76,9 +72,7 @@ Navegador ──> Next.js (este projeto) ──> API Laravel
               │
               ├─ /admin/*        telas do painel
               ├─ /api/auth/*     login, logout e sessão expirada
-              ├─ /api/admin/*    ponte autenticada para a API (BFF)
-              ├─ /api/admin/site-content  conteúdo da home em arquivo compartilhado
-              └─ /api/admin/page-content  conteúdo das páginas em arquivo compartilhado
+              └─ /api/admin/*    ponte autenticada para a API (BFF)
 ```
 
 O navegador nunca fala direto com o Laravel. O Next.js faz o papel de BFF (*backend for frontend*):

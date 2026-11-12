@@ -1,0 +1,136 @@
+/* Miniverso — editorial direction inspired by Produx: scale, imagery, restraint. */
+body.miniverso-design:has(.produx-page){--experience-bg:#191b17;--experience-panel:#22251f;--experience-ink:#f2f3ec;--experience-muted:#afb5a5;--experience-line:#e3e9d126;--experience-accent:#c6ed7a;--mv-gutter:clamp(22px,4.7vw,80px);--mv-radius:5px;--mv-border:var(--experience-line);--mv-masthead-bg:#191b17;--cyan:#c6ed7a;background:var(--experience-bg);color:var(--experience-ink);color-scheme:dark}
+body.miniverso-design .produx-page{--core-ink:#f2f3ec;--core-muted:#afb5a5;--core-line:#e3e9d126;--core-accent:#c6ed7a;--vr-ink:#f2f3ec;--vr-muted:#afb5a5;--vr-line:#e3e9d126;--vr-accent:#c6ed7a;--section-bg:transparent;--section-ink:#f2f3ec;--section-copy:#afb5a5;--section-muted:#949c87;--section-line:#e3e9d126;--solutions-accent:#c6ed7a;--studio-accent:#c6ed7a;--contact-accent:#c6ed7a;--blue:#c6ed7a;--ink:#f2f3ec;--muted:#afb5a5;--line:#e3e9d126;background:#191b17;background-image:none;background-attachment:scroll;color:#f2f3ec;padding-top:0;overflow-wrap:break-word}
+body.miniverso-design .produx-page :is(.shell,.studio-container,.solutions-container,.contact-container,.container){max-width:1440px}
+body.miniverso-design:has(.produx-page) .site-header{position:fixed;z-index:60;background:transparent;border-bottom:1px solid #f2f3ec19;transition:background .3s,border-color .3s}
+body.miniverso-design:has(.produx-page) .header-inner{height:88px;max-width:1440px;width:calc(100% - var(--mv-gutter)*2)}
+body.miniverso-design:has(.produx-page) .site-header[data-scrolled]{background:#191b17ed;backdrop-filter:blur(20px);border-bottom-color:#e3e9d126;box-shadow:none}
+body.miniverso-design:has(.produx-page) .brand{font-size:23px;letter-spacing:-.065em;font-weight:600;gap:9px}
+body.miniverso-design:has(.produx-page) .brand img{width:40px;height:auto}
+body.miniverso-design:has(.produx-page) .nav{gap:27px}
+body.miniverso-design:has(.produx-page) .nav>a{font-size:11px;color:#ccd1c3}
+body.miniverso-design:has(.produx-page) .nav>a.active{color:#c6ed7a}
+body.miniverso-design:has(.produx-page) .nav>a:not(.nav-cta):after{background:#c6ed7a;height:1px}
+body.miniverso-design:has(.produx-page) .nav .nav-login{border:0;padding:8px;color:#a2aa96;gap:6px}
+body.miniverso-design:has(.produx-page) .site-header .nav .nav-cta{font-size:11px;display:flex;align-items:center;gap:22px;border:1px solid #d6dfc560;border-radius:999px;background:#f2f3ec;color:#20251a;padding:12px 18px;box-shadow:none;text-shadow:none;backdrop-filter:none}
+body.miniverso-design:has(.produx-page) .site-header .nav .nav-cta:hover{background:#c6ed7a;border-color:#c6ed7a}
+body.miniverso-design .produx-page :is(h2,h3){font-weight:400;letter-spacing:-.055em;text-wrap:balance}
+body.miniverso-design .produx-page :is(h2,h3) em{font-style:normal;color:#c6ed7a;font-weight:400}
+body.miniverso-design .produx-page :is(.eyebrow,.studio-label,.solutions-label,.contact-kicker,.micro-label,.core-label){font-family:var(--mv-font);font-size:10px;font-weight:400;line-height:1.6;letter-spacing:.1em;color:#9da68f;text-transform:uppercase}
+body.miniverso-design .produx-page :is(.eyebrow):before{display:none}
+body.miniverso-design .produx-page :is(p,.detail-intro){color:#afb5a5}
+body.miniverso-design .produx-page :is(.button.primary,.studio-button,.solutions-button,.contact-send,.portfolio-module .button){display:inline-flex;align-items:center;justify-content:center;gap:25px;min-height:50px;padding:13px 22px;background:#c6ed7a;color:#20251a;border:1px solid #c6ed7a;border-radius:999px;font-size:12px;font-weight:500;box-shadow:none;backdrop-filter:none;text-shadow:none;transition:background .25s,transform .25s}
+body.miniverso-design .produx-page :is(.button.primary,.studio-button,.solutions-button,.contact-send):hover{background:#d8f5a4;transform:translateY(-2px)}
+body.miniverso-design .produx-page :is(.section-link,.studio-text-link,.core-text-link,.text-link){font-size:12px;font-weight:400;color:#d5ddc7;line-height:1.7}
+body.miniverso-design .produx-page :is(a,button,input,select,textarea,summary):focus-visible{outline:2px solid #c6ed7a;outline-offset:5px}
+body.miniverso-design .produx-page .experience-ribbon{border-bottom:1px solid var(--experience-line);background:#22251f}
+body.miniverso-design .produx-page .experience-ribbon .home-marquee{background:#22251f;border:0;color:#c4ccb7;backdrop-filter:none;width:100%;margin:0}
+body.miniverso-design .produx-page .experience-ribbon .home-marquee-group{padding-block:22px;gap:52px}
+body.miniverso-design .produx-page .experience-ribbon .home-discipline{font-family:var(--mv-font);font-size:10px;letter-spacing:.07em;color:#c4ccb7;gap:26px}
+body.miniverso-design .produx-page .experience-ribbon .home-discipline svg{color:#c6ed7a;width:12px;height:12px}
+body.miniverso-design .produx-page .experience-ribbon .home-marquee-toggle{color:#b1bba0;border-color:var(--experience-line);font-size:9px;background:transparent}
+body.miniverso-design .produx-page .editorial-section{background:none;padding-block:110px}
+body.miniverso-design .produx-page .contact-band{background:#c6ed7a;border:0;padding:96px 0 70px;color:#20251a}
+body.miniverso-design .produx-page .contact-band :is(h2,h2 em){color:#20251a;font-size:clamp(46px,6.5vw,100px);font-weight:400;line-height:1.03;letter-spacing:-.065em}
+body.miniverso-design .produx-page .contact-band :is(.eyebrow,p,.section-link){color:#38462a}
+body.miniverso-design .produx-page .contact-band .contact-call{padding-block:22px 36px;align-items:center}
+body.miniverso-design .produx-page .contact-band .round-link{width:84px;height:84px;background:#20251a;color:#c6ed7a;border:0;box-shadow:none;backdrop-filter:none;flex-shrink:0}
+body.miniverso-design .produx-page .contact-band .round-link svg{width:32px;height:32px}
+body.miniverso-design .produx-page .contact-band-bottom{border-color:#20251a35;padding-top:24px}
+body.miniverso-design .produx-page .contact-band-bottom .section-link{margin:0}
+
+/* The studio retains its editable narrative and working format tabs. */
+body.miniverso-design .produx-page.studio-core .studio-story{margin-top:100px;margin-bottom:100px;gap:10%;align-items:center}
+body.miniverso-design .produx-page.studio-core .studio-story h2{font-size:clamp(36px,4.7vw,70px)}
+body.miniverso-design .produx-page.studio-core .studio-story p{font-size:14px;line-height:1.9}
+body.miniverso-design .produx-page.studio-core .studio-section-heading{padding-top:70px;margin-bottom:44px;border-color:var(--experience-line)}
+body.miniverso-design .produx-page.studio-core .studio-section-heading h2{font-size:clamp(36px,4.6vw,66px)}
+body.miniverso-design .produx-page.studio-core .studio-cards article{background:transparent;border-radius:0;border-color:var(--experience-line);box-shadow:none}
+body.miniverso-design .produx-page .studio-format-console{border-color:var(--experience-line);background:#22251f;border-radius:6px;box-shadow:none;overflow:hidden}
+body.miniverso-design .produx-page .studio-format-tabs{background:#22251f;border-color:var(--experience-line)}
+body.miniverso-design .produx-page .studio-format-tabs>button{color:#a9b29a;border-color:var(--experience-line);background:none}
+body.miniverso-design .produx-page .studio-format-tabs>button[aria-selected=true]{color:#20251a;background:#c6ed7a;border-color:#c6ed7a}
+body.miniverso-design .produx-page .studio-format-panel{padding:40px;gap:50px;align-items:center}
+body.miniverso-design .produx-page .studio-format-panel>figure{width:100%}
+body.miniverso-design .produx-page .studio-format-panel>figure>div{aspect-ratio:1.2}
+body.miniverso-design .produx-page .studio-format-copy h3{font-size:clamp(32px,3.6vw,52px);color:#f2f3ec}
+body.miniverso-design .produx-page .studio-format-copy a{color:#c6ed7a}
+body.miniverso-design .produx-page .studio-format-footer{color:#aeb89d;border-color:var(--experience-line)}
+body.miniverso-design .produx-page.studio-core .studio-cta{background:#242a1e;border-color:var(--experience-line);padding-block:90px}
+body.miniverso-design .produx-page.studio-core .studio-core-projects{padding-bottom:100px}
+
+/* Flat editorial surfaces let the photographs lead. */
+body.miniverso-design .produx-page :is(.solutions-catalog,.contact-container){padding-top:90px}
+body.miniverso-design .produx-page .solutions-intro{gap:8%;margin-bottom:55px}
+body.miniverso-design .produx-page :is(.solutions-intro h2,.solutions-section h2){font-size:clamp(36px,4.6vw,68px)}
+body.miniverso-design .produx-page .solutions-grid .solution-tile{border:1px solid var(--experience-line);background:#22251f;border-radius:5px;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none;transform:none;overflow:hidden}
+body.miniverso-design .produx-page .solutions-grid .solution-tile:hover{border-color:#c6ed7a66;box-shadow:none}
+body.miniverso-design .produx-page .solutions-grid .solution-tile h3{color:#f2f3ec;font-size:clamp(28px,3vw,43px)}
+body.miniverso-design .produx-page .solutions-grid .solution-tile p{color:#afb5a5;font-size:14px}
+body.miniverso-design .produx-page .solution-tags span{color:#aebc9a;font-size:10px}
+body.miniverso-design .produx-page .solution-tags span:before{color:#c6ed7a}
+body.miniverso-design .produx-page .solutions-process{gap:40px}
+body.miniverso-design .produx-page .solutions-process article{border-color:var(--experience-line)}
+body.miniverso-design .produx-page .solutions-process h3{color:#f2f3ec}
+body.miniverso-design .produx-page .solutions-banner{background:#242a1e;border-color:var(--experience-line);padding-block:90px;isolation:isolate}
+body.miniverso-design .produx-page .solutions-banner .solutions-backdrop{display:none}
+body.miniverso-design .produx-page .solutions-banner:after{display:none}
+
+/* Portfolio and individual project pages share the same quiet framing. */
+body.miniverso-design .produx-page.portfolio-core .featured-section{padding-top:90px}
+body.miniverso-design .produx-page.portfolio-core :is(.featured-project.glass,.project-card.glass,.detail-presentation.glass){background:#22251f;border:1px solid var(--experience-line);border-radius:5px;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none}
+body.miniverso-design .produx-page.portfolio-core .project-card.glass:hover{background:#272d22;border-color:#c6ed7a60;transform:translateY(-4px);box-shadow:none}
+body.miniverso-design .produx-page.portfolio-core :is(.featured-media,.card-cover){background:#22251f}
+body.miniverso-design .produx-page.portfolio-core .card-content{background:none;padding:28px}
+body.miniverso-design .produx-page.portfolio-core .card-content h3{color:#f2f3ec;font-size:26px;line-height:1.2}
+body.miniverso-design .produx-page.portfolio-core .badge{font-family:var(--mv-font);color:#b8c5a4;border-color:#e3e9d126;background:none;font-size:10px}
+body.miniverso-design .produx-page.portfolio-core .badge-dot{background:#c6ed7a}
+body.miniverso-design .produx-page.portfolio-core .filter-pill{background:transparent;color:#b2b9a6;border-color:#e3e9d135;backdrop-filter:none;font-size:12px;padding:11px 20px}
+body.miniverso-design .produx-page.portfolio-core .filter-pill.is-active{background:#c6ed7a;color:#20251a;border-color:#c6ed7a;box-shadow:none}
+body.miniverso-design .produx-page.portfolio-core .contact-section{background:#242a1e;border-color:var(--experience-line)}
+body.miniverso-design .produx-page.portfolio-core .detail-page{padding-top:155px}
+body.miniverso-design .produx-page.portfolio-core .detail-title{max-width:1100px;font-size:clamp(46px,7vw,108px);line-height:1.02;letter-spacing:-.065em}
+body.miniverso-design .produx-page.portfolio-core .project-story h2{color:#f2f3ec;font-size:30px}
+body.miniverso-design .produx-page.legacy-project .page-hero{padding-top:160px;padding-bottom:70px;background:#22251f}
+body.miniverso-design .produx-page.legacy-project .page-hero:after{display:none}
+body.miniverso-design .produx-page.legacy-project .page-hero h1{font-weight:400;letter-spacing:-.065em;line-height:1.05}
+body.miniverso-design .produx-page.legacy-project .home-card-image{width:100%;max-height:700px;object-fit:cover;border-radius:5px}
+body.miniverso-design .produx-page.portfolio-core :is(.project-facts dd,.text-link,.back-link){color:#d2ddc2}
+
+/* Contact fields have ample contrast and remain fully functional. */
+body.miniverso-design .produx-page.contact-core .contact-columns{gap:8%;grid-template-columns:1.3fr .8fr}
+body.miniverso-design .produx-page.contact-core .contact-form-intro{padding-top:26px}
+body.miniverso-design .produx-page.contact-core .contact-glass-form{background:#22251f;border:1px solid var(--experience-line);padding:38px;border-radius:5px;box-shadow:none}
+body.miniverso-design .produx-page.contact-core .contact-glass-form header h2{font-size:clamp(32px,3.2vw,46px);color:#f2f3ec}
+body.miniverso-design .produx-page.contact-core .contact-field{font-size:12px;color:#d4dcc7}
+body.miniverso-design .produx-page.contact-core .contact-field :is(input,select,textarea){border:1px solid #d8dfca40;background:#191b17;border-radius:4px;color:#f2f3ec;padding:15px;font-size:14px;box-shadow:none}
+body.miniverso-design .produx-page.contact-core .contact-field :is(input,textarea)::placeholder{color:#8f9981}
+body.miniverso-design .produx-page.contact-core .contact-field select option{background:#22251f;color:#f2f3ec}
+body.miniverso-design .produx-page.contact-core .contact-field :is(input,select,textarea):focus{border-color:#c6ed7a;background:#1e221b;box-shadow:0 0 0 3px #c6ed7a12}
+body.miniverso-design .produx-page.contact-core .contact-preference input:checked+span{background:#c6ed7a1a;color:#d5f0b1;border-color:#c6ed7a}
+body.miniverso-design .produx-page.contact-core :is(.contact-consent,.contact-message-help,.contact-submit>p,.contact-privacy p){color:#aeb89f}
+body.miniverso-design .produx-page.contact-core .contact-channels :is(a,span){color:#e1e7d8;font-size:14px}
+body.miniverso-design .produx-page.contact-core .contact-channels :is(svg,small){color:#a7bb8b}
+body.miniverso-design .produx-page.contact-core .contact-aside h3{color:#e1e7d8}
+body.miniverso-design .produx-page.contact-core .contact-aside .contact-glass{border-color:var(--experience-line)}
+
+/* Shared oversized signature closes every public page. */
+body.miniverso-design:has(.produx-page) .footer{background:#151712;border-color:var(--experience-line);padding-top:72px;color:#f2f3ec;overflow:hidden}
+body.miniverso-design:has(.produx-page) .footer :is(.shell){max-width:1440px}
+body.miniverso-design:has(.produx-page) .footer-grid{grid-template-columns:1.25fr .75fr 1fr;gap:60px;padding-bottom:65px}
+body.miniverso-design:has(.produx-page) .footer-grid :is(p,a,span){color:#a4ae96;font-size:12px;line-height:1.85}
+body.miniverso-design:has(.produx-page) .footer-grid .brand>span{color:#f2f3ec;font-size:23px}
+body.miniverso-design:has(.produx-page) .footer-grid strong{font-family:var(--mv-font);color:#d7dfca;font-size:11px;font-weight:400;letter-spacing:.03em}
+body.miniverso-design:has(.produx-page) .footer-grid a:hover{color:#c6ed7a}
+body.miniverso-design:has(.produx-page) .footer-grid .footer-email{color:#f2f3ec;font-size:clamp(13px,1.4vw,21px);letter-spacing:-.035em;overflow-wrap:anywhere}
+body.miniverso-design:has(.produx-page) .footer-wordmark{font-size:clamp(74px,16.5vw,260px);font-weight:400;line-height:1;letter-spacing:-.085em;color:#c6ed7a;padding-bottom:30px;white-space:nowrap}
+body.miniverso-design:has(.produx-page) .footer-wordmark:before{display:none}
+body.miniverso-design:has(.produx-page) .footer-wordmark>span{font-size:20px;letter-spacing:0;vertical-align:top;padding-left:12px}
+body.miniverso-design:has(.produx-page) .footer-bottom{border-color:var(--experience-line);color:#8d977f;font-size:9px;padding-block:24px}
+@media(max-width:1100px){body.miniverso-design:has(.produx-page) .nav{gap:19px}body.miniverso-design:has(.produx-page) .nav>a{font-size:10px}body.miniverso-design:has(.produx-page) .site-header .nav .nav-cta{gap:10px;padding-inline:14px}}
+@media(max-width:900px){body.miniverso-design:has(.produx-page) .site-header .nav{background:#22251ffa;left:var(--mv-gutter);right:var(--mv-gutter);border-color:var(--experience-line);border-radius:4px;top:80px;gap:0;padding:20px}body.miniverso-design:has(.produx-page) .nav>a{font-size:14px;padding:15px 10px;min-height:48px}body.miniverso-design:has(.produx-page) .nav .nav-login{padding:15px 10px;justify-content:start}body.miniverso-design:has(.produx-page) .site-header .nav .nav-cta{margin-top:12px;justify-content:space-between;font-size:13px}body.miniverso-design:has(.produx-page) .footer-grid{gap:32px}body.miniverso-design .produx-page.contact-core .contact-columns{gap:5%}}
+@media(max-width:760px){body.miniverso-design .produx-page :is(.solutions-catalog,.contact-container){padding-top:60px}body.miniverso-design .produx-page.studio-core .studio-story{margin-block:60px;gap:32px}body.miniverso-design .produx-page.contact-core .contact-columns{grid-template-columns:1fr;gap:45px}body.miniverso-design .produx-page .contact-band{padding-block:62px 45px}body.miniverso-design .produx-page .contact-band .round-link{width:54px;height:54px}body.miniverso-design .produx-page .contact-band .round-link svg{width:24px;height:24px}body.miniverso-design .produx-page .contact-band .contact-call{gap:20px}body.miniverso-design .produx-page .contact-band h2,body.miniverso-design .produx-page .contact-band h2 em{font-size:clamp(36px,7vw,54px)}body.miniverso-design:has(.produx-page) .footer-grid{grid-template-columns:1fr 1fr}body.miniverso-design:has(.produx-page) .footer-grid>div:first-child{grid-column:1/-1}}
+@media(max-width:620px){body.miniverso-design:has(.produx-page) .header-inner{height:76px}body.miniverso-design:has(.produx-page) .brand{font-size:22px}body.miniverso-design:has(.produx-page) .site-header .nav{top:72px}body.miniverso-design .produx-page .experience-ribbon .home-marquee-group{padding-block:18px;gap:32px}body.miniverso-design .produx-page .experience-ribbon .home-discipline{font-size:9px;gap:20px}body.miniverso-design .produx-page .contact-band-bottom{flex-direction:column;gap:12px;align-items:start}body.miniverso-design .produx-page .solutions-banner,body.miniverso-design .produx-page.studio-core .studio-cta{padding-block:60px}body.miniverso-design .produx-page.contact-core .contact-glass-form{padding:24px 20px}body.miniverso-design .produx-page.contact-core .contact-field :is(input,select,textarea){font-size:16px}body.miniverso-design .produx-page.portfolio-core .detail-page{padding-top:120px}body.miniverso-design .produx-page.portfolio-core .card-content{padding:22px}body.miniverso-design .produx-page.portfolio-core .detail-title{font-size:clamp(38px,10vw,58px)}body.miniverso-design .produx-page.portfolio-core .featured-section{padding-top:55px}body.miniverso-design:has(.produx-page) .footer{padding-top:50px}body.miniverso-design:has(.produx-page) .footer-grid{gap:30px 16px;padding-bottom:48px}body.miniverso-design:has(.produx-page) .footer-grid .footer-email{font-size:12px}body.miniverso-design:has(.produx-page) .footer-wordmark{font-size:15.9vw;padding-bottom:22px}body.miniverso-design:has(.produx-page) .footer-wordmark>span{font-size:10px;padding-left:5px}body.miniverso-design:has(.produx-page) .footer-bottom{gap:14px;font-size:9px;flex-wrap:wrap}}
+@media(prefers-reduced-motion:reduce){body.miniverso-design:has(.produx-page) *,body.miniverso-design:has(.produx-page) *:before,body.miniverso-design:has(.produx-page) *:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+@media(max-width:620px){body.miniverso-design .produx-page .studio-format-panel{padding:24px 20px;gap:28px}body.miniverso-design .produx-page .studio-format-tabs>button>span{font-family:inherit;color:inherit}body.miniverso-design .produx-page .studio-format-tabs>button[aria-selected=true] svg{color:#20251a}}

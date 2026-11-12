@@ -14,7 +14,7 @@ import {
   visibilityControl,
 } from "./rules";
 import { SECTION_BY_KEY } from "./schema";
-import type { SectionContent, SiteContent } from "./types";
+import type { FieldDef, SectionContent, SiteContent } from "./types";
 
 function withSection(content: SiteContent, key: SectionContent["key"], update: (section: SectionContent) => SectionContent): SiteContent {
   return { ...content, sections: content.sections.map((section) => (section.key === key ? update(section) : section)) };
@@ -30,13 +30,19 @@ describe("regras do editor da página inicial", () => {
     assert.equal(errors.title, 'Preencha o campo "Chamada principal".');
     assert.equal(errors.primaryTarget, 'Escolha uma opção no campo "Botão principal · destino".');
     const service = validateFields(SECTION_BY_KEY.servicos.items!.fields, { title: "RV", description: "Treinamentos" });
-    assert.equal(service.image, 'Escolha uma imagem para o campo "Ícone ou imagem".');
+    assert.equal(service.image, undefined);
   });
 
   it("confere limite de caracteres, link e e-mail", () => {
     const fields = SECTION_BY_KEY.contato.fields;
-    const errors = validateFields(fields, { title: "x".repeat(81), email: "contato@", successMessage: "ok", errorMessage: "ok" });
-    assert.match(errors.title, /no máximo 80/);
+    const title = fields.find((field) => field.name === "title")!;
+    const errors = validateFields(fields, {
+      title: "x".repeat(title.maxLength! + 1),
+      email: "contato@",
+      successMessage: "ok",
+      errorMessage: "ok",
+    });
+    assert.match(errors.title, new RegExp(`no máximo ${title.maxLength}`));
     assert.match(errors.email, /e-mail válido/);
     const footer = validateFields(SECTION_BY_KEY.rodape.fields, { privacyUrl: "miniverso.com", copyright: "©" });
     assert.match(footer.privacyUrl, /https:\/\//);
@@ -60,10 +66,10 @@ describe("regras do editor da página inicial", () => {
     assert.match(validateContent(content).projetos?.fields.featured ?? "", /visível/);
   });
 
-  it("seção obrigatória não pode ser ocultada; Experiência fica bloqueada (RIU20)", () => {
+  it("seção obrigatória não pode ser ocultada; Experiência pode ser editada (RIU20)", () => {
     const content = createSeedContent();
     assert.equal(visibilityControl(SECTION_BY_KEY.servicos, findSection(content, "servicos")).canToggle, false);
-    assert.equal(visibilityControl(SECTION_BY_KEY.experiencia, findSection(content, "experiencia")).canToggle, false);
+    assert.equal(visibilityControl(SECTION_BY_KEY.experiencia, findSection(content, "experiencia")).canToggle, true);
     assert.equal(visibilityControl(SECTION_BY_KEY.diferenciais, findSection(content, "diferenciais")).canToggle, true);
   });
 
@@ -109,7 +115,13 @@ describe("regras do editor da página inicial", () => {
     assert.equal(validateFile({ name: "icone.png", type: "image/png", size: 1000 }, def), null);
     assert.match(validateFile({ name: "icone.gif", type: "image/gif", size: 1000 }, def) ?? "", /Formato não suportado/);
     assert.match(validateFile({ name: "foto.jpg", type: "image/jpeg", size: 3 * 1024 * 1024 }, def) ?? "", /maior que 2 MB/);
-    const model = SECTION_BY_KEY.hero.fields.find((field) => field.name === "model3d")!;
+    const model: FieldDef = {
+      name: "model3d",
+      label: "Modelo 3D",
+      type: "file",
+      accept: ["model/gltf-binary", ".glb"],
+      maxSizeMb: 10,
+    };
     assert.equal(validateFile({ name: "oculos.glb", type: "", size: 5 * 1024 * 1024 }, model), null);
   });
 

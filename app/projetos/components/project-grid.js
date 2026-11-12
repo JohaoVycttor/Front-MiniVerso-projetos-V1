@@ -1,85 +1,15 @@
-"use client";
-import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import { useState } from "react";
-import { Heading, Eyebrow } from "@/app/projetos/components/ui";
-import { ProjectCard } from "@/app/projetos/components/project-card";
-import MobileCarousel from "@/app/components/MobileCarousel";
-export function ProjectGrid({ section, projects, categories, ui }) {
-    const [active, setActive] = useState("");
-    const filtered = projects.filter((project)=>!active || project.categoryIds.includes(active));
-    const count = `${String(filtered.length).padStart(2, "0")} ${filtered.length === 1 ? ui.projectSingular : ui.projectPlural}`;
-    return /*#__PURE__*/ _jsxs("section", {
-        id: section.id,
-        className: "projects-section container",
-        "aria-labelledby": `${section.id}-heading`,
-        children: [
-            /*#__PURE__*/ _jsxs("div", {
-                className: "section-topline",
-                children: [
-                    /*#__PURE__*/ _jsxs("div", {
-                        children: [
-                            /*#__PURE__*/ _jsx(Eyebrow, {
-                                children: section.eyebrow
-                            }),
-                            /*#__PURE__*/ _jsx("div", {
-                                id: `${section.id}-heading`,
-                                children: /*#__PURE__*/ _jsx(Heading, {
-                                    content: section.heading
-                                })
-                            })
-                        ]
-                    }),
-                    /*#__PURE__*/ _jsx("span", {
-                        className: "project-count micro-label",
-                        role: "status",
-                        "aria-live": "polite",
-                        children: count
-                    })
-                ]
-            }),
-            /*#__PURE__*/ _jsx("div", {
-                className: "category-filters",
-                role: "group",
-                "aria-label": section.heading.text + " " + section.heading.accent,
-                children: [
-                    {
-                        id: "",
-                        label: ui.allCategories
-                    },
-                    ...categories
-                ].map((category)=>/*#__PURE__*/ _jsx("button", {
-                        className: `filter-pill ${active === category.id ? "is-active" : ""}`,
-                        "aria-pressed": active === category.id,
-                        onClick: ()=>setActive(category.id),
-                        children: category.label
-                    }, category.id))
-            }),
-            /*#__PURE__*/ _jsx(MobileCarousel, {
-                label: "Projetos",
-                resetKey: active,
-                className: `project-grid columns-${section.columns}`,
-                children: filtered.map((project, index)=>/*#__PURE__*/ _jsx(ProjectCard, {
-                        project: project,
-                        ui: ui,
-                        index: index
-                    }, project.id))
-            }, active),
-            !filtered.length && /*#__PURE__*/ _jsxs("div", {
-                className: "empty-state glass",
-                children: [
-                    /*#__PURE__*/ _jsx("h3", {
-                        children: ui.emptyTitle
-                    }),
-                    /*#__PURE__*/ _jsx("p", {
-                        children: ui.emptyDescription
-                    }),
-                    /*#__PURE__*/ _jsx("button", {
-                        className: "button",
-                        onClick: ()=>setActive(""),
-                        children: ui.resetFilters
-                    })
-                ]
-            })
-        ]
-    });
+'use client';
+import {useState} from 'react';
+import {ProjectCard} from './project-card';
+import {EditorialHeading} from '@/app/components/Editorial';
+import styles from '@/app/components/editorial.module.css';
+export function ProjectGrid({section,projects,categories,ui}){
+ const [active,setActive]=useState('');
+ const filtered=projects.filter(project=>!active||project.categoryIds.includes(active));
+ return <section id={section.id} className={styles.scope+' '+styles.section}><div className="container">
+  <EditorialHeading label={section.eyebrow} title={section.heading.text} highlight={section.heading.accent} description="Explore o contexto, o formato e as entregas de cada experiência."/>
+  <div className="editorial-project-toolbar"><div className="category-filters" role="group" aria-label="Filtrar projetos por categoria">{[{id:'',label:ui.allCategories},...categories].map(category=><button type="button" key={category.id} className={'filter-pill'+(active===category.id?' is-active':'')} aria-pressed={active===category.id} onClick={()=>setActive(category.id)}>{category.label}</button>)}</div><p role="status" aria-live="polite">{String(filtered.length).padStart(2,'0')} {filtered.length===1?ui.projectSingular:ui.projectPlural}</p></div>
+  <div className={styles.catalog}>{filtered.map((project,index)=><ProjectCard key={project.id} project={project} index={index}/>)}</div>
+  {!filtered.length&&<div className="editorial-empty"><h3>{ui.emptyTitle}</h3><p>{ui.emptyDescription}</p><button type="button" onClick={()=>setActive('')}>{ui.resetFilters}</button></div>}
+ </div></section>;
 }

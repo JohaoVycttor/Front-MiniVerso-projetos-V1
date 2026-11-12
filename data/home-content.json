@@ -5,28 +5,21 @@
       "key": "hero",
       "visible": true,
       "fields": {
-        "eyebrow": "TECNOLOGIA, CRIATIVIDADE E EDUCAÇÃO",
+        "eyebrow": "UM ESTÚDIO. MUITAS POSSIBILIDADES.",
         "brandTitle": "MINIVERSO",
-        "title": "OUTRAS",
-        "highlight": "REALIDADES.",
-        "subtitle": "Criamos experiências imersivas que aproximam pessoas do conhecimento. Da sala de aula a novos universos, cada projeto começa com um propósito.",
-        "location": "São Luís, Brasil",
-        "studioLabel": "Estúdio independente",
-        "approachLabel": "Tecnologia / propósito",
-        "approachValue": "Realidades que conectam",
-        "experiencesLabel": "Explore",
-        "experiencesValue": "VR · AR · 360°",
-        "primaryLabel": "Vamos criar juntos",
-        "primaryTarget": "contato",
-        "secondaryLabel": "Conheça a Miniverso",
+        "title": "Imagine.",
+        "highlight": "Viva o novo.",
+        "subtitle": "Criamos experiências para aprender, descobrir e conectar pessoas.",
+        "location": "SÃO LUÍS, BRASIL\nIDEIAS SEM FRONTEIRAS",
+        "primaryLabel": "Explore as experiências",
+        "primaryTarget": "projetos",
+        "secondaryLabel": "Conheça o estúdio",
         "secondaryTarget": "sobre",
         "scrollLabel": "ENTRE NO NOSSO UNIVERSO",
         "scrollTarget": "sobre",
         "scrollCount": "EXPLORE",
         "strip": "REALIDADE VIRTUAL\nREALIDADE AUMENTADA\nREALIDADE MISTA\nVÍDEOS 360°\nEDUCAÇÃO IMERSIVA",
         "background": "/home-vr-background.jpg",
-        "video": "",
-        "poster": "",
         "imageAlt": "Experiência de realidade virtual com a Miniverso",
         "mobileImage": "",
         "model3d": "",
@@ -38,15 +31,11 @@
       "key": "sobre",
       "visible": true,
       "fields": {
-        "eyebrow": "[ 01 — NOSSA HISTÓRIA ]",
-        "title": "Nascemos na educação.",
-        "highlight": "Crescemos com a curiosidade.",
-        "text": "Somos a Miniverso, um estúdio de experiências imersivas em São Luís, Maranhão. Nossa história começou com a criação de ambientes de realidade virtual voltados à educação, aproximando escolas, professores e estudantes de novas formas de aprender.\n\nA partir dessa origem, ampliamos nossas possibilidades com realidade aumentada, realidade mista e vídeos 360°. Hoje, unimos criatividade, conteúdo e tecnologia para transformar ideias em experiências que as pessoas podem viver.\n\nO propósito continua o mesmo: colocar as pessoas no centro e fazer da tecnologia um caminho para o conhecimento.",
-        "audienceEyebrow": "[ Educação no centro ]",
-        "audienceTitle": "Novas possibilidades.",
-        "audienceHighlight": "Para quem aprende e ensina.",
-        "audienceLabel": "Para quem criamos",
-        "buttonLabel": "Conheça nossa história",
+        "eyebrow": "[ 01 — CONHEÇA A MINIVERSO ]",
+        "title": "De São Luís, novas formas de aprender.",
+        "highlight": "",
+        "text": "De São Luís para novos universos: juntamos criatividade e tecnologia para dar forma ao que você imagina.",
+        "buttonLabel": "Por dentro do estúdio",
         "buttonUrl": "/sobre",
         "buttonNote": "Educação na origem. Curiosidade em cada projeto.",
         "secondaryLabel": "Converse com a equipe",
@@ -55,11 +44,8 @@
         "artFooter": "INOVAÇÃO · COLABORAÇÃO · DIVERSIDADE",
         "artCode": "MV / 01",
         "audienceIntro": "Apoiamos quem quer incorporar tecnologia à educação, com experiências conectadas ao contexto de cada escola e de cada turma.",
-        "audienceSchoolsTitle": "Escolas",
         "audienceSchools": "Suporte para escolas que desejam inovar em suas metodologias de ensino e explorar novas formas de apresentar o conhecimento.",
-        "audienceTeachersTitle": "Professores",
         "audienceTeachers": "Experiências que ajudam a tornar as aulas mais interessantes e cativantes, despertando a atenção e a participação da turma.",
-        "audienceStudentsTitle": "Estudantes",
         "audienceStudents": "Novas formas de incorporar tecnologia aos estudos e aprender explorando ambientes, conteúdos e possibilidades."
       },
       "items": [
@@ -82,11 +68,10 @@
       "visible": true,
       "fields": {
         "eyebrow": "[ 02 — O QUE CRIAMOS ]",
-        "title": "Uma ideia.",
-        "highlight": "Muitas dimensões.",
-        "subtitle": "Da realidade virtual aos vídeos 360°, criamos formas de explorar conteúdos e aproximar as pessoas do conhecimento.",
-        "carouselLabel": "Soluções",
-        "buttonLabel": "Conheça todas as soluções",
+        "title": "Encontre o formato para a sua ideia.",
+        "highlight": "",
+        "subtitle": "Entenda a experiência, o dispositivo e as aplicações de cada tecnologia.",
+        "buttonLabel": "Explore os formatos",
         "buttonUrl": "/servicos"
       },
       "items": [
@@ -142,9 +127,9 @@
       "visible": true,
       "fields": {
         "eyebrow": "[ 03 — GALERIA DE PROJETOS ]",
-        "title": "Da imaginação",
-        "highlight": "à experiência.",
-        "subtitle": "Conheça o contexto por trás de cada projeto: o que ele propõe, para quem foi pensado e como a tecnologia participa da experiência.",
+        "title": "Projetos, contexto e entregas.",
+        "highlight": "",
+        "subtitle": "Conheça os objetivos e as entregas de cada experiência.",
         "buttonLabel": "Ver galeria completa",
         "buttonUrl": "/projetos",
         "featured": "chemistry",
@@ -157,8 +142,8 @@
           "name": "Laboratório virtual de química",
           "summary": "Aulas práticas em ambiente seguro, com roteiro guiado e avaliação do professor.",
           "category": "Educação · VR",
-          "cover": "/hero-vr.jpg",
-          "coverAlt": "Capa do laboratório virtual de química",
+          "cover": "/project-science.jpg",
+          "coverAlt": "Detalhe de materiais de laboratório de química",
           "link": "/projetos/laboratorio-virtual-de-quimica",
           "details": "Experimentos que exigiriam reagentes controlados agora acontecem em um laboratório virtual. O estudante erra, repete e entende o processo sem risco, e o professor acompanha cada etapa pelo painel.",
           "technologies": "Realidade virtual",
@@ -173,7 +158,7 @@
           "summary": "Visita imersiva que apresenta espaços e cursos para novos estudantes.",
           "category": "Institucional · 360°",
           "cover": "/hero-vr.jpg",
-          "coverAlt": "Capa do tour 360° do campus",
+          "coverAlt": "Pessoa explorando uma experiência com óculos de realidade virtual",
           "link": "/projetos/tour-360-do-campus",
           "details": "Uma primeira visita que começa de qualquer lugar. O tour reúne os espaços do campus em uma experiência 360°, permitindo conhecer salas, laboratórios e áreas de convivência no próprio ritmo.",
           "technologies": "Vídeo 360°",
@@ -188,11 +173,11 @@
       "visible": true,
       "fields": {
         "eyebrow": "[ 04 — NOSSA ESSÊNCIA ]",
-        "title": "O que nos move.",
-        "highlight": "E o que nos conecta.",
+        "title": "Os critérios por trás de cada escolha.",
+        "highlight": "",
         "subtitle": "Cinco valores que orientam nossas escolhas, nossas relações e cada experiência que construímos.",
         "columns": "3",
-        "statement": "A tecnologia pode ser uma ferramenta poderosa para melhorar a educação.",
+        "statement": "Seu conhecimento e a nossa curiosidade, no mesmo projeto.",
         "attributes": "Moderna\nTecnológica\nDivertida"
       },
       "items": [
@@ -242,8 +227,8 @@
       "visible": true,
       "fields": {
         "eyebrow": "[ 05 — COMO CONSTRUÍMOS ]",
-        "title": "Da conversa\nà",
-        "highlight": "experiência.",
+        "title": "Como um projeto acontece.",
+        "highlight": "",
         "subtitle": "Uma jornada colaborativa, do entendimento do desafio à preparação da experiência para o público.",
         "columns": "3"
       },
@@ -251,17 +236,17 @@
         {
           "id": "processo-1",
           "title": "Descobrir",
-          "description": "Ouvimos sua ideia, entendemos seu público e definimos os objetivos da experiência."
+          "description": "Entendemos quem vai participar e o que você quer criar."
         },
         {
           "id": "processo-2",
           "title": "Criar",
-          "description": "Transformamos o conceito em design e tecnologia, com protótipos e testes ao longo do caminho."
+          "description": "Experimentamos ideias, desenhamos e desenvolvemos."
         },
         {
           "id": "processo-3",
           "title": "Conectar",
-          "description": "Preparamos a entrega e orientamos sua equipe para levar a experiência ao público."
+          "description": "Preparamos a experiência para encontrar seu público."
         }
       ]
     },
@@ -278,10 +263,10 @@
       "visible": true,
       "fields": {
         "eyebrow": "[ 06 — VAMOS CONVERSAR ]",
-        "title": "Sua ideia.",
-        "highlight": "Nosso próximo universo.",
-        "support": "Conte quem você quer alcançar e o que deseja transformar. Vamos explorar juntos as possibilidades para sua escola, instituição ou empresa.",
-        "buttonLabel": "Conte seu projeto",
+        "title": "Vamos conversar sobre a sua ideia.",
+        "highlight": "",
+        "support": "Conte o contexto, o público e o que você quer trabalhar. A primeira etapa é entender a sua ideia.",
+        "buttonLabel": "Vamos conversar",
         "buttonUrl": "/contato",
         "email": "contato@miniverso.com.br",
         "whatsapp": "",

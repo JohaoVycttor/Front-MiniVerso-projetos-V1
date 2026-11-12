@@ -1,5 +1,5 @@
 /* One editorial language for the home and studio, inspired by CoreNode. */
-body .studio-core{--core-ink:#f4f5fa;--core-muted:#a8b1c2;--core-line:#dce3f026;--core-accent:var(--studio-accent,#9edceb);padding-top:138px;color:var(--core-ink);background-color:var(--studio-bg,#0c0407);background-image:linear-gradient(#0c0407ed,#0c0407ed),var(--studio-image);background-image:linear-gradient(color-mix(in srgb,var(--studio-bg,#0c0407) 93%,transparent),color-mix(in srgb,var(--studio-bg,#0c0407) 93%,transparent)),var(--studio-image);background-size:cover;background-position:center,var(--studio-image-position);background-attachment:fixed}
+body .studio-core{--core-ink:#f4f5fa;--core-muted:#a8b1c2;--core-line:#dce3f026;--core-accent:#9edceb;padding-top:138px;color:var(--core-ink);background-color:#0c0407;background-image:linear-gradient(#0c0407ed,#0c0407ed),var(--studio-image);background-size:cover;background-position:center,var(--studio-image-position);background-attachment:fixed}
 body .studio-core h1,body .studio-core h2{font-weight:400;letter-spacing:-.055em;text-transform:none;line-height:1.05}
 body .studio-core em{font-style:normal;color:var(--core-accent)}
 body .studio-core .studio-label{color:#a7bdce;font:9px/1.7 Consolas,monospace;letter-spacing:.12em;text-transform:uppercase;margin-bottom:22px}
@@ -13,8 +13,8 @@ body .studio-core .studio-core-masthead h1,body .studio-core .studio-core-masthe
 .studio-core-sr{position:absolute!important;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
 .studio-core-stage{position:relative;isolation:isolate;display:flex;flex-direction:column;min-height:620px;border-inline:1px solid var(--core-line);overflow:hidden}
 .studio-core .vr-scene{position:absolute;inset:0;z-index:-2;overflow:hidden}
-.studio-core .vr-scene picture,.studio-core .vr-scene img,.studio-core .vr-scene video{display:block;width:100%;height:100%}
-.studio-core .vr-scene img,.studio-core .vr-scene video{object-fit:cover;object-position:var(--studio-image-position);filter:saturate(.7) brightness(.78);transform:translate3d(var(--scene-x,0px),var(--scene-y,0px),0) scale(1.035);transition:transform 1.5s cubic-bezier(.16,1,.3,1)}
+.studio-core .vr-scene picture,.studio-core .vr-scene img{display:block;width:100%;height:100%}
+.studio-core .vr-scene img{object-fit:cover;object-position:var(--studio-image-position);filter:saturate(.7) brightness(.78);transform:translate3d(var(--scene-x,0px),var(--scene-y,0px),0) scale(1.035);transition:transform 1.5s cubic-bezier(.16,1,.3,1)}
 .studio-core .vr-scene:after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,#0c0407e8,#0c04074d 70%),linear-gradient(0deg,#0c0407e8,transparent 55%);pointer-events:none}
 .studio-core .vr-scene-grid{position:absolute;inset:0;background-image:linear-gradient(#d9ecf207 1px,transparent 1px),linear-gradient(90deg,#d9ecf207 1px,transparent 1px);background-size:100px 100px;mask-image:linear-gradient(90deg,transparent,#000)}
 .studio-core .vr-scene-orbit,.studio-core .vr-scene-coordinate{display:none}

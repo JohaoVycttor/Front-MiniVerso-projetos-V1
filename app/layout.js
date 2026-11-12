@@ -1,6 +1,8 @@
 ﻿import "./globals.css";
 import "./studio.css";
 import "./design-system.css";
+import "./refinements.css";
+import "./content-design.css";
 import SiteMotion from "@/app/components/SiteMotion";
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
@@ -14,7 +16,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="pt-BR" data-scroll-behavior="smooth">
-      <body>
+      <body className="miniverso-refined">
         <a className="skip-link" href="#conteudo">Pular para o conteúdo</a>
         <Header />
         <SiteMotion />

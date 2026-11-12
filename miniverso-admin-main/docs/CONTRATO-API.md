@@ -5,12 +5,10 @@ Back-end: **metaverso-back** (Laravel 12, Sanctum, MySQL). As rotas ficam na rai
 | Parte | Situação |
 | --- | --- |
 | Autenticação (`/login`, `/me`, `/logout`) | **confirmada** no código do back-end e integrada na v0.1.1 |
-| Conteúdo da página inicial (`/site-content`) | **ainda não existe** no Laravel; o painel usa uma rota local autenticada e `data/home-content.json` |
+| Conteúdo da página inicial (`/site-content`) | **ainda não existe** no back-end; o painel usa o mock no formato proposto abaixo |
 | Leads (`/leads`) | **ainda não existe** no back-end; o painel usa o mock no formato proposto abaixo |
 
-No modo `live`, os leads continuam no mock enquanto estiverem em `MOCK_RESOURCES=leads`. A home é lida e publicada pela rota local `/api/admin/site-content`.
-
-O conteúdo da home e das páginas internas (**O estúdio, Soluções, Contato e Portfólio e projetos**) não é armazenado no Laravel: o painel lê e grava localmente em `HOME_DATA_DIR/home-content.json` e `HOME_DATA_DIR/content.json`, respectivamente, pelas rotas autenticadas `/api/admin/site-content` e `/api/admin/page-content`. O diretório deve ser compartilhado e persistente entre o painel e o site. A tela das páginas internas está em `/admin/paginas`.
+No modo `live`, os dois recursos continuam no mock enquanto estiverem em `MOCK_RESOURCES=site-content,leads`.
 
 Onde ajustar se algo mudar:
 
@@ -45,7 +43,7 @@ Revoga o token atual. Resposta `204`.
 
 ## Conteúdo da página inicial (proposto)
 
-O editor da página inicial (frame "Painel · Editor da página inicial" no Figma) precisa de um único recurso, lido e gravado inteiro. A estrutura abaixo continua sendo a proposta para uma futura rota Laravel; hoje o painel usa a rota local autenticada e o arquivo compartilhado descritos acima.
+O editor da página inicial (frame "Painel · Editor da página inicial" no Figma) precisa de um único recurso, lido e gravado inteiro. O mock implementa exatamente este formato.
 
 ### `GET /site-content` (público)
 

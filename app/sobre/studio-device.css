@@ -1,4 +1,5 @@
 /* Shared device illustration, kept independent of the page layout. */
+.studio-device-photo{position:relative;height:100px;margin:8px 0;overflow:hidden;border-radius:6px;border:1px solid #ffffff15}.studio-device-photo img{width:100%;height:100%;object-fit:cover}.studio-device-photo>span{position:absolute;left:7px;bottom:6px;font:10px Consolas,monospace;color:#fff;background:#08080899;padding:3px 5px;border-radius:3px}
 .studio-device-showcase{position:relative;height:440px;min-width:0;perspective:1000px;isolation:isolate}
 .studio-device-halo{position:absolute;inset:14% -10% -4%;z-index:-2;background:radial-gradient(ellipse at 50% 70%,#a2bcd411,transparent 65%);pointer-events:none}
 .studio-device-phone{position:absolute;left:50%;top:4px;width:182px;height:352px;border:1px solid #747a81;border-radius:29px;padding:4px;background:linear-gradient(115deg,#767b7f,#16191b 14%,#050608 72%,#61666b);transform:translateX(-50%) rotateX(11deg) rotateY(-23deg) rotateZ(-14deg);box-shadow:-5px 2px 0 #1e2226,-7px 3px 0 #6f747a,8px 14px 30px #000c;animation:studio-device-float 7s ease-in-out infinite;transform-style:preserve-3d}

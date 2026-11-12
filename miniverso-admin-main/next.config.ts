@@ -1,5 +1,5 @@
 import { readFileSync } from "node:fs";
-import { join, resolve } from "node:path";
+import { join } from "node:path";
 import type { NextConfig } from "next";
 
 // Versão exibida no rodapé do menu lateral, lida do package.json.
@@ -17,14 +17,13 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
-  // O painel compartilha os dados e validadores da aplicação pública, um nível acima.
-  turbopack: { root: resolve(process.cwd(), "..") },
-  outputFileTracingRoot: resolve(process.cwd(), ".."),
-  poweredByHeader: false,
-  reactStrictMode: true,
+  // A raiz do projeto é esta pasta, mesmo que exista outro package-lock.json mais acima no computador.
+  turbopack: { root: process.cwd() },
   experimental: {
     agentUpgrade: "security",
   },
+  poweredByHeader: false,
+  reactStrictMode: true,
   env: {
     NEXT_PUBLIC_APP_VERSION: version,
   },

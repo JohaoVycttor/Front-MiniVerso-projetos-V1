@@ -1,8 +1,19 @@
 node_modules
 .next
-.env.local
-npm-debug.log*
+.npm-cache
+.env
+.env.*
+!.env.example
+*.log
 .DS_Store
+dist
+
+/backups/
+/output/
+/tmp/
+/Front-MiniVerso-projetos-V1-main/
+/Front-MiniVerso-projetos-V1-feat-pagina-laboratorio-quimica/
+/miniverso/vr-portfolio/Front-MiniVerso-projetos-V1-main/
 
 # Local Netlify folder
 .netlify

@@ -4,6 +4,8 @@ import {usePathname} from 'next/navigation';
 
 // Animate content, never the sections that carry the fixed backgrounds.
 const revealSelector = [
+ '[data-site-reveal]',
+ '.reference-home [data-home-reveal]',
  '.core-masthead h1', '.core-hero-meta', '.core-hero-copy', '.core-hero-note', '.contact-form-intro', '.reference-home .vr-masthead h1', '.reference-home .vr-hero-meta', '.reference-home .vr-hero-copy', '.reference-home .vr-hero-note', '.managed-home .hero-topline', '.managed-home .hero-content>h1', '.managed-home .hero-bottom',
  '.managed-home .home-history-heading', '.managed-home .home-history-story', '.managed-home .section-heading', '.managed-home .commercial-copy', '.managed-home .commercial-art',
  '.managed-home .project-card', '.managed-home .home-solution-card', '.managed-home .home-grid>article',
@@ -29,10 +31,16 @@ export default function SiteMotion(){
   const preference=window.matchMedia('(prefers-reduced-motion: reduce)');
   const compact=window.matchMedia('(max-width:760px)');
   const tracked=new Map();
-  let observer, rearmObserver, mutations, frame;
+  let observer, rearmObserver, mutations, frame, pageAnimation;
   const updateHeader=()=>header?.toggleAttribute('data-scrolled',window.scrollY>12);
   updateHeader();
   window.addEventListener('scroll',updateHeader,{passive:true});
+  if(!preference.matches&&main){
+   pageAnimation=main.animate([
+    {opacity:0,translate:'0 12px'},
+    {opacity:1,translate:'0 0'}
+   ],{duration:700,easing:'cubic-bezier(.16,1,.3,1)',fill:'both'});
+  }
 
   function stop(){
    observer?.disconnect();
@@ -52,13 +60,14 @@ export default function SiteMotion(){
      if(!entry.isIntersecting)return;
      if(state.visible)return;
      state.visible=true;
+     if(state.home){observer.unobserve(entry.target);rearmObserver.unobserve(entry.target)}
      if(entry.target.contains(document.activeElement))return;
      state.animation?.cancel();
      // Individual translate leaves existing hover transforms intact.
      state.animation=entry.target.animate([
-      {opacity:0,translate:state.horizontal?`${state.offset}px 0`:`0 ${state.offset}px`,scale:state.card&&!state.horizontal?'0.94':'1'},
+      {opacity:0,translate:state.horizontal?`${state.offset}px 0`:`0 ${state.offset}px`,scale:state.card&&!state.horizontal&&!state.home?'0.94':'1'},
       {opacity:1,translate:'0 0',scale:'1'}
-     ],{duration:state.horizontal?600:state.card?1150:900,delay:state.horizontal?0:Math.min(stagger++,3)*100,easing:'cubic-bezier(.16,1,.3,1)',fill:'backwards'});
+     ],{duration:state.editorial?950:state.home?760:state.horizontal?600:state.card?1150:900,delay:state.horizontal?0:Math.min(stagger++,3)*80,easing:'cubic-bezier(.16,1,.3,1)',fill:'backwards'});
      state.animation.id='site-scroll-reveal';
     });
    },{threshold:0.12,rootMargin:'0px'});
@@ -79,10 +88,12 @@ export default function SiteMotion(){
     const elements=candidates.filter(element=>!candidates.some(parent=>parent!==element&&parent.contains(element)));
     elements.forEach(element=>{
      if(tracked.has(element))return;
-     const card=element.matches('article,.solution-tile,.project-card,.contact-glass,.contact-glass-form,.commercial-art,.detail-presentation');
+     const editorial=element.hasAttribute('data-site-reveal');
+     const card=!editorial&&element.matches('article,.solution-tile,.project-card,.contact-glass,.contact-glass-form,.commercial-art,.detail-presentation');
      const horizontal=compact.matches&&Boolean(element.closest('.mobile-carousel-track'));
-     const distance=horizontal?24:card?96:40;
-     tracked.set(element,{visible:false,card,horizontal,distance,offset:((horizontal?element.getBoundingClientRect().left:element.getBoundingClientRect().top)<0?-1:1)*distance});
+     const home=Boolean(element.closest('.reference-home'));
+     const distance=editorial?(element.dataset.siteReveal==='media'?36:24):home?24:horizontal?24:card?96:40;
+     tracked.set(element,{visible:false,card,home,editorial,horizontal,distance,offset:((horizontal?element.getBoundingClientRect().left:element.getBoundingClientRect().top)<0?-1:1)*distance});
      observer.observe(element);
      rearmObserver.observe(element);
     });
@@ -99,7 +110,7 @@ export default function SiteMotion(){
   preference.addEventListener('change',setup);
   compact.addEventListener('change',setup);
   return()=>{
-   cancelAnimationFrame(frame);stop();
+   cancelAnimationFrame(frame);stop();pageAnimation?.cancel();
    preference.removeEventListener('change',setup);
    compact.removeEventListener('change',setup);
    main?.removeEventListener('focusin',showFocused);
