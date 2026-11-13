@@ -1,0 +1,1067 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Miniverso SiteDocument",
+  "type": "object",
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "publishedAt": {
+      "type": "string"
+    },
+    "settings": {
+      "$ref": "#/$defs/Settings"
+    },
+    "ui": {
+      "type": "object",
+      "properties": {
+        "skipLink": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "login": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "adminArea": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "footerEyebrow": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "footerExplore": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "footerConnect": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "heroLocationLabel": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "heroMetaTitle": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "heroMetaSubtitle": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "catalogAll": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "catalogCount": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "projectBack": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "projectOverline": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "projectPrevious": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "projectNext": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "projectAll": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "projectExplore": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "projectDetails": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "videoPlay": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "videoEmpty": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "videoSoon": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "galleryPrevious": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "galleryNext": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "contactChannels": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "contactWhatsapp": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "formatAction": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "formName": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "formNamePlaceholder": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "formEmail": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "formEmailPlaceholder": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "formSubject": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "formSubjectPlaceholder": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "formMessage": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "formMessagePlaceholder": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "formSending": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "formProtocol": {
+          "type": "string",
+          "maxLength": 1000
+        }
+      },
+      "required": [
+        "skipLink",
+        "login",
+        "adminArea",
+        "footerEyebrow",
+        "footerExplore",
+        "footerConnect",
+        "heroLocationLabel",
+        "heroMetaTitle",
+        "heroMetaSubtitle",
+        "catalogAll",
+        "catalogCount",
+        "projectBack",
+        "projectOverline",
+        "projectPrevious",
+        "projectNext",
+        "projectAll",
+        "projectExplore",
+        "projectDetails",
+        "videoPlay",
+        "videoEmpty",
+        "videoSoon",
+        "galleryPrevious",
+        "galleryNext",
+        "contactChannels",
+        "contactWhatsapp",
+        "formatAction",
+        "formName",
+        "formNamePlaceholder",
+        "formEmail",
+        "formEmailPlaceholder",
+        "formSubject",
+        "formSubjectPlaceholder",
+        "formMessage",
+        "formMessagePlaceholder",
+        "formSending",
+        "formProtocol"
+      ]
+    },
+    "contact": {
+      "$ref": "#/$defs/Contact"
+    },
+    "digital": {
+      "$ref": "#/$defs/Digital"
+    },
+    "pages": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/Page"
+      },
+      "maxItems": 5,
+      "minItems": 5
+    },
+    "projects": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/Project"
+      },
+      "maxItems": 100,
+      "minItems": 0
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "revision",
+    "publishedAt",
+    "settings",
+    "ui",
+    "contact",
+    "digital",
+    "pages",
+    "projects"
+  ],
+  "$defs": {
+    "Settings": {
+      "type": "object",
+      "properties": {
+        "brand": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "tagline": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "email": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "whatsapp": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "instagram": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "location": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "headerButton": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "headerButtonHref": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "footerTitle": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "footerDescription": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "footerButton": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "footerButtonHref": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "copyright": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "logo": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "logoAlt": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "favicon": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "seoTitle": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "seoDescription": {
+          "type": "string",
+          "maxLength": 1000
+        }
+      },
+      "required": [
+        "brand",
+        "tagline",
+        "email",
+        "whatsapp",
+        "instagram",
+        "location",
+        "headerButton",
+        "headerButtonHref",
+        "footerTitle",
+        "footerDescription",
+        "footerButton",
+        "footerButtonHref",
+        "copyright",
+        "logo",
+        "logoAlt",
+        "favicon",
+        "seoTitle",
+        "seoDescription"
+      ]
+    },
+    "Contact": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "description": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "subjects": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "maxLength": 1000
+          },
+          "maxItems": 30,
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "button": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "consentLabel": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "successText": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "errorText": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "privacyText": {
+          "type": "string",
+          "maxLength": 1000
+        }
+      },
+      "required": [
+        "title",
+        "description",
+        "subjects",
+        "button",
+        "consentLabel",
+        "successText",
+        "errorText",
+        "privacyText"
+      ]
+    },
+    "Digital": {
+      "type": "object",
+      "properties": {
+        "siteEyebrow": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "siteTitle": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "siteDescription": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "socialEyebrow": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "socialTitle": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "socialDescription": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "devices": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "enum": [
+                  "notebook",
+                  "celular",
+                  "tablet"
+                ]
+              },
+              "title": {
+                "type": "string",
+                "maxLength": 1000
+              },
+              "image": {
+                "type": "string",
+                "maxLength": 12000
+              },
+              "imageAlt": {
+                "type": "string",
+                "maxLength": 12000
+              },
+              "caption": {
+                "type": "string",
+                "maxLength": 12000
+              },
+              "href": {
+                "type": "string",
+                "maxLength": 12000
+              }
+            },
+            "required": [
+              "id",
+              "title",
+              "image",
+              "imageAlt",
+              "caption",
+              "href"
+            ]
+          },
+          "maxItems": 3,
+          "minItems": 3
+        },
+        "social": {
+          "type": "object",
+          "properties": {
+            "whatsappLabel": {
+              "type": "string",
+              "maxLength": 1000
+            },
+            "instagramLabel": {
+              "type": "string",
+              "maxLength": 1000
+            },
+            "siteLabel": {
+              "type": "string",
+              "maxLength": 1000
+            },
+            "whatsappAction": {
+              "type": "string",
+              "maxLength": 1000
+            },
+            "bio": {
+              "type": "string",
+              "maxLength": 12000
+            },
+            "followers": {
+              "type": "string",
+              "maxLength": 1000
+            },
+            "following": {
+              "type": "string",
+              "maxLength": 1000
+            },
+            "profileLink": {
+              "type": "string",
+              "maxLength": 12000
+            },
+            "highlights": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "maxLength": 1000
+              },
+              "maxItems": 8,
+              "minItems": 0
+            },
+            "posts": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/Asset"
+              },
+              "maxItems": 12,
+              "minItems": 0
+            },
+            "messages": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "maxLength": 1000
+                  },
+                  "text": {
+                    "type": "string",
+                    "maxLength": 1000
+                  },
+                  "direction": {
+                    "enum": [
+                      "sent",
+                      "received"
+                    ]
+                  }
+                },
+                "required": [
+                  "id",
+                  "text",
+                  "direction"
+                ]
+              },
+              "maxItems": 15,
+              "minItems": 1
+            }
+          },
+          "required": [
+            "whatsappLabel",
+            "instagramLabel",
+            "siteLabel",
+            "whatsappAction",
+            "bio",
+            "followers",
+            "following",
+            "profileLink",
+            "highlights",
+            "posts",
+            "messages"
+          ]
+        }
+      },
+      "required": [
+        "siteEyebrow",
+        "siteTitle",
+        "siteDescription",
+        "socialEyebrow",
+        "socialTitle",
+        "socialDescription",
+        "devices",
+        "social"
+      ]
+    },
+    "Hero": {
+      "type": "object",
+      "properties": {
+        "masthead": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "eyebrow": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "title": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "description": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "image": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "imageAlt": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "caption": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "imagePosition": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "buttonLabel": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "buttonHref": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "scrollLabel": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "scrollHref": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "slides": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Slide"
+          },
+          "maxItems": 5,
+          "minItems": 0
+        }
+      },
+      "required": [
+        "masthead",
+        "eyebrow",
+        "title",
+        "description",
+        "image",
+        "imageAlt",
+        "caption",
+        "imagePosition",
+        "buttonLabel",
+        "buttonHref",
+        "scrollLabel",
+        "scrollHref",
+        "slides"
+      ]
+    },
+    "Slide": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "title": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "image": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "imageAlt": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "caption": {
+          "type": "string",
+          "maxLength": 12000
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "image",
+        "imageAlt",
+        "caption"
+      ]
+    },
+    "Section": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-zA-Z][a-zA-Z0-9_-]*$"
+        },
+        "type": {
+          "enum": [
+            "intro",
+            "formats",
+            "solutions",
+            "projects",
+            "catalog",
+            "featured",
+            "values",
+            "experience",
+            "digital",
+            "contact",
+            "cta"
+          ]
+        },
+        "visible": {
+          "type": "boolean"
+        },
+        "eyebrow": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "title": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "description": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "supportTitle": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "supportText": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "image": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "imageAlt": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "caption": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "buttonLabel": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "buttonHref": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "projectId": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "projectIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "maxLength": 1000
+          },
+          "maxItems": 100,
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "limit": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Item"
+          },
+          "maxItems": 30,
+          "minItems": 0
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "visible",
+        "eyebrow",
+        "title",
+        "description",
+        "supportTitle",
+        "supportText",
+        "image",
+        "imageAlt",
+        "caption",
+        "buttonLabel",
+        "buttonHref",
+        "projectIds",
+        "limit",
+        "items"
+      ]
+    },
+    "Item": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "title": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "description": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "image": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "imageAlt": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "caption": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "href": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "tag": {
+          "type": "string",
+          "maxLength": 1000
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "description",
+        "image",
+        "imageAlt",
+        "caption",
+        "href",
+        "tag"
+      ]
+    },
+    "Asset": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "type": {
+          "enum": [
+            "image",
+            "video"
+          ]
+        },
+        "src": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "alt": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "caption": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "poster": {
+          "type": "string",
+          "maxLength": 12000
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "src",
+        "alt"
+      ]
+    },
+    "Page": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "enum": [
+            "home",
+            "studio",
+            "solutions",
+            "projects",
+            "contact"
+          ]
+        },
+        "path": {
+          "enum": [
+            "/",
+            "/sobre",
+            "/servicos",
+            "/projetos",
+            "/contato"
+          ]
+        },
+        "label": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "seoTitle": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "seoDescription": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "hero": {
+          "$ref": "#/$defs/Hero"
+        },
+        "ribbon": {
+          "type": "object",
+          "properties": {
+            "visible": {
+              "type": "boolean"
+            },
+            "text": {
+              "type": "string",
+              "maxLength": 12000
+            }
+          },
+          "required": [
+            "visible",
+            "text"
+          ]
+        },
+        "sections": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Section"
+          },
+          "maxItems": 25,
+          "minItems": 0
+        }
+      },
+      "required": [
+        "id",
+        "path",
+        "label",
+        "seoTitle",
+        "seoDescription",
+        "hero",
+        "ribbon",
+        "sections"
+      ]
+    },
+    "Project": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "slug": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "title": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "tag": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "description": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "introduction": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "visible": {
+          "type": "boolean"
+        },
+        "order": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "categoryIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "maxLength": 1000
+          },
+          "maxItems": 30,
+          "minItems": 0
+        },
+        "cover": {
+          "$ref": "#/$defs/Asset"
+        },
+        "presentation": {
+          "$ref": "#/$defs/Asset"
+        },
+        "gallery": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Asset"
+          },
+          "maxItems": 30,
+          "minItems": 0
+        },
+        "facts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "label": {
+                "type": "string",
+                "maxLength": 1000
+              },
+              "value": {
+                "type": "string",
+                "maxLength": 12000
+              }
+            },
+            "required": [
+              "label",
+              "value"
+            ]
+          },
+          "maxItems": 15,
+          "minItems": 0
+        },
+        "story": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "title": {
+                "type": "string",
+                "maxLength": 1000
+              },
+              "text": {
+                "type": "string",
+                "maxLength": 12000
+              }
+            },
+            "required": [
+              "title",
+              "text"
+            ]
+          },
+          "maxItems": 20,
+          "minItems": 0
+        }
+      },
+      "required": [
+        "id",
+        "slug",
+        "title",
+        "tag",
+        "description",
+        "introduction",
+        "visible",
+        "order",
+        "categoryIds",
+        "cover",
+        "presentation",
+        "gallery",
+        "facts",
+        "story"
+      ]
+    }
+  }
+}

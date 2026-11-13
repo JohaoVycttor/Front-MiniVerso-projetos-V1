@@ -38,6 +38,7 @@ before(async () => {
   });
   await new Promise<void>((resolve) => server.listen(0, resolve));
   process.env.API_MODE = "live";
+  process.env.MOCK_RESOURCES = "site-content,leads";
   process.env.API_URL = `http://127.0.0.1:${(server.address() as AddressInfo).port}`;
   process.env.MOCK_LATENCY_MS = "0";
 });

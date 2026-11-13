@@ -14,11 +14,11 @@ export type NavItem = {
  * Não há "visão geral" com métricas: o DRDA não prevê (ver docs/PROPOSTAS.md).
  */
 export const NAV_ITEMS: NavItem[] = [
-  { href: "/admin/pagina-inicial", label: "Página inicial", icon: LuHouse },
+  { href: "/admin/paginas", label: "Páginas do site", icon: LuHouse },
   { href: "/admin/leads", label: "Leads", icon: LuInbox },
 ];
 
-export const HOME_EDITOR_PATH = "/admin/pagina-inicial";
+export const HOME_EDITOR_PATH = "/admin/paginas";
 
 export function isNavItemActive(item: NavItem, pathname: string): boolean {
   if (item.exact) return pathname === item.href;

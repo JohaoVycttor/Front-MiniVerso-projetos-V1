@@ -143,3 +143,7 @@
  .projectGallery{padding-bottom:8px}
 }
 @media(prefers-reduced-motion:reduce){.projectVisual img{transition:none}.projectLink:hover .projectVisual img{transform:none}}
+
+/* Keep the final invitation and footer on the same page canvas. */
+.page.page :global(#contato)>section{background:transparent}
+:global(body.miniverso-refined) .page.page :global(.footer.editorial-footer){background:#0c0407}

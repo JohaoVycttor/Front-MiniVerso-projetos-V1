@@ -17,7 +17,7 @@ function History({fields}){
 }
 function Solutions({fields,items}){
  const formats=items.filter(item=>isExperienceFormat(item.title)),services=items.filter(item=>!isExperienceFormat(item.title));
- return <><EditorialHeading label={cleanLabel(fields.eyebrow)} title={fields.title} highlight={fields.highlight} description={fields.subtitle} action={<Action fields={fields} fallback="/servicos"/>}/><HomePhones devicesOnly/><SolutionsExplorer items={formats}/>{services.map(item=><div className={styles.serviceNote} data-site-reveal key={item.id}><h3>{item.title}</h3><p>{item.description}</p><EditorialLink href={safeUrl(item.link)||'/contato?subject='+encodeURIComponent(item.title)}>{item.buttonLabel||'Converse com a equipe'}</EditorialLink></div>)}</>;
+ return <><EditorialHeading label={cleanLabel(fields.eyebrow)} title={fields.title} highlight={fields.highlight} description={fields.subtitle} action={<Action fields={fields} fallback="/servicos"/>}/><HomePhones devicesOnly/><SolutionsExplorer compact items={formats}/>{services.map(item=><div className={styles.serviceNote} data-site-reveal key={item.id}><h3>{item.title}</h3><p>{item.description}</p><EditorialLink href={safeUrl(item.link)||'/contato?subject='+encodeURIComponent(item.title)}>{item.buttonLabel||'Converse com a equipe'}</EditorialLink></div>)}</>;
 }
 function Projects({fields,items}){
  const projects=[...items].sort((a,b)=>Number(b.id===fields.featured)-Number(a.id===fields.featured));

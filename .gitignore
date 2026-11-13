@@ -17,3 +17,11 @@ dist
 
 # Local Netlify folder
 .netlify
+
+# CMS local data and test artifacts
+/qa-artifacts/
+/qa-artifacts-failure.png
+/data/leads.json
+/data/uploads/
+/data/*.lock
+/data/*.tmp

@@ -1,0 +1,1295 @@
+{
+  "schemaVersion": 1,
+  "revision": 2,
+  "publishedAt": "2026-11-12T20:53:38.719Z",
+  "settings": {
+    "logo": "/logo-symbol.png",
+    "logoAlt": "Miniverso",
+    "favicon": "/favicon.svg",
+    "headerButtonHref": "/contato",
+    "footerButtonHref": "/contato",
+    "seoTitle": "Miniverso | Outras formas de ver o mundo",
+    "seoDescription": "Experiências imersivas em VR, AR, MR e vídeos 360°.",
+    "brand": "miniverso",
+    "tagline": "Pequeno no nome. Infinito em possibilidades.",
+    "email": "contato@miniverso.com.br",
+    "whatsapp": "5598988118091",
+    "instagram": "meuminiverso",
+    "location": "São Luís, Brasil",
+    "headerButton": "Vamos conversar",
+    "footerTitle": "O próximo universo\ncomeça com você.",
+    "footerDescription": "Uma ideia, uma conversa e novas possibilidades.",
+    "footerButton": "Vamos criar juntos",
+    "copyright": "Miniverso. Todos os direitos reservados."
+  },
+  "contact": {
+    "title": "Conte sua ideia.",
+    "description": "A gente começa ouvindo.",
+    "subjects": [
+      "Realidade virtual",
+      "Realidade aumentada",
+      "Realidade mista",
+      "Vídeos 360°",
+      "Experiências educacionais",
+      "Software, web e UX/UI",
+      "Outro projeto"
+    ],
+    "button": "Enviar mensagem",
+    "consentLabel": "Autorizo o uso dos meus dados para o retorno deste contato.",
+    "successText": "Mensagem recebida! Em breve, a nossa equipe entra em contato.",
+    "errorText": "Não foi possível enviar. Seus dados foram mantidos. Tente novamente.",
+    "privacyText": "Seus dados são usados apenas para responder à sua solicitação."
+  },
+  "pages": [
+    {
+      "id": "home",
+      "path": "/",
+      "label": "Início",
+      "seoTitle": "Miniverso — Outras formas de ver o mundo",
+      "seoDescription": "Experiências em realidade virtual, aumentada e vídeos 360°. Tecnologia, criatividade e pessoas.",
+      "hero": {
+        "masthead": "miniverso",
+        "scrollLabel": "DESÇA PARA EXPLORAR",
+        "scrollHref": "#explorar",
+        "eyebrow": "REALIDADE VIRTUAL. POSSIBILIDADES REAIS.",
+        "title": "ONDE O\nVIRTUAL SE\nTORNA REAL.",
+        "description": "Criamos experiências que aproximam pessoas do conhecimento. Novas formas de aprender, explorar e sentir.",
+        "image": "/home-vr-background.jpg",
+        "imageAlt": "Experiência com óculos de realidade virtual da Miniverso",
+        "caption": "01 / Viva uma nova perspectiva.",
+        "imagePosition": "65% center",
+        "buttonLabel": "Explore as experiências",
+        "buttonHref": "/projetos",
+        "slides": [
+          {
+            "id": "immersive",
+            "title": "Imersão",
+            "image": "/home-vr-background.jpg",
+            "imageAlt": "Experiência com óculos de realidade virtual da Miniverso",
+            "caption": "01 / Viva uma nova perspectiva."
+          },
+          {
+            "id": "people",
+            "title": "Pessoas",
+            "image": "/home-vr-people-v2.webp",
+            "imageAlt": "Pessoas experimentando realidade virtual",
+            "caption": "02 / Pessoas no centro da experiência."
+          },
+          {
+            "id": "ideas",
+            "title": "Ideias",
+            "image": "/images/vr-immersive-editorial.webp",
+            "imageAlt": "Experiência imersiva em realidade virtual",
+            "caption": "03 / Ideias que se tornam experiências."
+          }
+        ]
+      },
+      "sections": [
+        {
+          "supportTitle": "CRIATIVIDADE × TECNOLOGIA",
+          "supportText": "Pequeno no nome. Infinito em possibilidades.",
+          "projectIds": [],
+          "limit": 2,
+          "id": "experiencia",
+          "type": "experience",
+          "visible": true,
+          "eyebrow": "04 / EXPLORE",
+          "title": "TUDO COMEÇA\nCOM A CURIOSIDADE.",
+          "description": "Do primeiro ponto a uma nova realidade. Experimente o que a tecnologia pode transformar.",
+          "image": "",
+          "imageAlt": "",
+          "caption": "",
+          "buttonLabel": "Vamos criar algo novo",
+          "buttonHref": "/contato",
+          "items": []
+        },
+        {
+          "supportTitle": "CRIATIVIDADE × TECNOLOGIA",
+          "supportText": "Pequeno no nome. Infinito em possibilidades.",
+          "projectIds": [],
+          "limit": 2,
+          "id": "sobre",
+          "type": "intro",
+          "visible": true,
+          "eyebrow": "01 / O ESTÚDIO",
+          "title": "UM PEQUENO NOME.\nUM UNIVERSO INTEIRO.",
+          "description": "Somos um estúdio de experiências imersivas. De São Luís para novas realidades, conectamos criatividade, tecnologia e educação.",
+          "image": "/home-team-v2.webp",
+          "imageAlt": "Equipe da Miniverso no Casarão da Indústria",
+          "caption": "Visita ao Casarão da Indústria, SESI-MA.",
+          "buttonLabel": "Conheça a Miniverso",
+          "buttonHref": "/sobre",
+          "items": []
+        },
+        {
+          "id": "nosso-universo-digital",
+          "type": "digital",
+          "visible": true,
+          "eyebrow": "MINIVERSO / SEMPRE POR PERTO",
+          "title": "NOSSO UNIVERSO,\nEM QUALQUER TELA.",
+          "description": "O novo site aproxima você dos nossos projetos. Nas redes, a conversa continua.",
+          "supportTitle": "",
+          "supportText": "",
+          "image": "",
+          "imageAlt": "",
+          "caption": "",
+          "buttonLabel": "",
+          "buttonHref": "",
+          "items": [],
+          "projectIds": [],
+          "limit": 2
+        },
+        {
+          "supportTitle": "CRIATIVIDADE × TECNOLOGIA",
+          "supportText": "Pequeno no nome. Infinito em possibilidades.",
+          "projectIds": [],
+          "limit": 2,
+          "id": "formatos",
+          "type": "formats",
+          "visible": true,
+          "eyebrow": "02 / O QUE CRIAMOS",
+          "title": "OUTRAS FORMAS\nDE DESCOBRIR.",
+          "description": "Escolha um formato. Imagine as possibilidades.",
+          "image": "",
+          "imageAlt": "",
+          "caption": "",
+          "buttonLabel": "",
+          "buttonHref": "",
+          "items": [
+            {
+              "id": "vr",
+              "title": "Realidade virtual",
+              "description": "Entre em um mundo feito para aprender e explorar.",
+              "image": "",
+              "imageAlt": "",
+              "caption": "",
+              "href": "/servicos#vr",
+              "tag": "VR"
+            },
+            {
+              "id": "ar",
+              "title": "Realidade aumentada",
+              "description": "Uma nova camada de possibilidades sobre o mundo real.",
+              "image": "",
+              "imageAlt": "",
+              "caption": "",
+              "href": "/servicos#ar",
+              "tag": "AR"
+            },
+            {
+              "id": "mr",
+              "title": "Realidade mista",
+              "description": "O físico e o digital na mesma experiência.",
+              "image": "",
+              "imageAlt": "",
+              "caption": "",
+              "href": "/servicos#mr",
+              "tag": "MR"
+            },
+            {
+              "id": "360",
+              "title": "Vídeos 360°",
+              "description": "Olhe ao redor. Cada direção conta uma história.",
+              "image": "",
+              "imageAlt": "",
+              "caption": "",
+              "href": "/servicos#360",
+              "tag": "360°"
+            }
+          ]
+        },
+        {
+          "supportTitle": "CRIATIVIDADE × TECNOLOGIA",
+          "supportText": "Pequeno no nome. Infinito em possibilidades.",
+          "projectIds": [],
+          "limit": 2,
+          "id": "projetos",
+          "type": "projects",
+          "visible": true,
+          "eyebrow": "03 / EXPERIÊNCIAS",
+          "title": "IDEIAS QUE\nGANHAM VIDA.",
+          "description": "Conheça o contexto, o desafio e a experiência.",
+          "image": "",
+          "imageAlt": "",
+          "caption": "",
+          "buttonLabel": "Explore todos os projetos",
+          "buttonHref": "/projetos",
+          "items": []
+        },
+        {
+          "supportTitle": "CRIATIVIDADE × TECNOLOGIA",
+          "supportText": "Pequeno no nome. Infinito em possibilidades.",
+          "projectIds": [],
+          "limit": 2,
+          "id": "conversa",
+          "type": "cta",
+          "visible": true,
+          "eyebrow": "VAMOS CRIAR JUNTOS",
+          "title": "E SE A SUA IDEIA\nFOSSE O PRÓXIMO PASSO?",
+          "description": "Conte para a gente o que você imagina.",
+          "image": "",
+          "imageAlt": "",
+          "caption": "",
+          "buttonLabel": "Iniciar uma conversa",
+          "buttonHref": "/contato",
+          "items": []
+        }
+      ],
+      "ribbon": {
+        "visible": true,
+        "text": "REALIDADE VIRTUAL\nREALIDADE AUMENTADA\nREALIDADE MISTA\nVÍDEOS 360°\nEDUCAÇÃO IMERSIVA"
+      }
+    },
+    {
+      "id": "studio",
+      "path": "/sobre",
+      "label": "O estúdio",
+      "seoTitle": "O estúdio",
+      "seoDescription": "Conheça a Miniverso. Criatividade, tecnologia e educação em São Luís.",
+      "hero": {
+        "masthead": "O estúdio",
+        "scrollLabel": "DESÇA PARA EXPLORAR",
+        "scrollHref": "#explorar",
+        "eyebrow": "PESSOAS. IDEIAS. NOVAS REALIDADES.",
+        "title": "CURIOSIDADE\nÉ O NOSSO\nPONTO DE PARTIDA.",
+        "description": "Um estúdio independente que transforma tecnologia em experiências para pessoas.",
+        "image": "/studio-background.png",
+        "imageAlt": "Pessoa explorando uma experiência com óculos de realidade virtual",
+        "caption": "Miniverso / São Luís, Maranhão.",
+        "imagePosition": "center 42%",
+        "buttonLabel": "Conheça nosso trabalho",
+        "buttonHref": "/projetos",
+        "slides": []
+      },
+      "sections": [
+        {
+          "supportTitle": "CRIATIVIDADE × TECNOLOGIA",
+          "supportText": "Pequeno no nome. Infinito em possibilidades.",
+          "projectIds": [],
+          "limit": 2,
+          "id": "historia",
+          "type": "intro",
+          "visible": true,
+          "eyebrow": "01 / QUEM SOMOS",
+          "title": "DE SÃO LUÍS.\nPARA NOVOS UNIVERSOS.",
+          "description": "Juntamos diferentes olhares para dar forma a novas maneiras de aprender. Cada projeto começa pelo contexto, pelas pessoas e por uma boa conversa.",
+          "image": "/home-vr-people-v2.webp",
+          "imageAlt": "Público participando de experiências de realidade virtual",
+          "caption": "Experiências que encontram seu público.",
+          "buttonLabel": "Explore nossos projetos",
+          "buttonHref": "/projetos",
+          "items": []
+        },
+        {
+          "supportTitle": "CRIATIVIDADE × TECNOLOGIA",
+          "supportText": "Pequeno no nome. Infinito em possibilidades.",
+          "projectIds": [],
+          "limit": 2,
+          "id": "principios",
+          "type": "values",
+          "visible": true,
+          "eyebrow": "02 / NO QUE ACREDITAMOS",
+          "title": "TECNOLOGIA TEM\nQUE FAZER SENTIDO.",
+          "description": "",
+          "image": "",
+          "imageAlt": "",
+          "caption": "",
+          "buttonLabel": "",
+          "buttonHref": "",
+          "items": [
+            {
+              "id": "criatividade",
+              "title": "Criatividade",
+              "description": "Novas perguntas abrem caminhos.",
+              "image": "",
+              "imageAlt": "Criatividade",
+              "caption": "",
+              "href": "",
+              "tag": ""
+            },
+            {
+              "id": "pessoas",
+              "title": "Pessoas",
+              "description": "Quem participa está no centro.",
+              "image": "",
+              "imageAlt": "Pessoas",
+              "caption": "",
+              "href": "",
+              "tag": ""
+            },
+            {
+              "id": "colaboracao",
+              "title": "Colaboração",
+              "description": "O melhor projeto é construído junto.",
+              "image": "",
+              "imageAlt": "Colaboração",
+              "caption": "",
+              "href": "",
+              "tag": ""
+            }
+          ]
+        },
+        {
+          "supportTitle": "CRIATIVIDADE × TECNOLOGIA",
+          "supportText": "Pequeno no nome. Infinito em possibilidades.",
+          "projectIds": [],
+          "limit": 2,
+          "id": "conversa",
+          "type": "cta",
+          "visible": true,
+          "eyebrow": "FALE COM O ESTÚDIO",
+          "title": "VAMOS IMAGINAR\nO QUE VEM DEPOIS.",
+          "description": "Seu conhecimento e a nossa curiosidade no mesmo projeto.",
+          "image": "",
+          "imageAlt": "",
+          "caption": "",
+          "buttonLabel": "Converse com a equipe",
+          "buttonHref": "/contato",
+          "items": []
+        }
+      ],
+      "ribbon": {
+        "visible": true,
+        "text": "REALIDADE VIRTUAL\nREALIDADE AUMENTADA\nREALIDADE MISTA\nVÍDEOS 360°\nEDUCAÇÃO IMERSIVA"
+      }
+    },
+    {
+      "id": "solutions",
+      "path": "/servicos",
+      "label": "Soluções",
+      "seoTitle": "Soluções imersivas",
+      "seoDescription": "Realidade virtual, aumentada, mista e vídeos 360° para educação, treinamento e marcas.",
+      "hero": {
+        "masthead": "Soluções",
+        "scrollLabel": "DESÇA PARA EXPLORAR",
+        "scrollHref": "#explorar",
+        "eyebrow": "FORMATOS DIFERENTES. POSSIBILIDADES REAIS.",
+        "title": "NOVAS FORMAS\nDE APRENDER.\nEXPLORAR. SENTIR.",
+        "description": "Escolhemos a tecnologia a partir da sua ideia e de quem vai viver a experiência.",
+        "image": "/solutions-vr.jpg",
+        "imageAlt": "Pessoa explorando uma experiência de realidade virtual",
+        "caption": "Conhecimento em outra dimensão.",
+        "imagePosition": "center 65%",
+        "buttonLabel": "Explore os formatos",
+        "buttonHref": "#formatos",
+        "slides": []
+      },
+      "sections": [
+        {
+          "supportTitle": "CRIATIVIDADE × TECNOLOGIA",
+          "supportText": "Pequeno no nome. Infinito em possibilidades.",
+          "projectIds": [],
+          "limit": 2,
+          "id": "formatos",
+          "type": "solutions",
+          "visible": true,
+          "eyebrow": "01 / FORMATOS",
+          "title": "ENCONTRE A SUA\nPRÓXIMA REALIDADE.",
+          "description": "Cada tecnologia abre uma nova possibilidade.",
+          "image": "",
+          "imageAlt": "",
+          "caption": "",
+          "buttonLabel": "",
+          "buttonHref": "",
+          "items": [
+            {
+              "id": "vr",
+              "title": "Realidade virtual",
+              "description": "Ambientes imersivos para aulas, treinamentos e demonstrações.",
+              "image": "",
+              "imageAlt": "",
+              "caption": "",
+              "href": "/contato?subject=Realidade%20virtual",
+              "tag": "VR"
+            },
+            {
+              "id": "ar",
+              "title": "Realidade aumentada",
+              "description": "Conteúdo digital integrado aos objetos e espaços ao seu redor.",
+              "image": "",
+              "imageAlt": "",
+              "caption": "",
+              "href": "/contato?subject=Realidade%20aumentada",
+              "tag": "AR"
+            },
+            {
+              "id": "mr",
+              "title": "Realidade mista",
+              "description": "Elementos físicos e digitais interagindo no mesmo ambiente.",
+              "image": "",
+              "imageAlt": "",
+              "caption": "",
+              "href": "/contato?subject=Realidade%20mista",
+              "tag": "MR"
+            },
+            {
+              "id": "360",
+              "title": "Vídeos 360°",
+              "description": "Visitas e histórias para explorar em todas as direções.",
+              "image": "",
+              "imageAlt": "",
+              "caption": "",
+              "href": "/contato?subject=V%C3%ADdeos%20360%C2%B0",
+              "tag": "360°"
+            }
+          ]
+        },
+        {
+          "supportTitle": "CRIATIVIDADE × TECNOLOGIA",
+          "supportText": "Pequeno no nome. Infinito em possibilidades.",
+          "projectIds": [],
+          "limit": 2,
+          "id": "processo",
+          "type": "values",
+          "visible": true,
+          "eyebrow": "02 / COMO CRIAMOS",
+          "title": "DO CONTEXTO\nÀ EXPERIÊNCIA.",
+          "description": "",
+          "image": "",
+          "imageAlt": "",
+          "caption": "",
+          "buttonLabel": "",
+          "buttonHref": "",
+          "items": [
+            {
+              "id": "escutar",
+              "title": "Escutar",
+              "description": "Entendemos o objetivo e quem vai participar.",
+              "image": "",
+              "imageAlt": "Escutar",
+              "caption": "",
+              "href": "",
+              "tag": ""
+            },
+            {
+              "id": "criar",
+              "title": "Criar",
+              "description": "Desenhamos, desenvolvemos e testamos juntos.",
+              "image": "",
+              "imageAlt": "Criar",
+              "caption": "",
+              "href": "",
+              "tag": ""
+            },
+            {
+              "id": "conectar",
+              "title": "Conectar",
+              "description": "Preparamos tudo para encontrar seu público.",
+              "image": "",
+              "imageAlt": "Conectar",
+              "caption": "",
+              "href": "",
+              "tag": ""
+            }
+          ]
+        },
+        {
+          "supportTitle": "CRIATIVIDADE × TECNOLOGIA",
+          "supportText": "Pequeno no nome. Infinito em possibilidades.",
+          "projectIds": [],
+          "limit": 2,
+          "id": "conversa",
+          "type": "cta",
+          "visible": true,
+          "eyebrow": "UMA IDEIA NA CABEÇA?",
+          "title": "VAMOS ENCONTRAR\nO MELHOR FORMATO.",
+          "description": "Conte o que você quer transformar.",
+          "image": "",
+          "imageAlt": "",
+          "caption": "",
+          "buttonLabel": "Fale com a Miniverso",
+          "buttonHref": "/contato",
+          "items": []
+        }
+      ],
+      "ribbon": {
+        "visible": true,
+        "text": "REALIDADE VIRTUAL\nREALIDADE AUMENTADA\nREALIDADE MISTA\nVÍDEOS 360°\nEDUCAÇÃO IMERSIVA"
+      }
+    },
+    {
+      "id": "projects",
+      "path": "/projetos",
+      "label": "Projetos",
+      "seoTitle": "Projetos e experiências",
+      "seoDescription": "Explore os projetos da Miniverso e descubra o processo de cada experiência.",
+      "hero": {
+        "masthead": "Projetos",
+        "scrollLabel": "DESÇA PARA EXPLORAR",
+        "scrollHref": "#explorar",
+        "eyebrow": "PORTFÓLIO / MINIVERSO",
+        "title": "REALIDADES\nQUE JÁ ESTÃO\nNO MUNDO.",
+        "description": "Uma seleção de experiências em educação, treinamento, cultura e novas tecnologias.",
+        "image": "/portfolio/images/vr-background.webp",
+        "imageAlt": "Cena de realidade virtual da Miniverso",
+        "caption": "Ideias, contexto e experiências.",
+        "imagePosition": "center 65%",
+        "buttonLabel": "Explore os projetos",
+        "buttonHref": "#projetos",
+        "slides": []
+      },
+      "sections": [
+        {
+          "supportTitle": "CRIATIVIDADE × TECNOLOGIA",
+          "supportText": "Pequeno no nome. Infinito em possibilidades.",
+          "projectIds": [],
+          "limit": 2,
+          "id": "destaque",
+          "type": "featured",
+          "visible": true,
+          "eyebrow": "01 / EM DESTAQUE",
+          "title": "CONHEÇA A\nEXPERIÊNCIA.",
+          "description": "Cada projeto tem uma história. Comece por aqui.",
+          "image": "",
+          "imageAlt": "",
+          "caption": "",
+          "buttonLabel": "",
+          "buttonHref": "",
+          "items": []
+        },
+        {
+          "supportTitle": "CRIATIVIDADE × TECNOLOGIA",
+          "supportText": "Pequeno no nome. Infinito em possibilidades.",
+          "projectIds": [],
+          "limit": 2,
+          "id": "projetos",
+          "type": "catalog",
+          "visible": true,
+          "eyebrow": "02 / TODOS OS PROJETOS",
+          "title": "EXPLORE\nO PORTFÓLIO.",
+          "description": "Selecione um formato para descobrir.",
+          "image": "",
+          "imageAlt": "",
+          "caption": "",
+          "buttonLabel": "",
+          "buttonHref": "",
+          "items": []
+        },
+        {
+          "supportTitle": "CRIATIVIDADE × TECNOLOGIA",
+          "supportText": "Pequeno no nome. Infinito em possibilidades.",
+          "projectIds": [],
+          "limit": 2,
+          "id": "conversa",
+          "type": "cta",
+          "visible": true,
+          "eyebrow": "O PRÓXIMO PODE SER O SEU",
+          "title": "VAMOS CRIAR\nUMA NOVA HISTÓRIA.",
+          "description": "Compartilhe sua ideia com o estúdio.",
+          "image": "",
+          "imageAlt": "",
+          "caption": "",
+          "buttonLabel": "Quero começar um projeto",
+          "buttonHref": "/contato",
+          "items": []
+        }
+      ],
+      "ribbon": {
+        "visible": true,
+        "text": "REALIDADE VIRTUAL\nREALIDADE AUMENTADA\nREALIDADE MISTA\nVÍDEOS 360°\nEDUCAÇÃO IMERSIVA"
+      }
+    },
+    {
+      "id": "contact",
+      "path": "/contato",
+      "label": "Contato",
+      "seoTitle": "Vamos conversar",
+      "seoDescription": "Entre em contato com a Miniverso. Conte sua ideia para criarmos uma experiência juntos.",
+      "hero": {
+        "masthead": "Contato",
+        "scrollLabel": "DESÇA PARA EXPLORAR",
+        "scrollHref": "#explorar",
+        "eyebrow": "O PRÓXIMO PASSO É UMA CONVERSA.",
+        "title": "UMA IDEIA.\nUM OLÁ.\nUM NOVO UNIVERSO.",
+        "description": "Conte o que você imagina. A gente começa ouvindo.",
+        "image": "/contact-vr-portrait.jpg",
+        "imageAlt": "Pessoa explorando uma experiência imersiva",
+        "caption": "Seu próximo projeto começa aqui.",
+        "imagePosition": "center top",
+        "buttonLabel": "Conte sua ideia",
+        "buttonHref": "#formulario",
+        "slides": []
+      },
+      "sections": [
+        {
+          "supportTitle": "CRIATIVIDADE × TECNOLOGIA",
+          "supportText": "Pequeno no nome. Infinito em possibilidades.",
+          "projectIds": [],
+          "limit": 2,
+          "id": "formulario",
+          "type": "contact",
+          "visible": true,
+          "eyebrow": "01 / VAMOS CONVERSAR",
+          "title": "QUAL É A\nSUA PRÓXIMA IDEIA?",
+          "description": "Conte um pouco do seu contexto. Vamos pensar juntos nas possibilidades.",
+          "image": "",
+          "imageAlt": "",
+          "caption": "",
+          "buttonLabel": "",
+          "buttonHref": "",
+          "items": []
+        }
+      ],
+      "ribbon": {
+        "visible": true,
+        "text": "REALIDADE VIRTUAL\nREALIDADE AUMENTADA\nREALIDADE MISTA\nVÍDEOS 360°\nEDUCAÇÃO IMERSIVA"
+      }
+    }
+  ],
+  "projects": [
+    {
+      "id": "chemistry",
+      "slug": "laboratorio-virtual-de-quimica",
+      "title": "Laboratório virtual de química",
+      "description": "Aulas práticas em ambiente seguro, com roteiro guiado e avaliação do professor.",
+      "introduction": "Experimentos que exigiriam reagentes controlados agora acontecem em um laboratório virtual. O estudante erra, repete e entende o processo sem risco, e o professor acompanha cada etapa pelo painel.",
+      "categoryIds": [
+        "education",
+        "vr"
+      ],
+      "tag": "Educação · VR",
+      "visible": true,
+      "order": 0,
+      "cover": {
+        "src": "",
+        "alt": "Capa do laboratório virtual de química",
+        "caption": "",
+        "poster": "",
+        "id": "chemistry-cover",
+        "type": "image"
+      },
+      "presentation": {
+        "src": "",
+        "alt": "Apresentação do laboratório virtual de química",
+        "caption": "",
+        "poster": "",
+        "id": "chemistry-video",
+        "type": "video"
+      },
+      "gallery": [
+        {
+          "src": "",
+          "alt": "Ambiente do laboratório virtual",
+          "caption": "Um ambiente para explorar, experimentar e aprender.",
+          "poster": "",
+          "id": "chemistry-lab",
+          "type": "image"
+        },
+        {
+          "src": "",
+          "alt": "Demonstração de um experimento",
+          "caption": "Experimentos com acompanhamento do professor.",
+          "poster": "",
+          "id": "chemistry-demo",
+          "type": "video"
+        }
+      ],
+      "facts": [
+        {
+          "label": "SEGMENTO",
+          "value": "Ensino médio e técnico"
+        },
+        {
+          "label": "FORMATO",
+          "value": "Realidade virtual com acompanhamento"
+        },
+        {
+          "label": "ENTREGA",
+          "value": "Aplicação para óculos, painel do professor e material de apoio"
+        }
+      ],
+      "story": [
+        {
+          "title": "O desafio",
+          "text": "Aproximar os estudantes da prática de química, mesmo quando a escola não dispõe de um laboratório físico completo."
+        },
+        {
+          "title": "A experiência",
+          "text": "Um laboratório em realidade virtual com experimentos guiados, instruções acessíveis e liberdade para repetir cada etapa."
+        },
+        {
+          "title": "O caminho possível",
+          "text": "Integrar a experiência à rotina de aula e dar ao professor uma visão do percurso de cada estudante."
+        }
+      ]
+    },
+    {
+      "id": "campus",
+      "slug": "tour-360-do-campus",
+      "title": "Tour 360° do campus",
+      "description": "Visita imersiva que apresenta espaços e cursos para novos estudantes.",
+      "introduction": "Uma primeira visita que começa de qualquer lugar. O tour reúne os espaços do campus em uma experiência 360°, permitindo conhecer salas, laboratórios e áreas de convivência no próprio ritmo.",
+      "categoryIds": [
+        "360",
+        "education"
+      ],
+      "tag": "Institucional · 360°",
+      "visible": true,
+      "order": 1,
+      "cover": {
+        "src": "",
+        "alt": "Capa do tour 360° do campus",
+        "caption": "",
+        "poster": "",
+        "id": "campus-cover",
+        "type": "image"
+      },
+      "presentation": {
+        "src": "",
+        "alt": "Apresentação do tour do campus",
+        "caption": "",
+        "poster": "",
+        "id": "campus-video",
+        "type": "video"
+      },
+      "gallery": [
+        {
+          "src": "",
+          "alt": "Espaços do campus",
+          "caption": "Conheça cada espaço no seu ritmo.",
+          "poster": "",
+          "id": "campus-gallery",
+          "type": "image"
+        }
+      ],
+      "facts": [
+        {
+          "label": "SEGMENTO",
+          "value": "Instituições de ensino"
+        },
+        {
+          "label": "FORMATO",
+          "value": "Tour interativo em 360°"
+        },
+        {
+          "label": "ENTREGA",
+          "value": "Experiência web para celular e computador"
+        }
+      ],
+      "story": [
+        {
+          "title": "O desafio",
+          "text": "Apresentar a estrutura da instituição a pessoas que ainda não podem visitar o campus."
+        },
+        {
+          "title": "A experiência",
+          "text": "Uma navegação entre panoramas com pontos de interesse e informações sobre os espaços."
+        }
+      ]
+    },
+    {
+      "id": "activation",
+      "slug": "ativacao-de-marca-em-feira",
+      "title": "Ativação de marca em feira",
+      "description": "Camada de realidade aumentada que transformou o estande em atração do evento.",
+      "introduction": "Uma experiência que conecta o espaço físico a novas possibilidades. Elementos em realidade aumentada convidam o público a interagir com a marca e explorar sua história.",
+      "categoryIds": [
+        "brand",
+        "ar"
+      ],
+      "tag": "Marca · AR",
+      "visible": true,
+      "order": 2,
+      "cover": {
+        "src": "",
+        "alt": "Capa da ativação de marca em feira",
+        "caption": "",
+        "poster": "",
+        "id": "activation-cover",
+        "type": "image"
+      },
+      "presentation": {
+        "src": "",
+        "alt": "Apresentação da ativação de marca",
+        "caption": "",
+        "poster": "",
+        "id": "activation-video",
+        "type": "video"
+      },
+      "gallery": [
+        {
+          "src": "",
+          "alt": "Experiência de realidade aumentada no estande",
+          "caption": "",
+          "poster": "",
+          "id": "activation-gallery",
+          "type": "image"
+        }
+      ],
+      "facts": [
+        {
+          "label": "SEGMENTO",
+          "value": "Marcas e eventos"
+        },
+        {
+          "label": "FORMATO",
+          "value": "Realidade aumentada"
+        },
+        {
+          "label": "ENTREGA",
+          "value": "Experiência interativa para dispositivos móveis"
+        }
+      ],
+      "story": [
+        {
+          "title": "O desafio",
+          "text": "Criar um convite à interação em um evento com muitos estímulos e diferentes públicos."
+        },
+        {
+          "title": "A experiência",
+          "text": "Conteúdos digitais aparecem sobre o ambiente físico e fazem do visitante parte da narrativa."
+        }
+      ]
+    },
+    {
+      "id": "safety",
+      "slug": "simulador-de-seguranca-do-trabalho",
+      "title": "Simulador de segurança do trabalho",
+      "description": "Procedimentos de risco treinados em repetição, sem parar a operação real.",
+      "introduction": "Treinar antes de entrar em campo. Cenários virtuais permitem praticar procedimentos de segurança e reconhecer situações de risco em um ambiente controlado.",
+      "categoryIds": [
+        "vr"
+      ],
+      "tag": "Treinamento · VR",
+      "visible": true,
+      "order": 3,
+      "cover": {
+        "src": "",
+        "alt": "Capa do simulador de segurança do trabalho",
+        "caption": "",
+        "poster": "",
+        "id": "safety-cover",
+        "type": "image"
+      },
+      "presentation": {
+        "src": "",
+        "alt": "Apresentação do simulador de segurança",
+        "caption": "",
+        "poster": "",
+        "id": "safety-video",
+        "type": "video"
+      },
+      "gallery": [
+        {
+          "src": "",
+          "alt": "Cenário virtual de treinamento",
+          "caption": "",
+          "poster": "",
+          "id": "safety-gallery",
+          "type": "image"
+        }
+      ],
+      "facts": [
+        {
+          "label": "SEGMENTO",
+          "value": "Treinamento profissional"
+        },
+        {
+          "label": "FORMATO",
+          "value": "Simulação em realidade virtual"
+        },
+        {
+          "label": "ENTREGA",
+          "value": "Cenários imersivos e roteiro de treinamento"
+        }
+      ],
+      "story": [
+        {
+          "title": "O desafio",
+          "text": "Permitir que profissionais pratiquem procedimentos sem exposição ao risco da operação."
+        },
+        {
+          "title": "A experiência",
+          "text": "Uma simulação com situações do cotidiano e oportunidades de repetir os procedimentos."
+        }
+      ]
+    },
+    {
+      "id": "book",
+      "slug": "livro-didatico-aumentado",
+      "title": "Livro didático aumentado",
+      "description": "Modelos 3D que aparecem sobre a página e explicam o conteúdo em movimento.",
+      "introduction": "A página é só o começo. Modelos tridimensionais e animações complementam o material didático e permitem explorar conceitos com novas perspectivas.",
+      "categoryIds": [
+        "education",
+        "ar"
+      ],
+      "tag": "Educação · AR",
+      "visible": true,
+      "order": 4,
+      "cover": {
+        "src": "",
+        "alt": "Capa do livro didático aumentado",
+        "caption": "",
+        "poster": "",
+        "id": "book-cover",
+        "type": "image"
+      },
+      "presentation": {
+        "src": "",
+        "alt": "Apresentação do livro didático aumentado",
+        "caption": "",
+        "poster": "",
+        "id": "book-video",
+        "type": "video"
+      },
+      "gallery": [
+        {
+          "src": "",
+          "alt": "Modelos 3D sobre as páginas do livro",
+          "caption": "",
+          "poster": "",
+          "id": "book-gallery",
+          "type": "image"
+        }
+      ],
+      "facts": [
+        {
+          "label": "SEGMENTO",
+          "value": "Educação e editoras"
+        },
+        {
+          "label": "FORMATO",
+          "value": "Realidade aumentada"
+        },
+        {
+          "label": "ENTREGA",
+          "value": "Modelos 3D e experiência para celular"
+        }
+      ],
+      "story": [
+        {
+          "title": "O desafio",
+          "text": "Dar uma dimensão visual e interativa a conteúdos difíceis de representar apenas em duas dimensões."
+        },
+        {
+          "title": "A experiência",
+          "text": "Apontar o celular para a página revela modelos que podem ser observados de diferentes ângulos."
+        }
+      ]
+    },
+    {
+      "id": "platform",
+      "slug": "plataforma-de-aulas-imersivas",
+      "title": "Plataforma de aulas imersivas",
+      "description": "Sistema web em que professores organizam turmas e liberam experiências de VR para cada aula.",
+      "introduction": "Um lugar para conectar as experiências à rotina da escola. A plataforma organiza turmas, conteúdos e percursos de aprendizagem em uma interface simples.",
+      "categoryIds": [
+        "web",
+        "education"
+      ],
+      "tag": "Software · Web",
+      "visible": true,
+      "order": 5,
+      "cover": {
+        "src": "",
+        "alt": "Capa da plataforma de aulas imersivas",
+        "caption": "",
+        "poster": "",
+        "id": "platform-cover",
+        "type": "image"
+      },
+      "presentation": {
+        "src": "",
+        "alt": "Apresentação da plataforma de aulas",
+        "caption": "",
+        "poster": "",
+        "id": "platform-video",
+        "type": "video"
+      },
+      "gallery": [
+        {
+          "src": "",
+          "alt": "Interface de organização de aulas",
+          "caption": "",
+          "poster": "",
+          "id": "platform-gallery",
+          "type": "image"
+        }
+      ],
+      "facts": [
+        {
+          "label": "SEGMENTO",
+          "value": "Escolas e professores"
+        },
+        {
+          "label": "FORMATO",
+          "value": "Plataforma web"
+        },
+        {
+          "label": "ENTREGA",
+          "value": "Gestão de turmas, conteúdos e experiências"
+        }
+      ],
+      "story": [
+        {
+          "title": "O desafio",
+          "text": "Reunir o planejamento e a distribuição de experiências imersivas em um só lugar."
+        },
+        {
+          "title": "A experiência",
+          "text": "Professores organizam suas turmas e selecionam os conteúdos para cada etapa da aula."
+        }
+      ]
+    },
+    {
+      "id": "prj-1",
+      "slug": "laboratorio-virtual-de-ciencias",
+      "title": "Laboratório virtual de ciências",
+      "description": "Ambiente seguro e interativo para explorar experimentos e conceitos científicos.",
+      "introduction": "Ambiente seguro e interativo para explorar experimentos e conceitos científicos.",
+      "categoryIds": [],
+      "tag": "Educação imersiva",
+      "visible": true,
+      "order": 6,
+      "cover": {
+        "src": "",
+        "alt": "Laboratório virtual de ciências",
+        "caption": "",
+        "poster": "",
+        "id": "prj-1-cover",
+        "type": "image"
+      },
+      "presentation": {
+        "src": "",
+        "alt": "Laboratório virtual de ciências",
+        "caption": "",
+        "poster": "",
+        "id": "prj-1-presentation",
+        "type": "image"
+      },
+      "gallery": [],
+      "facts": [
+        {
+          "label": "ANO",
+          "value": "2026"
+        }
+      ],
+      "story": [
+        {
+          "title": "Sobre o projeto",
+          "text": "Ambiente seguro e interativo para explorar experimentos e conceitos científicos."
+        }
+      ]
+    },
+    {
+      "id": "prj-2",
+      "slug": "visita-historica-em-360",
+      "title": "Visita histórica em 360°",
+      "description": "Uma jornada guiada por espaços históricos com narrativa e pontos interativos.",
+      "introduction": "Uma jornada guiada por espaços históricos com narrativa e pontos interativos.",
+      "categoryIds": [],
+      "tag": "Cultura e patrimônio",
+      "visible": true,
+      "order": 7,
+      "cover": {
+        "src": "",
+        "alt": "Visita histórica em 360°",
+        "caption": "",
+        "poster": "",
+        "id": "prj-2-cover",
+        "type": "image"
+      },
+      "presentation": {
+        "src": "",
+        "alt": "Visita histórica em 360°",
+        "caption": "",
+        "poster": "",
+        "id": "prj-2-presentation",
+        "type": "image"
+      },
+      "gallery": [],
+      "facts": [
+        {
+          "label": "ANO",
+          "value": "2026"
+        }
+      ],
+      "story": [
+        {
+          "title": "Sobre o projeto",
+          "text": "Uma jornada guiada por espaços históricos com narrativa e pontos interativos."
+        }
+      ]
+    },
+    {
+      "id": "prj-3",
+      "slug": "treinamento-operacional-vr",
+      "title": "Treinamento operacional VR",
+      "description": "Simulação prática para desenvolver procedimentos com mais segurança e retenção.",
+      "introduction": "Simulação prática para desenvolver procedimentos com mais segurança e retenção.",
+      "categoryIds": [],
+      "tag": "Treinamento",
+      "visible": true,
+      "order": 8,
+      "cover": {
+        "src": "",
+        "alt": "Treinamento operacional VR",
+        "caption": "",
+        "poster": "",
+        "id": "prj-3-cover",
+        "type": "image"
+      },
+      "presentation": {
+        "src": "",
+        "alt": "Treinamento operacional VR",
+        "caption": "",
+        "poster": "",
+        "id": "prj-3-presentation",
+        "type": "image"
+      },
+      "gallery": [],
+      "facts": [
+        {
+          "label": "ANO",
+          "value": "2025"
+        }
+      ],
+      "story": [
+        {
+          "title": "Sobre o projeto",
+          "text": "Simulação prática para desenvolver procedimentos com mais segurança e retenção."
+        }
+      ]
+    }
+  ],
+  "ui": {
+    "skipLink": "Pular para o conteúdo",
+    "login": "Login",
+    "adminArea": "Área administrativa ↗",
+    "footerEyebrow": "MINIVERSO / CONECTE-SE AO NOVO",
+    "footerExplore": "Explore",
+    "footerConnect": "Vamos conversar",
+    "heroLocationLabel": "ESTÚDIO INDEPENDENTE",
+    "heroMetaTitle": "TECNOLOGIA × CRIATIVIDADE",
+    "heroMetaSubtitle": "REALIDADES QUE CONECTAM",
+    "catalogAll": "Todos",
+    "catalogCount": "projetos",
+    "projectBack": "Voltar aos projetos",
+    "projectOverline": "PROJETO",
+    "projectPrevious": "Anterior",
+    "projectNext": "Próximo",
+    "projectAll": "Todos os projetos",
+    "projectExplore": "Explore",
+    "projectDetails": "Conheça o projeto",
+    "videoPlay": "Assistir à apresentação",
+    "videoEmpty": "Vídeo de apresentação",
+    "videoSoon": "Em breve",
+    "galleryPrevious": "Mídia anterior",
+    "galleryNext": "Próxima mídia",
+    "contactChannels": "CANAIS DIRETOS",
+    "contactWhatsapp": "Converse com a equipe",
+    "formatAction": "Vamos explorar este formato",
+    "formName": "Seu nome",
+    "formNamePlaceholder": "Como podemos chamar você?",
+    "formEmail": "Seu e-mail",
+    "formEmailPlaceholder": "voce@empresa.com",
+    "formSubject": "O que você tem em mente?",
+    "formSubjectPlaceholder": "Selecione um formato",
+    "formMessage": "Conte um pouco da sua ideia",
+    "formMessagePlaceholder": "Seu desafio, seu público e o que você imagina.",
+    "formSending": "Enviando…",
+    "formProtocol": "Protocolo"
+  },
+  "digital": {
+    "siteEyebrow": "01 / EXPLORE O NOVO SITE",
+    "siteTitle": "Uma experiência que acompanha você.",
+    "siteDescription": "Conheça projetos e possibilidades no notebook, tablet ou celular.",
+    "socialEyebrow": "02 / VAMOS NOS CONECTAR",
+    "socialTitle": "Projetos, bastidores e boas conversas.",
+    "socialDescription": "Acompanhe a Miniverso no Instagram ou conte sua ideia pelo WhatsApp.",
+    "devices": [
+      {
+        "id": "notebook",
+        "title": "Notebook",
+        "image": "/site-preview-notebook.jpg",
+        "imageAlt": "Site da Miniverso no notebook",
+        "caption": "",
+        "href": "/projetos"
+      },
+      {
+        "id": "celular",
+        "title": "Smartphone",
+        "image": "/site-preview-celular.jpg",
+        "imageAlt": "Site da Miniverso no celular",
+        "caption": "",
+        "href": "/projetos"
+      },
+      {
+        "id": "tablet",
+        "title": "Tablet",
+        "image": "/site-preview-tablet.jpg",
+        "imageAlt": "Site da Miniverso no tablet",
+        "caption": "",
+        "href": "/projetos"
+      }
+    ],
+    "social": {
+      "whatsappLabel": "WhatsApp",
+      "instagramLabel": "Instagram",
+      "siteLabel": "Site mobile",
+      "whatsappAction": "Conversar no WhatsApp",
+      "bio": "Sua nova dimensão de aprendizado e treinamento! Conheça nossos projetos e agende sua demonstração.",
+      "followers": "523",
+      "following": "172",
+      "profileLink": "https://www.instagram.com/meuminiverso/",
+      "highlights": [
+        "Eventos",
+        "Apoio",
+        "Onde estamos",
+        "Feedbacks",
+        "NEon"
+      ],
+      "posts": [
+        {
+          "id": "post-0",
+          "type": "image",
+          "src": "/home-team-v2.webp",
+          "alt": "Experiências e bastidores da Miniverso",
+          "caption": ""
+        },
+        {
+          "id": "post-1",
+          "type": "image",
+          "src": "/home-vr-people-v2.webp",
+          "alt": "Experiências e bastidores da Miniverso",
+          "caption": ""
+        },
+        {
+          "id": "post-2",
+          "type": "image",
+          "src": "/home-vr-person-v2.webp",
+          "alt": "Experiências e bastidores da Miniverso",
+          "caption": ""
+        }
+      ],
+      "messages": [
+        {
+          "id": "message-1",
+          "text": "Olá! Quero conhecer as experiências da Miniverso.",
+          "direction": "sent"
+        },
+        {
+          "id": "message-2",
+          "text": "Olá! Vamos criar uma nova realidade juntos?",
+          "direction": "received"
+        },
+        {
+          "id": "message-3",
+          "text": "Criamos experiências em VR, AR e vídeos 360° para aproximar pessoas do conhecimento.",
+          "direction": "received"
+        },
+        {
+          "id": "message-4",
+          "text": "Tenho uma ideia para meu projeto!",
+          "direction": "sent"
+        },
+        {
+          "id": "message-5",
+          "text": "Conte pra gente. Tudo começa com uma conversa.",
+          "direction": "received"
+        }
+      ]
+    }
+  }
+}

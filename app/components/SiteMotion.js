@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 import {useEffect} from 'react';
 import {usePathname} from 'next/navigation';
 
@@ -37,8 +37,8 @@ export default function SiteMotion(){
   window.addEventListener('scroll',updateHeader,{passive:true});
   if(!preference.matches&&main){
    pageAnimation=main.animate([
-    {opacity:0,translate:'0 12px'},
-    {opacity:1,translate:'0 0'}
+    {opacity:0},
+    {opacity:1}
    ],{duration:700,easing:'cubic-bezier(.16,1,.3,1)',fill:'both'});
   }
 
@@ -60,25 +60,31 @@ export default function SiteMotion(){
      if(!entry.isIntersecting)return;
      if(state.visible)return;
      state.visible=true;
-     if(state.home){observer.unobserve(entry.target);rearmObserver.unobserve(entry.target)}
+
      if(entry.target.contains(document.activeElement))return;
      state.animation?.cancel();
-     // Individual translate leaves existing hover transforms intact.
-     state.animation=entry.target.animate([
-      {opacity:0,translate:state.horizontal?`${state.offset}px 0`:`0 ${state.offset}px`,scale:state.card&&!state.horizontal&&!state.home?'0.94':'1'},
-      {opacity:1,translate:'0 0',scale:'1'}
-     ],{duration:state.editorial?950:state.home?760:state.horizontal?600:state.card?1150:900,delay:state.horizontal?0:Math.min(stagger++,3)*80,easing:'cubic-bezier(.16,1,.3,1)',fill:'backwards'});
-     state.animation.id='site-scroll-reveal';
+     // Reveal the contents in sequence without moving the page or its backgrounds.
+     const children=[...entry.target.children].filter(child=>!child.hidden&&child.getAttribute('aria-hidden')!=='true');
+     const parts=state.editorial&&children.length>1&&children.length<=6&&!entry.target.matches('figure,article')?children:[entry.target];
+     const baseDelay=Math.min(stagger++,2)*55;
+     const animations=parts.map((part,index)=>part.animate([
+      {opacity:0,translate:state.horizontal?`${state.offset}px 0`:`0 ${state.offset}px`,scale:part.matches('figure,article')?'0.985':'1',offset:0},
+      {opacity:1,translate:state.horizontal?'0 0':'0 2px',scale:'1',offset:.78},
+      {opacity:1,translate:'0 0',scale:'1',offset:1}
+     ],{duration:compact.matches?740:960,delay:baseDelay+index*85,easing:'cubic-bezier(.22,.8,.24,1)',fill:'backwards'}));
+     animations.forEach(animation=>{animation.id='site-scroll-reveal'});
+     state.animation={cancel:()=>animations.forEach(animation=>animation.cancel())};
+
     });
-   },{threshold:0.12,rootMargin:'0px'});
+   },{threshold:0.08,rootMargin:'0px 0px -5% 0px'});
    // Reset only beyond a safe margin so the animated offset cannot retrigger itself.
    rearmObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{
     const state=tracked.get(entry.target);
     if(!state||entry.isIntersecting)return;
     state.visible=false;
-    state.offset=((state.horizontal?entry.boundingClientRect.left:entry.boundingClientRect.top)<0?-1:1)*state.distance;
+    state.offset=((state.horizontal?entry.boundingClientRect.left:entry.boundingClientRect.top)<0?1:-1)*state.distance;
     state.animation?.cancel();
-   }),{threshold:0,rootMargin:'160px 0px'});
+   }),{threshold:0,rootMargin:'260px 0px'});
    function register(){
     tracked.forEach((state,element)=>{
      if(!main.contains(element)){state.animation?.cancel();observer.unobserve(element);rearmObserver.unobserve(element);tracked.delete(element)}
@@ -92,8 +98,8 @@ export default function SiteMotion(){
      const card=!editorial&&element.matches('article,.solution-tile,.project-card,.contact-glass,.contact-glass-form,.commercial-art,.detail-presentation');
      const horizontal=compact.matches&&Boolean(element.closest('.mobile-carousel-track'));
      const home=Boolean(element.closest('.reference-home'));
-     const distance=editorial?(element.dataset.siteReveal==='media'?36:24):home?24:horizontal?24:card?96:40;
-     tracked.set(element,{visible:false,card,home,editorial,horizontal,distance,offset:((horizontal?element.getBoundingClientRect().left:element.getBoundingClientRect().top)<0?-1:1)*distance});
+     const distance=compact.matches?24:element.dataset.siteReveal==='media'?42:36;
+     tracked.set(element,{visible:false,card,home,editorial,horizontal,distance,offset:((horizontal?element.getBoundingClientRect().left:element.getBoundingClientRect().top)<0?1:-1)*distance});
      observer.observe(element);
      rearmObserver.observe(element);
     });
@@ -107,11 +113,12 @@ export default function SiteMotion(){
   });
   main?.addEventListener('focusin',showFocused);
   frame=requestAnimationFrame(setup);
-  preference.addEventListener('change',setup);
+  const updatePreference=()=>{pageAnimation?.cancel();setup()};
+  preference.addEventListener('change',updatePreference);
   compact.addEventListener('change',setup);
   return()=>{
    cancelAnimationFrame(frame);stop();pageAnimation?.cancel();
-   preference.removeEventListener('change',setup);
+   preference.removeEventListener('change',updatePreference);
    compact.removeEventListener('change',setup);
    main?.removeEventListener('focusin',showFocused);
    window.removeEventListener('scroll',updateHeader);

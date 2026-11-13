@@ -1,30 +1,7 @@
-﻿import "./globals.css";
-import "./studio.css";
-import "./design-system.css";
-import "./refinements.css";
-import "./content-design.css";
-import SiteMotion from "@/app/components/SiteMotion";
-import Header from "@/app/components/Header";
-import Footer from "@/app/components/Footer";
 
-export const metadata = {
-  title: { default: "Miniverso | Realidade que transforma", template: "%s | Miniverso" },
-  description: "Experiências em realidade virtual, aumentada e vídeos 360 para educação, treinamento e marcas.",
-  icons: { icon: "/favicon.svg" }
-};
-
-export default function RootLayout({ children }) {
-  return (
-    <html lang="pt-BR" data-scroll-behavior="smooth">
-      <body className="miniverso-refined">
-        <a className="skip-link" href="#conteudo">Pular para o conteúdo</a>
-        <Header />
-        <SiteMotion />
-        <main id="conteudo">{children}</main>
-        <Footer />
-      </body>
-    </html>
-  );
-}
-
-
+import './future.css';
+import {getSiteContent} from '@/lib/site-content';
+import {FutureHeader,FutureFooter} from '@/app/components/future/Frame';
+import FutureInteractions from '@/app/components/future/Interactions';
+export async function generateMetadata(){const {settings}=await getSiteContent();return {title:{default:settings.seoTitle,template:'%s | '+settings.brand},description:settings.seoDescription,icons:{icon:settings.favicon||'/favicon.svg'}};}
+export default async function RootLayout({children}){const site=await getSiteContent();const pages=site.pages.map(({id,path,label})=>({id,path,label}));return <html lang="pt-BR" data-scroll-behavior="smooth"><body><a className="skip-link" href="#conteudo">{site.ui.skipLink}</a><FutureHeader settings={site.settings} pages={pages} ui={site.ui}/><FutureInteractions/><main id="conteudo">{children}</main><FutureFooter settings={site.settings} pages={pages} ui={site.ui}/></body></html>;}

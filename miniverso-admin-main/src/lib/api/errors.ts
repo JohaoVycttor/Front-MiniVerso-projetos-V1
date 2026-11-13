@@ -6,6 +6,7 @@ export function messageForStatus(status: number): string {
   if (status === 401) return MESSAGES.sessionExpired;
   if (status === 403) return MESSAGES.forbidden;
   if (status === 404) return MESSAGES.notFound;
+  if (status === 409) return "Outra sessão publicou alterações. Recarregue o conteúdo antes de publicar novamente.";
   if (status === 422) return MESSAGES.validation;
   if (status === 429) return MESSAGES.tooManyRequests;
   if (status >= 500) return MESSAGES.generic;
@@ -32,7 +33,9 @@ export class ApiError extends Error {
     const errors =
       typeof data === "object" && data !== null && "errors" in data ? (data as { errors: unknown }).errors : null;
     const fields = typeof errors === "object" && errors !== null ? Object.keys(errors) : [];
-    return new ApiError(status, messageForStatus(status), fields);
+    const detail=[400,409,413,422].includes(status)&&typeof data==="object"&&data!==null&&"message" in data&&typeof data.message==="string"?data.message:messageForStatus(status);
+    const fieldMessages=status===422&&errors&&typeof errors==="object"?Object.values(errors).flat().filter(value=>typeof value==="string").slice(0,6).join(" "):"";
+    return new ApiError(status, fieldMessages?detail+" "+fieldMessages:detail, fields);
   }
 }
 

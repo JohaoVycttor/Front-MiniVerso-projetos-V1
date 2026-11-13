@@ -3,10 +3,14 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --hostname 0.0.0.0 --port 3000",
+    "dev": "node scripts/dev.mjs",
+    "dev:site": "next dev --hostname 0.0.0.0 --port 3000",
     "dev:admin": "npm --prefix miniverso-admin-main run dev -- --hostname 0.0.0.0 --port 3001",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "test:cms": "npm --prefix miniverso-admin-main test",
+    "test:e2e": "node scripts/admin-cms-qa.cjs",
+    "schema:content": "node scripts/export-content-schema.mjs"
   },
   "dependencies": {
     "@netlify/blobs": "11.1.7",
@@ -14,5 +18,8 @@
     "next": "16.3.5",
     "react": "19.1.1",
     "react-dom": "19.1.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.65.0"
   }
 }

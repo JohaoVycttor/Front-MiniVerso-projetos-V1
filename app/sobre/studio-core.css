@@ -171,3 +171,6 @@ body:has(.studio-core) .footer-wordmark{font-size:clamp(58px,15vw,206px);font-we
  .studio-core-scroll svg,.studio-core .studio-format-panel:not([hidden]){animation:none}
  body .studio-page.studio-core .studio-cards article:hover{transform:none}
 }
+
+/* Quiet backdrop keeps the animated point cloud readable. */
+body.miniverso-refined .studio-page.studio-core{background-image:radial-gradient(ellipse at 12% 35%,#15243d55,transparent 55%);background-color:#080b12;background-attachment:scroll}

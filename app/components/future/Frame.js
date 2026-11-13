@@ -1,0 +1,17 @@
+"use client";
+import Link from 'next/link';
+import {usePathname} from 'next/navigation';
+import {useEffect,useRef,useState} from 'react';
+import {ArrowUpRight,Menu,X} from 'lucide-react';
+import {adminLoginUrl} from '@/lib/admin-url';
+export function FutureHeader({settings,pages,ui}){
+ const pathname=usePathname(),[open,setOpen]=useState(false);const trigger=useRef(null);
+ useEffect(()=>{setOpen(false)},[pathname]);
+ useEffect(()=>{const close=event=>{if(event.key==='Escape'){setOpen(false);trigger.current?.focus()}};if(open)document.addEventListener('keydown',close);return()=>document.removeEventListener('keydown',close)},[open]);
+ if(pathname.startsWith('/admin'))return null;
+ return <header className="future-header"><div className="future-shell future-nav"><Link className="future-brand" href="/" aria-label={settings.brand+' — início'}>{settings.logo&&<img src={settings.logo} width="36" height="24" alt={settings.logoAlt}/>}{settings.brand}<sup>®</sup></Link><button ref={trigger} className="future-menu" type="button" onClick={()=>setOpen(!open)} aria-expanded={open} aria-controls="future-navigation" aria-label={open?'Fechar menu':'Abrir menu'}>{open?<X/>:<Menu/>}</button><nav id="future-navigation" className={open?'future-links is-open':'future-links'} aria-label="Navegação principal">{pages.map((page,index)=><Link key={page.id} href={page.path} aria-current={pathname===page.path||(page.id==='projects'&&pathname.startsWith('/projetos/'))?'page':undefined}><span>0{index+1}</span>{page.label}</Link>)}<a className="future-admin-link" href={adminLoginUrl}>{ui.login} <ArrowUpRight size={12}/></a></nav><Link className="future-pill future-nav-cta" href={settings.headerButtonHref||'/contato'}>{settings.headerButton}<ArrowUpRight size={15}/></Link></div></header>
+}
+export function FutureFooter({settings,pages,ui}){
+ const pathname=usePathname();if(pathname.startsWith('/admin'))return null;
+ return <footer className="future-footer"><div className="future-shell"><div className="footer-topline"><span>{ui.footerEyebrow}</span><span>{settings.location}</span></div><div className="footer-invitation" data-reveal><h2>{settings.footerTitle}</h2><div><p>{settings.footerDescription}</p><Link className="future-pill light" href={settings.footerButtonHref||'/contato'}>{settings.footerButton}<ArrowUpRight size={17}/></Link></div></div><div className="footer-links"><div><span>{ui.footerExplore}</span>{pages.map(page=><Link key={page.id} href={page.path}>{page.label}</Link>)}</div><div><span>{ui.footerConnect}</span><a href={'mailto:'+settings.email}>{settings.email}<ArrowUpRight size={13}/></a><a href={'https://wa.me/'+settings.whatsapp} target="_blank" rel="noopener noreferrer">WhatsApp<ArrowUpRight size={13}/></a><a href={'https://www.instagram.com/'+settings.instagram+'/'} target="_blank" rel="noopener noreferrer">Instagram<ArrowUpRight size={13}/></a></div><p>{settings.tagline}</p></div><Link href="/" className="future-footer-wordmark" aria-label="Voltar ao início">{settings.brand}<span>↗</span></Link><div className="future-copyright"><span>© {new Date().getFullYear()} {settings.copyright}</span><span>{settings.location}</span><a href={adminLoginUrl}>{ui.adminArea}</a></div></div></footer>
+}

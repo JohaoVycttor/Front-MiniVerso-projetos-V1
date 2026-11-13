@@ -13,6 +13,8 @@ import { SESSION_COOKIE } from "@/lib/session-cookie";
 import { resetMockStore } from "@/mock/mock-api";
 
 process.env.API_MODE = "mock";
+// These tests exercise the mock backend proxy; real local messages have separate coverage.
+process.env.CONTENT_SOURCE = "api";
 process.env.MOCK_LATENCY_MS = "0";
 
 const ORIGIN = "http://localhost:3000";

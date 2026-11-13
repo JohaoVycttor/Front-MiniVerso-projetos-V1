@@ -1,0 +1,6 @@
+/* Shared canvas and typography across the public routes. */
+body.miniverso-refined{--mv-public-bg:#0c0407;background:var(--mv-public-bg)}
+body.miniverso-refined #conteudo :is(.studio-page.studio-core,.solutions-page.solutions-core,.portfolio-module.portfolio-core,.contact-page.contact-core){background-color:var(--mv-public-bg);background-image:none;--background:var(--mv-public-bg);--core-bg:var(--mv-public-bg);--solutions-bg:var(--mv-public-bg);--core-accent:#9edceb;font-family:var(--mv-font)}
+body.miniverso-refined .footer.editorial-footer{background:var(--mv-public-bg)}
+.route-journey{border-top:1px solid #ffffff20;padding:30px 0;background:#0c0407}.route-journey>.shell{display:flex;align-items:center;gap:30px;justify-content:space-between;flex-wrap:wrap}.route-journey span{font-size:10px;letter-spacing:.07em;color:#8e9aa9}.route-journey a{display:flex;align-items:center;gap:18px;color:#dce5ed;font-size:13px}.route-journey a:focus-visible{outline:2px solid #9edceb;outline-offset:5px}
+@media(max-width:760px){.route-journey>.shell{gap:22px}.route-journey span{width:100%}.route-journey a{font-size:12px}}

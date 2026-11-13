@@ -1,0 +1,22 @@
+
+import {writeFile} from 'node:fs/promises';
+import {UI_FIELDS,PAGE_PATHS,SECTION_TYPES} from '../shared/site-content.mjs';
+const text={type:'string',maxLength:12000},short={type:'string',maxLength:1000};
+const object=(properties,required=Object.keys(properties))=>({type:'object',properties,required});
+const array=(items,maxItems=100,minItems=0)=>({type:'array',items,maxItems,minItems});
+const ref=name=>({$ref:'#/$defs/'+name});
+const media={image:text,imageAlt:text,caption:text};
+const button={buttonLabel:short,buttonHref:text};
+const asset=object({id:short,type:{enum:['image','video']},src:text,alt:text,caption:text,poster:text},['id','type','src','alt']);
+const item=object({id:short,title:short,description:text,...media,href:text,tag:short});
+const slide=object({id:short,title:short,...media});
+const hero=object({masthead:short,eyebrow:short,title:text,description:text,...media,imagePosition:short,...button,scrollLabel:short,scrollHref:text,slides:array(ref('Slide'),5)});
+const section=object({id:{type:'string',pattern:'^[a-zA-Z][a-zA-Z0-9_-]*$'},type:{enum:Object.keys(SECTION_TYPES)},visible:{type:'boolean'},eyebrow:text,title:text,description:text,supportTitle:text,supportText:text,...media,...button,projectId:short,projectIds:{...array(short),uniqueItems:true},limit:{type:'integer',minimum:1,maximum:100},items:array(ref('Item'),30)},['id','type','visible','eyebrow','title','description','supportTitle','supportText','image','imageAlt','caption','buttonLabel','buttonHref','projectIds','limit','items']);
+const page=object({id:{enum:Object.keys(PAGE_PATHS)},path:{enum:Object.values(PAGE_PATHS)},label:short,seoTitle:short,seoDescription:short,hero:ref('Hero'),ribbon:object({visible:{type:'boolean'},text}),sections:array(ref('Section'),25)});
+const project=object({id:short,slug:{type:'string',pattern:'^[a-z0-9]+(?:-[a-z0-9]+)*$'},title:text,tag:short,description:text,introduction:text,visible:{type:'boolean'},order:{type:'integer',minimum:0},categoryIds:array(short,30),cover:ref('Asset'),presentation:ref('Asset'),gallery:array(ref('Asset'),30),facts:array(object({label:short,value:text}),15),story:array(object({title:short,text}),20)});
+const settings=object(Object.fromEntries(['brand','tagline','email','whatsapp','instagram','location','headerButton','headerButtonHref','footerTitle','footerDescription','footerButton','footerButtonHref','copyright','logo','logoAlt','favicon','seoTitle','seoDescription'].map(key=>[key,short])));
+const contact=object({title:short,description:short,subjects:{...array(short,30,1),uniqueItems:true},button:short,consentLabel:short,successText:short,errorText:short,privacyText:short});
+const digital=object({siteEyebrow:short,siteTitle:short,siteDescription:short,socialEyebrow:short,socialTitle:short,socialDescription:short,devices:array(object({id:{enum:['notebook','celular','tablet']},title:short,...media,href:text}),3,3),social:object({whatsappLabel:short,instagramLabel:short,siteLabel:short,whatsappAction:short,bio:text,followers:short,following:short,profileLink:text,highlights:array(short,8),posts:array(ref('Asset'),12),messages:array(object({id:short,text:short,direction:{enum:['sent','received']}}),15,1)})});
+const schema={$schema:'https://json-schema.org/draft/2020-12/schema',title:'Miniverso SiteDocument',...object({schemaVersion:{const:1},revision:{type:'integer',minimum:1},publishedAt:{type:'string'},settings:ref('Settings'),ui:object(Object.fromEntries(Object.keys(UI_FIELDS).map(key=>[key,short]))),contact:ref('Contact'),digital:ref('Digital'),pages:array(ref('Page'),5,5),projects:array(ref('Project'),100)}),$defs:{Settings:settings,Contact:contact,Digital:digital,Hero:hero,Slide:slide,Section:section,Item:item,Asset:asset,Page:page,Project:project}};
+await writeFile(new URL('../docs/site-content.schema.json',import.meta.url),JSON.stringify(schema,null,2)+'\n');
+console.log('JSON Schema exportado.');

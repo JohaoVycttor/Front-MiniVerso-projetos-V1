@@ -23,7 +23,7 @@ export function getServerConfig(): ServerConfig {
   const sessionHours = Number.isFinite(hours) && hours > 0 ? hours : 8;
 
   const mockResources = new Set(
-    (process.env.MOCK_RESOURCES ?? "site-content,leads")
+    (process.env.MOCK_RESOURCES ?? "")
       .split(",")
       .map((item) => item.trim())
       .filter(Boolean),

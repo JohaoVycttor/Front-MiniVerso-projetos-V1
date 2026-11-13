@@ -1,11 +1,5 @@
-﻿import { getContent } from "@/lib/db";
-import { defaultStudio } from "@/lib/studio-content";
-import { getContent as getPortfolioContent, visibleProjects } from "@/lib/portfolio-content";
-import StudioPage from "./StudioPage";
-export const dynamic = "force-dynamic";
-export const metadata = { title: "O estúdio" };
-export default async function AboutPage() {
- const [data,portfolio] = await Promise.all([getContent(),getPortfolioContent()]);
- const projects=visibleProjects(portfolio.projects).map(({id,slug,title,tag,introduction,cover,presentation})=>({id,slug,title,tag,introduction,cover,presentation}));
- return <StudioPage content={data.studio || defaultStudio} projects={projects}/>;
-}
+import {getSitePage} from '@/lib/site-content';
+import {FuturePage} from '@/app/components/future/Pages';
+export const dynamic='force-dynamic';
+export async function generateMetadata(){const {page}=await getSitePage('studio');return {title:{absolute:page.seoTitle},description:page.seoDescription}}
+export default async function Page({searchParams}){const {site,page}=await getSitePage('studio');const query=await searchParams;return <FuturePage site={site} page={page} initialSubject={typeof query?.subject==='string'?query.subject:''}/>}

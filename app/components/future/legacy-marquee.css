@@ -1,0 +1,44 @@
+/* Original HomeMarquee rules from home-continuity.css and home-reference.css. */
+.legacy-ribbon{scroll-margin-top:90px}
+.legacy-ribbon .home-discipline{display:inline-flex;align-items:center}
+.legacy-ribbon .home-marquee{display:flex;flex-wrap:nowrap;gap:0;padding:0;background:#080c1470;backdrop-filter:blur(16px);border-block:1px solid #ffffff20;overflow:hidden}
+.legacy-ribbon .home-marquee-window{flex:1;min-width:0;overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 3%,#000 97%,transparent)}
+.legacy-ribbon .home-marquee-track{display:flex;width:max-content;animation:home-marquee-flow 32s linear infinite}
+.legacy-ribbon .home-marquee-group{display:flex;align-items:center;justify-content:space-around;gap:64px;min-width:calc(100vw - 100px);flex-shrink:0;padding:22px 32px}
+.legacy-ribbon .home-discipline{white-space:nowrap;flex-shrink:0;font-size:11px;letter-spacing:.12em;gap:40px;color:#d3dbed}
+.legacy-ribbon .home-marquee-toggle{display:flex;align-items:center;justify-content:center;gap:8px;align-self:stretch;flex-shrink:0;padding:16px;border:0;border-left:1px solid #ffffff20;background:transparent;color:#cbd3e4;font-size:10px}
+.legacy-ribbon .home-marquee-toggle:hover{background:#ffffff0a}
+.legacy-ribbon .home-marquee-toggle:focus-visible{outline:2px solid #fff;outline-offset:-4px}
+.legacy-ribbon .home-marquee[data-paused=true] .home-marquee-track{animation-play-state:paused}
+@media(hover:hover){.legacy-ribbon .home-marquee:hover .home-marquee-track{animation-play-state:paused}}
+@keyframes home-marquee-flow{to{transform:translateX(-50%)}}
+.legacy-ribbon .home-marquee{background:#f4f5fa;border:0;backdrop-filter:none;color:#10141e}
+.legacy-ribbon .home-discipline{color:#252f43;font-size:10px;letter-spacing:.14em}
+.legacy-ribbon .home-discipline svg{color:#536580;width:13px;height:13px}
+.legacy-ribbon .home-marquee-toggle{color:#252f43;border-color:#15223e24}
+.legacy-ribbon .home-marquee-toggle:hover{background:#15223e0a}
+.legacy-ribbon .home-marquee-toggle:focus-visible{outline-color:#252f43}
+.legacy-ribbon .home-marquee-group{padding-block:23px}
+@media(max-width:620px){
+ .legacy-ribbon .home-marquee-group{gap:32px;padding-inline:16px}
+ .legacy-ribbon .home-marquee-control-label{display:none}
+}
+@media(prefers-reduced-motion:reduce){
+ .legacy-ribbon .home-marquee-track{animation:none;width:100%}
+ .legacy-ribbon .home-marquee-group{flex-wrap:wrap;min-width:0;width:100%;gap:18px}
+ .legacy-ribbon .home-marquee-group[aria-hidden=true],.legacy-ribbon .home-marquee-toggle{display:none}
+}
+/* PixelEdge restored from feat/home-visual-cleanup, commit 1f15dbe5. */
+.legacy-pixel-edge{position:absolute;left:0;right:0;bottom:-1px;height:30px;display:grid;grid-template-columns:repeat(64,1fr);align-items:end;pointer-events:none}
+.legacy-pixel-edge span{display:block;height:calc(var(--pixel-height)*.5);background:#f4f5fa;transform:translateY(var(--pixel-shift))}
+.legacy-pixel-edge span:nth-child(4n){background:#0c0407;height:calc(var(--pixel-height)*.5 + 6px)}
+.legacy-pixel-edge span:nth-child(7n){border-top:6px solid #f4f5fa;background:transparent}
+.future-page .future-hero-bottom{margin-bottom:34px}
+@media(max-width:620px){
+ .legacy-pixel-edge{height:18px;grid-template-columns:repeat(32,1fr)}
+ .legacy-pixel-edge span{height:calc(var(--pixel-height)*.25)}
+ .legacy-pixel-edge span:nth-child(n+33){display:none}
+ .legacy-pixel-edge span:nth-child(4n){height:calc(var(--pixel-height)*.25 + 3px)}
+ .legacy-pixel-edge span:nth-child(7n){border-top-width:3px}
+ .future-page .future-hero-bottom{margin-bottom:22px}
+}

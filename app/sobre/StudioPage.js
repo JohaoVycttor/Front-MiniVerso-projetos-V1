@@ -24,7 +24,7 @@ export default function StudioPage({content,projects=[]}) {
  const intro=sections.find(s=>s.type==='intro');
  const contact=sections.find(s=>s.type==='cta');
  const hasFormats=sections.some(s=>s.id==='formats');
- return <div className="studio-page studio-core" style={{'--studio-bg':content.background,'--studio-accent':content.accent,'--studio-image':intro?.image?'url('+JSON.stringify(intro.image)+')':'none','--studio-image-position':intro?.imagePosition||'center 42%','--studio-overlay':intro?.overlay??.48}}>
+ return <div className="studio-page studio-core" style={{'--studio-bg':content.background,'--studio-accent':content.accent,'--studio-image':'none','--studio-image-position':intro?.imagePosition||'center 42%','--studio-overlay':intro?.overlay??.48}}>
   {sections.map(s=>{
    if(s.type==='intro')return <section key={s.id} className="studio-intro"><div className="studio-container studio-intro-inner">
     <div className="studio-core-masthead"><span aria-hidden="true">+</span>{s.id===intro.id?<h1>o estúdio<span className="studio-core-sr"> — Miniverso, experiências em realidade virtual</span></h1>:<h2>miniverso</h2>}<span aria-hidden="true">+</span></div>

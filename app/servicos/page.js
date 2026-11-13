@@ -1,9 +1,5 @@
-﻿import { getContent } from '@/lib/db';
-import { defaultSolutions } from '@/lib/solutions-content';
-import SolutionsPage from './SolutionsPage';
-export const dynamic = 'force-dynamic';
-export const metadata = {title:'Soluções'};
-export default async function ServicesPage(){
- const data=await getContent();
- return <SolutionsPage content={data.solutions||defaultSolutions}/>;
-}
+import {getSitePage} from '@/lib/site-content';
+import {FuturePage} from '@/app/components/future/Pages';
+export const dynamic='force-dynamic';
+export async function generateMetadata(){const {page}=await getSitePage('solutions');return {title:{absolute:page.seoTitle},description:page.seoDescription}}
+export default async function Page({searchParams}){const {site,page}=await getSitePage('solutions');const query=await searchParams;return <FuturePage site={site} page={page} initialSubject={typeof query?.subject==='string'?query.subject:''}/>}

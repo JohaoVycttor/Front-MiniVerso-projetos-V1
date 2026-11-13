@@ -1,6 +1,6 @@
 /** Chamadas do módulo de leads (RF16, RF17). Parâmetros no formato da API Laravel. */
-import { getSiteContent } from "@/features/home-editor/api";
-import { findSection } from "@/features/home-editor/rules";
+import {getDocument} from "@/features/site-editor/api";
+
 import { ApiError } from "@/lib/api/errors";
 import { adminRequest } from "@/lib/api/http";
 import { mapLead, mapPaginated, unwrapData } from "@/lib/api/mappers";
@@ -38,6 +38,6 @@ export async function deleteLead(id: string): Promise<void> {
  * a mesma lista que alimenta o formulário de contato do site.
  */
 export async function listServiceOptions(signal?: AbortSignal): Promise<ServiceOption[]> {
-  const content = await getSiteContent(signal);
-  return findSection(content, "servicos").items.map((item) => ({ id: item.id, title: String(item.title ?? "Serviço sem nome") }));
+  const content = await getDocument(signal);
+  return content.contact.subjects.map(title => ({id:title,title}));
 }

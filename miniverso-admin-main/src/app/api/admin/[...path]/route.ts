@@ -11,6 +11,10 @@ import { BackendUnavailableError, callBackend } from "@/lib/server/backend";
 import { isHttps, isSameOrigin } from "@/lib/server/request";
 import { buildClearedSessionCookie, readSessionToken } from "@/lib/server/session";
 
+import {remoteContent} from "@/lib/server/content-backend";
+import {homeAccess} from "@/lib/server/home-access";
+import {localLeads} from "@/lib/server/local-leads";
+
 type RouteContext = { params: Promise<{ path: string[] }> };
 
 const METHODS_WITH_BODY = new Set(["POST", "PUT", "PATCH"]);
@@ -39,6 +43,11 @@ async function forward(request: Request, context: RouteContext): Promise<Respons
   const backendPath = toBackendPath(path);
   if (!backendPath) {
     return Response.json({ message: MESSAGES.notFound }, { status: 404 });
+  }
+
+  if(path[0]==="leads"&&!remoteContent()){
+    const denied=await homeAccess(request);if(denied)return denied;
+    return localLeads(request,path);
   }
 
   let result;

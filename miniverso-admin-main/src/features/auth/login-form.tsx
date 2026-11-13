@@ -110,9 +110,9 @@ export function LoginForm({ reason, redirectTo }: LoginFormProps) {
           <span className={styles.brandSub}>Painel administrativo</span>
         </div>
         <div className={styles.asideBody}>
-          <p className={styles.asideTitle}>A página inicial do site, editável num só lugar.</p>
+          <p className={styles.asideTitle}>Todas as páginas do site, editável num só lugar.</p>
           <p className={styles.asideText}>
-            Organize as seções da página inicial, atualize textos, imagens, serviços e projetos e acompanhe os contatos recebidos pelo site.
+            Organize as seções de cada página, atualize textos, imagens, serviços e projetos e acompanhe os contatos recebidos pelo site.
           </p>
         </div>
         <span className={styles.asideFooter}>Acesso restrito à equipe da Miniverso</span>

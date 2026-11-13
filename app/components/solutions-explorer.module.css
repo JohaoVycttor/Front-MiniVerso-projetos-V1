@@ -3,7 +3,7 @@
 .tabs>button{display:grid;grid-template-columns:1fr auto;gap:16px 12px;text-align:left;padding:22px 22px 20px 0;min-width:0;border:0;border-bottom:2px solid transparent;background:transparent;color:#969da9;font-size:14px;font-weight:500;line-height:1.5;cursor:pointer;letter-spacing:-.015em}
 .tabs>button+button{padding-left:22px;border-left:1px solid #ffffff16}.tabs>button>span{grid-column:1/-1;display:block;font-size:11px;font-weight:400;letter-spacing:.03em;color:#687489}.tabs>button svg{align-self:center;opacity:0}.tabs>button[aria-selected=true]{border-bottom-color:#b2d7ef;color:#f0f2f7}.tabs>button[aria-selected=true]>span{color:#b2d7ef}.tabs>button[aria-selected=true] svg{opacity:1}
 .panel{display:grid;grid-template-columns:1fr .9fr;gap:8%;align-items:center;padding-block:42px}.panel[hidden]{display:none}
-.study{margin:0;min-width:0;background:#11151d;border:1px solid #ffffff14;overflow:hidden}.studyHeader{display:flex;align-items:center;justify-content:space-between;font-size:9px;letter-spacing:.07em;color:#77869c;padding:19px 22px}.studyHeader>span:last-child{font-size:13px;letter-spacing:0;color:#c2d7e7}
+.study{margin:0;min-width:0;background:transparent;border:0;overflow:hidden}.studyHeader{display:flex;align-items:center;justify-content:space-between;font-size:9px;letter-spacing:.07em;color:#77869c;padding:19px 22px}.studyHeader>span:last-child{font-size:13px;letter-spacing:0;color:#c2d7e7}
 .headset{position:relative;aspect-ratio:1.65;overflow:hidden}.headset img{object-fit:contain;filter:saturate(.1);padding:15px 32px}.diagram{display:block;width:100%;height:auto;aspect-ratio:1.65}.diagram text{fill:#8899b2;font-family:var(--mv-font);font-size:10px;letter-spacing:.04em}.diagram .degree{font-size:24px;fill:#c6ddec;letter-spacing:-.05em}
 .study figcaption{display:flex;justify-content:space-between;gap:24px;padding:17px 22px;border-top:1px solid #ffffff12;font-size:10px;line-height:1.6;color:#8491a6}.study figcaption>span:last-child{max-width:180px;text-align:right;color:#a3adbd}
 .copy{min-width:0}.explorer .context{display:block;color:#8c9ab0;font-size:11px;letter-spacing:.025em;line-height:1.6;margin-bottom:18px}.explorer .copy h3{font-family:var(--mv-font);font-size:clamp(25px,2.8vw,38px);font-weight:600;line-height:1.16;letter-spacing:-.04em;color:#ebedf3;white-space:normal;text-transform:none;margin:0 0 20px}.explorer .copy>p{font-size:15px;line-height:1.8;color:#a5adbb;max-width:490px;margin:0 0 25px;white-space:normal}
@@ -14,3 +14,40 @@
 @media(max-width:1000px){.panel{gap:5%;grid-template-columns:1fr 1fr}.tabs>button{font-size:12px}.facts>div{grid-template-columns:1fr;gap:5px}}
 @media(max-width:760px){.tabs{grid-template-columns:repeat(2,minmax(0,1fr))}.tabs>button{font-size:13px;padding:16px 14px!important;gap:10px}.tabs>button:nth-child(3){border-left:0}.tabs>button:nth-child(-n+2){border-bottom:1px solid #ffffff20}.tabs>button[aria-selected=true]{background:#ffffff04;box-shadow:inset 0 -2px #b2d7ef}.panel{grid-template-columns:1fr;gap:30px;padding-block:28px}.headset,.diagram{aspect-ratio:1.65}.studyHeader{padding:16px 18px}.study figcaption{padding:14px 18px;gap:14px}.explorer .copy h3{font-size:29px;margin-bottom:15px}.explorer .copy>p{font-size:14px;max-width:100%}.facts>div{grid-template-columns:120px 1fr;gap:16px}.copy .action{font-size:12px}.compact .panel{padding-block:25px}.context{margin-bottom:14px!important}}
 @media(prefers-reduced-motion:reduce){.action svg{transition:none}}
+
+.particles{width:100%;max-width:520px;margin-inline:auto;aspect-ratio:1}.particles canvas{display:block;width:100%;height:auto}.study:has(.particles){background:transparent;border:0}.tabs>button{transition:color .3s,border-color .3s,background .3s}.tabs>button:hover{color:#d5e8ff;background:#a8ccff06}
+
+/* Vector scenes share the same motion language across all format explorers. */
+.neonDiagram{display:block;width:100%;height:auto;aspect-ratio:600/390;overflow:hidden;color:#80e4ff}
+.neonDiagram path,.neonDiagram ellipse,.neonDiagram circle{fill:none;stroke:currentColor;stroke-width:1.5;vector-effect:non-scaling-stroke}
+.neonDiagram text{fill:#9fbfd1;font:10px var(--mv-font);letter-spacing:.08em}
+.neonDiagram .neonDegree{font-size:27px;fill:#c2f6ff;letter-spacing:-.04em}
+.floor{color:#355466}.cube,.mixedCube,.globe{filter:drop-shadow(0 0 4px #58dfff88)}
+.realCube{color:#58879d}.mixedCube{color:#bca1ff}.scan{color:#91faff}.connector{stroke-dasharray:4 7;opacity:.65}.brackets{color:#8ecfe2;opacity:.7}.orbit{color:#a7a0ff}
+.cube,.mixedCube,.realCube,.scan,.meridian,.orbit,.brackets{transform-box:fill-box;transform-origin:center}
+@media(prefers-reduced-motion:no-preference){
+ .panel:not([hidden]) .cube{animation:neonExpand 5s cubic-bezier(.45,0,.25,1) infinite}
+ .panel:not([hidden]) .mixedCube{animation:neonMerge 6s cubic-bezier(.45,0,.25,1) infinite}
+ .panel:not([hidden]) .realCube{animation:neonAnchor 6s ease-in-out infinite}
+ .panel:not([hidden]) .scan{animation:neonScan 5s ease-in-out infinite}
+ .panel:not([hidden]) .meridian{animation:neonLongitude 7s ease-in-out infinite}
+ .panel:not([hidden]) .orbit{animation:neonOrbit 12s linear infinite}
+ .panel:not([hidden]) .connector{animation:neonFlow 3s linear infinite}
+ .panel:not([hidden]) .brackets{animation:neonFrame 5s ease-in-out infinite}
+ .panel:not([hidden]) .neonDiagram{animation:neonArrival .9s ease-out both}
+ .panel:not([hidden]) .neonDiagram .cube path,.panel:not([hidden]) .neonDiagram .mixedCube path{stroke-dasharray:1400;animation:neonDraw 2s ease-out both}
+ .panel[hidden] *{animation-play-state:paused!important}
+}
+@keyframes neonExpand{0%,100%{transform:translateY(8px) scale(.8)}45%,65%{transform:translateY(-10px) scale(1.08)}}
+@keyframes neonMerge{0%,100%{transform:translate(12px,-8px)}45%,60%{transform:translate(-55px,45px)}}
+@keyframes neonAnchor{0%,100%{opacity:.55}50%{opacity:1}}
+@keyframes neonScan{0%,100%{transform:translateY(65px);opacity:0}20%,80%{opacity:.8}50%{transform:translateY(-65px)}}
+@keyframes neonLongitude{0%,100%{transform:scaleX(1)}50%{transform:scaleX(.08)}}
+@keyframes neonOrbit{to{transform:rotate(360deg)}}
+@keyframes neonFlow{to{stroke-dashoffset:-44}}
+@keyframes neonFrame{0%,100%{transform:scale(.96);opacity:.45}50%{transform:scale(1.03);opacity:1}}
+@keyframes neonArrival{from{opacity:0}to{opacity:1}}
+@keyframes neonDraw{from{stroke-dashoffset:1400}to{stroke-dashoffset:0}}
+@media(prefers-reduced-motion:reduce){.neonDiagram *{animation:none!important}}
+/* Present only the animation, directly on the page background. */
+.study .studyHeader,.study figcaption{display:none}

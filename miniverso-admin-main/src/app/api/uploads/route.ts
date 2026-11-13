@@ -3,6 +3,9 @@ import path from "node:path";
 import { randomUUID } from "node:crypto";
 import { homeAccess } from "@/lib/server/home-access";
 import { homeDataDir } from "@/lib/server/home-storage";
+import {remoteContent,contentBackend} from "@/lib/server/content-backend";
+import {readSessionToken} from "@/lib/server/session";
+import {getServerConfig} from "@/lib/server/config";
 export async function POST(request: Request) {
   const denied = await homeAccess(request); if (denied) return denied;
   const maximum = 51*1024*1024;
@@ -27,6 +30,15 @@ export async function POST(request: Request) {
       (ext === "glb" && bytes.toString("ascii",0,4)==="glTF");
     const limit = ext === "mp4" || ext === "webm" ? 50 : ext === "glb" ? 10 : 2;
     if (!valid || bytes.length > limit*1024*1024) return Response.json({message:"Formato ou tamanho de arquivo inválido."}, {status:422});
+    if(remoteContent()){
+      const response=await contentBackend("/uploads",readSessionToken(request),{method:"POST",body:form});
+      if(!response.ok)return response;
+      const result=await response.json();const url=result.url??result.data?.url;
+      if(typeof url!=="string"||!url)return Response.json({message:"A API não retornou a URL do arquivo."},{status:502});
+      const absolute=new URL(url,getServerConfig().apiUrl+"/");
+      if(!["http:","https:"].includes(absolute.protocol))return Response.json({message:"URL de mídia inválida."},{status:502});
+      return Response.json({url:absolute.href},{status:201});
+    }
     const name = `${randomUUID()}.${ext}`;
     await fs.mkdir(path.join(homeDataDir(), "uploads"), {recursive:true});
     await fs.writeFile(path.join(homeDataDir(), "uploads", name), bytes, {flag:"wx"});
